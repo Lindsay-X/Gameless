@@ -26,12 +26,12 @@
                   <Font name="MuktaMahee Regular" size="20.0" />
                </font>
             </TextField>
-            <Button fx:id="AdminLoginButton" alignment="CENTER" layoutX="353.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #F1DB8B; -fx-background-radius: 12; -fx-border-radius: 12;" text="Enter" textFill="#371719">
+            <Button fx:id="AdminLoginButton" alignment="CENTER" layoutX="353.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Enter" textFill="#371719">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="AdminStudentButton" alignment="CENTER" layoutX="504.0" layoutY="340.0" mnemonicParsing="false" onAction="#AdminStudentButtonOnAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #F1DB8B; -fx-background-radius: 12; -fx-border-radius: 12;" text="Student?" textFill="#371719">
+            <Button fx:id="AdminStudentButton" alignment="CENTER" layoutX="504.0" layoutY="340.0" mnemonicParsing="false" onAction="#AdminStudentButtonOnAction" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Student?" textFill="#371719">
                <font>
                   <Font size="20.0" />
                </font>
