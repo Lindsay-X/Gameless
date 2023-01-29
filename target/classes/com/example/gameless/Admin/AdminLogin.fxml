@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.LoginController">
    <center>
       <AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #60D0B8;" BorderPane.alignment="CENTER">
          <children>
@@ -32,7 +31,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="AdminStudentButton" alignment="CENTER" layoutX="504.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #F1DB8B; -fx-background-radius: 12; -fx-border-radius: 12;" text="Student?" textFill="#371719">
+            <Button fx:id="AdminStudentButton" alignment="CENTER" layoutX="504.0" layoutY="340.0" mnemonicParsing="false" onAction="#AdminStudentButtonOnAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #F1DB8B; -fx-background-radius: 12; -fx-border-radius: 12;" text="Student?" textFill="#371719">
                <font>
                   <Font size="20.0" />
                </font>
