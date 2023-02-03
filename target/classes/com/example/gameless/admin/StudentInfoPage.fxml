@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+   </right>
+   <left>
+      <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <VBox prefHeight="440.0" prefWidth="900.0" style="-fx-background-color: #FFC17B; -fx-background-radius: 15; -fx-border-radius: 15;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="45.0" prefWidth="900.0">
+               <children>
+                  <MenuButton mnemonicParsing="false" prefHeight="34.0" prefWidth="81.0" style="-fx-background-color: #A66FD2;" text="Grade">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Grade 9" />
+                      <MenuItem mnemonicParsing="false" text="Grade 10" />
+                        <MenuItem mnemonicParsing="false" text="Grade 11" />
+                        <MenuItem mnemonicParsing="false" text="Grade 12" />
+                    </items>
+                  </MenuButton>
+               </children>
+            </HBox>
+            <TableView prefHeight="395.0" prefWidth="900.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #FFE0BD;">
+              <columns>
+                <TableColumn prefWidth="250.0" text="Student Number" />
+                <TableColumn minWidth="0.0" prefWidth="400.0" text="Full Name" />
+                  <TableColumn prefWidth="250.0" text="Points" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
