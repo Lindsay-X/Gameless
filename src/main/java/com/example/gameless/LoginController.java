@@ -18,7 +18,7 @@ public class LoginController {
     private Scene scene;
     private Parent root;
 
-    public void StudentAdminButtonOnAction(ActionEvent event) throws IOException {
+    public void studentAdminButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminLogin.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -26,7 +26,7 @@ public class LoginController {
         stage.show();
     }
 
-    public void AdminStudentButtonOnAction(ActionEvent event) throws IOException {
+    public void adminStudentButtonOnAction(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("student/StudentLogin.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
