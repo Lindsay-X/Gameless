@@ -9,12 +9,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.StudentInfoPageController">
    <top>
       <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" stylesheets="@../BackButton.css" text="Back">
+               <HBox.margin>
+                  <Insets left="29.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="MuktaMahee Regular" size="20.0" />
+               </font>
+            </Button>
          </children></HBox>
    </top>
    <right>
@@ -31,18 +39,18 @@
          <children>
             <HBox prefHeight="45.0" prefWidth="900.0">
                <children>
-                  <ChoiceBox fx:id="AdminStudentGradeChoice" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #A66FD2; -fx-background-radius: 7.5; -fx-border-insets: -1;">
+                  <ChoiceBox fx:id="adminStudentGradeChoice" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #A66FD2; -fx-background-radius: 7.5; -fx-border-insets: -1;">
                      <HBox.margin>
-                        <Insets left="20.0" top="7.0" />
+                        <Insets left="20.0" right="20.0" top="7.0" />
                      </HBox.margin></ChoiceBox>
-                  <ChoiceBox fx:id="AdminStudentSortBy" layoutX="30.0" layoutY="17.0" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #F46CA6; -fx-background-radius: 7.5; -fx-border-insets: -1;">
+                  <ChoiceBox fx:id="adminStudentSortBy" layoutX="30.0" layoutY="17.0" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #F46CA6; -fx-background-radius: 7.5; -fx-border-insets: -1;">
                      <HBox.margin>
                         <Insets left="20.0" top="7.0" />
                      </HBox.margin>
                   </ChoiceBox>
                </children>
             </HBox>
-            <TableView prefHeight="395.0" prefWidth="900.0" style="-fx-background-radius: 7.5; -fx-border-radius: 7.5; -fx-background-color: #FFE0BD;">
+            <TableView prefHeight="395.0" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">
               <columns>
                 <TableColumn prefWidth="250.0" text="Student Number" />
                 <TableColumn minWidth="0.0" prefWidth="400.0" text="Full Name" />

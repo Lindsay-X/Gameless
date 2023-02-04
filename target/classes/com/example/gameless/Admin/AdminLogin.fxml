@@ -16,22 +16,22 @@
                   <Font name="MuktaMahee Regular" size="32.0" />
                </font>
             </Label>
-            <TextField fx:id="AdminUsernameField" layoutX="324.0" layoutY="207.5" prefHeight="42.5" prefWidth="312.5" promptText="LastName.FirstName" style="-fx-background-color: #EFEFEF; -fx-background-radius: 4; -fx-border-radius: 4;">
+            <TextField fx:id="adminUsernameField" layoutX="324.0" layoutY="207.5" prefHeight="42.5" prefWidth="312.5" promptText="LastName.FirstName" style="-fx-background-color: #EFEFEF; -fx-background-radius: 4; -fx-border-radius: 4;">
                <font>
                   <Font name="MuktaMahee Regular" size="20.0" />
                </font>
             </TextField>
-            <TextField fx:id="AdminPasswordField" layoutX="324.0" layoutY="272.5" prefHeight="42.5" prefWidth="312.5" promptText="Password" style="-fx-background-color: #EFEFEF; -fx-background-radius: 4; -fx-border-radius: 4;">
+            <TextField fx:id="adminPasswordField" layoutX="324.0" layoutY="272.5" prefHeight="42.5" prefWidth="312.5" promptText="Password" style="-fx-background-color: #EFEFEF; -fx-background-radius: 4; -fx-border-radius: 4;">
                <font>
                   <Font name="MuktaMahee Regular" size="20.0" />
                </font>
             </TextField>
-            <Button fx:id="AdminLoginButton" alignment="CENTER" layoutX="353.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Enter" textFill="#371719">
+            <Button fx:id="adminLoginButton" alignment="CENTER" layoutX="353.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Enter" textFill="#371719">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="AdminStudentButton" alignment="CENTER" layoutX="504.0" layoutY="340.0" mnemonicParsing="false" onAction="#AdminStudentButtonOnAction" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Student?" textFill="#371719">
+            <Button fx:id="adminStudentButton" alignment="CENTER" layoutX="504.0" layoutY="340.0" mnemonicParsing="false" onAction="#adminStudentButtonOnAction" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Student?" textFill="#371719">
                <font>
                   <Font size="20.0" />
                </font>

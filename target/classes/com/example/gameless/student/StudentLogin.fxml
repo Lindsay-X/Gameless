@@ -16,27 +16,27 @@
                         <Font name="MuktaMahee Regular" size="32.0" />
                     </font>
                 </Label>
-                <TextField fx:id="StudentUsernameField" layoutX="324.0" layoutY="207.5" prefHeight="42.5" prefWidth="312.5" promptText="Username" style="-fx-background-color: #EFEFEF; -fx-background-radius: 4; -fx-border-radius: 4;">
+                <TextField fx:id="studentUsernameField" layoutX="324.0" layoutY="207.5" prefHeight="42.5" prefWidth="312.5" promptText="Student # (e.g. 312345678)" style="-fx-background-color: #EFEFEF; -fx-background-radius: 4; -fx-border-radius: 4;">
                     <font>
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="StudentPasswordField" layoutX="324.0" layoutY="272.5" prefHeight="42.5" prefWidth="312.5" promptText="Password" style="-fx-background-color: #EFEFEF; -fx-background-radius: 4; -fx-border-radius: 4;">
+                <TextField fx:id="studentPasswordField" layoutX="324.0" layoutY="272.5" prefHeight="42.5" prefWidth="312.5" promptText="Password" style="-fx-background-color: #EFEFEF; -fx-background-radius: 4; -fx-border-radius: 4;">
                     <font>
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>
                 </TextField>
-                <Button fx:id="StudentLoginButton" alignment="CENTER" layoutX="353.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Enter" textFill="#371719">
+                <Button fx:id="studentLoginButton" alignment="CENTER" layoutX="353.0" layoutY="340.0" mnemonicParsing="false" onAction="#studentLoginButtonOnAction" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Enter" textFill="#371719">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="StudentAdminButton" alignment="CENTER" layoutX="504.0" layoutY="340.0" mnemonicParsing="false" onAction="#StudentAdminButtonOnAction" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Admin?" textFill="#371719">
+                <Button fx:id="studentAdminButton" alignment="CENTER" layoutX="504.0" layoutY="340.0" mnemonicParsing="false" onAction="#studentAdminButtonOnAction" prefHeight="40.0" prefWidth="110.0" stylesheets="@../LoginButton.css" text="Admin?" textFill="#371719">
                     <font>
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Label alignment="CENTER" layoutY="380.0" prefHeight="50.0" prefWidth="960.0" text="Invalid login. Please try again." textFill="#f55b5b">
+                <Label fx:id="studentLoginMessageLabel" alignment="CENTER" layoutY="380.0" prefHeight="50.0" prefWidth="960.0" text="Invalid login. Please try again." textFill="#f55b5b">
                     <font>
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>
