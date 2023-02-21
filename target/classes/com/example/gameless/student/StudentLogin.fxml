@@ -36,7 +36,7 @@
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Label fx:id="studentLoginMessageLabel" alignment="CENTER" layoutY="380.0" prefHeight="50.0" prefWidth="960.0" text="Invalid login. Please try again." textFill="#f55b5b">
+                <Label fx:id="studentLoginMessageLabel" alignment="CENTER" layoutY="380.0" prefHeight="50.0" prefWidth="960.0" text="" textFill="#f55b5b">
                     <font>
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>

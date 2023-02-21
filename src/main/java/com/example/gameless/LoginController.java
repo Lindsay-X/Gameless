@@ -68,7 +68,7 @@ public class LoginController {
                 if (queryResult.getInt(1) == 1) {
                     studentLoginMessageLabel.setText("yay");
                 } else {
-                    studentLoginMessageLabel.setText("bruh");
+                    studentLoginMessageLabel.setText("Invalid login. Please try again.");
                 }
             }
         } catch (Exception e) {
