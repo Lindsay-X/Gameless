@@ -1,0 +1,73 @@
+/*Table*/
+.table-view {
+    -fx-background-color: #FFE6C9;
+    -fx-background-radius: 0px 0px 7px 7px;
+    -fx-background-insets: 1px;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color: #FFB45F;
+    -fx-padding: 3px;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font: 16px "MuktaMahee";
+    -fx-font-weight: 800;
+    -fx-alignment: LEFT;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 5px;
+    -fx-font: 14px "MuktaMahee";
+    -fx-alignment: CENTER;
+}
+.table-row-cell: hover {
+    -fx-background-color: #F2DABE;
+}
+.table-row-cell: selected {
+    -fx-background-color: #F2DABE;
+}
+.table-row-cell: odd{
+    -fx-background-color: #FFE0BD;
+    -fx-padding: 0.0em;
+}
+.table-row-cell: even{
+    -fx-background-color: #FFE6C9;
+    -fx-padding: 0.0em;
+}
+
+/*ScrollBar*/
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: white;
+    -fx-background-radius: 7px;
+    -fx-pref-height: 200px;
+    -fx-background-insets: 5px 0px 5px 0px;
+}
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb,
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: #763132;
+    -fx-background-radius: 7.5px;
+    -fx-background-insets: -4px -1px -4px -1px;
+    -fx-border-radius: 7.5px;
+    -fx-border-color: #000000;
+    -fx-border-insets: -4px -1px -4px -1px;
+    -fx-border-weight: 3px;
+}
