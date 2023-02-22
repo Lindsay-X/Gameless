@@ -37,24 +37,30 @@
    <center>
       <VBox prefHeight="440.0" prefWidth="900.0" style="-fx-background-color: #FFC17B; -fx-background-radius: 7.5; -fx-border-radius: 7.5;" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="45.0" prefWidth="900.0">
+            <HBox prefHeight="45.0" prefWidth="900.0" spacing="650.0">
                <children>
                   <ChoiceBox fx:id="adminStudentGradeChoice" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #A66FD2; -fx-background-radius: 7.5; -fx-border-insets: -1;">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" top="7.0" />
                      </HBox.margin></ChoiceBox>
-                  <ChoiceBox fx:id="adminStudentSortBy" layoutX="30.0" layoutY="17.0" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #F46CA6; -fx-background-radius: 7.5; -fx-border-insets: -1;">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #F24D4D; -fx-background-radius: 60;" textAlignment="CENTER" textOverrun="CLIP">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                      <HBox.margin>
-                        <Insets left="20.0" top="7.0" />
+                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                      </HBox.margin>
-                  </ChoiceBox>
+                  </Button>
                </children>
             </HBox>
-            <TableView prefHeight="395.0" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">
+            <TableView fx:id="studentInfoTable" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">
               <columns>
-                <TableColumn prefWidth="250.0" text="Student Number" />
-                <TableColumn minWidth="0.0" prefWidth="400.0" text="Full Name" />
-                  <TableColumn prefWidth="250.0" text="Points" />
+                <TableColumn fx:id="studentNumber" prefWidth="250.0" text="Student Number" />
+                <TableColumn fx:id="fullName" minWidth="0.0" prefWidth="350.0" text="Full Name" />
+                  <TableColumn fx:id="points" prefWidth="200.0" text="Points" />
               </columns>
             </TableView>
          </children>
