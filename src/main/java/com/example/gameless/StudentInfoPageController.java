@@ -52,7 +52,7 @@ public class StudentInfoPageController implements Initializable {
             new StudentInfo(335740111, "Jessica Sun", 1),
             new StudentInfo(335330133, "Ray of Sun", 0),
             new StudentInfo(321345233, "Joe Zhang", 210),
-            new StudentInfo(421329211, "Sawako Kuronuma", 586)
+            new StudentInfo(421329211, "Daichi Chichi", 56)
     );
 
     public void initialize(URL arg0, ResourceBundle arg1){

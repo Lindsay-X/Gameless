@@ -39,7 +39,7 @@
          <children>
             <HBox prefHeight="45.0" prefWidth="900.0" spacing="650.0">
                <children>
-                  <ChoiceBox fx:id="adminStudentGradeChoice" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #A66FD2; -fx-background-radius: 7.5; -fx-border-insets: -1;">
+                  <ChoiceBox fx:id="adminStudentGradeChoice" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #A66FD2; -fx-background-radius: 7.5; -fx-border-insets: -1;" value="All">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" top="7.0" />
                      </HBox.margin></ChoiceBox>
