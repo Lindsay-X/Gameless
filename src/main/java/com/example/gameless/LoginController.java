@@ -28,6 +28,12 @@ public class LoginController {
     private TextField studentPasswordField;
     @FXML
     private Label studentLoginMessageLabel;
+    @FXML
+    private TextField adminUsernameField;
+    @FXML
+    private TextField adminPasswordField;
+    @FXML
+    private Label adminLoginMessageLabel;
 
 
     public void studentAdminButtonOnAction(ActionEvent event) throws IOException {
@@ -48,13 +54,21 @@ public class LoginController {
 
     public void studentLoginButtonOnAction(ActionEvent event) {
         if (!studentUsernameField.getText().isBlank() && !studentPasswordField.getText().isBlank()) {
-            studentValidateLogin();
+            studentValidateLogin(event);
         } else {
             studentLoginMessageLabel.setText("Please enter your student number and/or password.");
         }
     }
 
-    public void studentValidateLogin() {
+    public void adminLoginButtonOnAction(ActionEvent event) {
+        if (!adminUsernameField.getText().isBlank() && !adminPasswordField.getText().isBlank()) {
+            adminValidateLogin(event);
+        } else {
+            adminLoginMessageLabel.setText("Please enter your username and/or password.");
+        }
+    }
+
+    public void studentValidateLogin(ActionEvent event) { // test account: 1, adcbe
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
@@ -66,9 +80,41 @@ public class LoginController {
 
             while(queryResult.next()) {
                 if (queryResult.getInt(1) == 1) {
-                    studentLoginMessageLabel.setText("yay");
+                    root = FXMLLoader.load(getClass().getResource("student/StudentHomePage.fxml"));
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
                 } else {
                     studentLoginMessageLabel.setText("Invalid login. Please try again.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
+
+    public void adminValidateLogin(ActionEvent event) { // test account: ryan.mayfield, holag
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+
+        String verifyLogin = "SELECT count(1) FROM admin_accounts WHERE adminID = '" + adminUsernameField.getText() + "' AND adminPassword = '" + adminPasswordField.getText() + "';";
+
+        try {
+            Statement statement = connectDb.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+
+            while(queryResult.next()) {
+                if (queryResult.getInt(1) == 1) {
+                    root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } else {
+                    adminLoginMessageLabel.setText("Invalid login. Please try again.");
                 }
             }
         } catch (Exception e) {
