@@ -14,7 +14,7 @@
 <top>
     <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
         <children>
-            <Button fx:id="backButton" mnemonicParsing="false" stylesheets="@../BackButton.css" text="Back">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonOnAction" stylesheets="@../BackButton.css" text="Back">
                 <HBox.margin>
                     <Insets left="29.0" top="20.0" />
                 </HBox.margin>

@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.HomePageController">
    <children>
       <HBox layoutX="140.0" layoutY="88.0" prefHeight="365.0" prefWidth="680.0">
          <children>
             <VBox prefHeight="365.0" prefWidth="265.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="&lt;Admin Name&gt;">
+                  <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="&lt;Student Name&gt;">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -25,7 +25,7 @@
                      </font>
                   </Button>
                   <Pane layoutX="10.0" layoutY="254.0" prefHeight="30.0" prefWidth="265.0" />
-                  <Button layoutX="10.0" layoutY="142.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="Events">
+                  <Button fx:id="adminEventButton" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" onAction = "#adminEventButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="Events">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -33,7 +33,7 @@
                </children>
             </VBox>
             <Pane prefHeight="365.0" prefWidth="30.0" />
-            <Button maxHeight="365.0" maxWidth="385.0" minHeight="365.0" minWidth="385.0" mnemonicParsing="false" prefHeight="365.0" prefWidth="385.0" stylesheets="@../HomePageButton.css" text="School Information" />
+            <Button fx:id="schoolInfoButton" maxHeight="365.0" maxWidth="385.0" minHeight="365.0" minWidth="385.0" mnemonicParsing="false" onAction="#studentInfoButtonOnAction" prefHeight="365.0" prefWidth="385.0" stylesheets="@../HomePageButton.css" text="School Information" />
          </children>
       </HBox>
    </children>
