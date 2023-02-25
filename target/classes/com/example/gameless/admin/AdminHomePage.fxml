@@ -13,7 +13,7 @@
          <children>
             <VBox prefHeight="365.0" prefWidth="265.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="&lt;Student Name&gt;">
+                  <Button fx:id="adminInfoButton" mnemonicParsing="false" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="&lt;Admin Name&gt;">
                      <font>
                         <Font size="24.0" />
                      </font>

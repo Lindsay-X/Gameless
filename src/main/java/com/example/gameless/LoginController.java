@@ -52,7 +52,7 @@ public class LoginController {
         stage.show();
     }
 
-    public void studentLoginButtonOnAction(ActionEvent event) {
+    public void studentLoginButtonOnAction(ActionEvent event) throws IOException{
         if (!studentUsernameField.getText().isBlank() && !studentPasswordField.getText().isBlank()) {
             studentValidateLogin(event);
         } else {
@@ -68,7 +68,7 @@ public class LoginController {
         }
     }
 
-    public void studentValidateLogin(ActionEvent event) { // test account: 1, adcbe
+    public void studentValidateLogin(ActionEvent event) throws IOException{ // test account: 1, adcbe
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
@@ -80,7 +80,11 @@ public class LoginController {
 
             while(queryResult.next()) {
                 if (queryResult.getInt(1) == 1) {
-                    root = FXMLLoader.load(getClass().getResource("student/StudentHomePage.fxml"));
+                    String username = studentUsernameField.getText();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("student/StudentHomePage.fxml"));
+                    root = loader.load();
+                    HomePageController homePageController = loader.getController();
+                    homePageController.studentDisplayName(username);
                     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -93,7 +97,6 @@ public class LoginController {
             e.printStackTrace();
             e.getCause();
         }
-
     }
 
     public void adminValidateLogin(ActionEvent event) { // test account: ryan.mayfield, holag
@@ -108,7 +111,11 @@ public class LoginController {
 
             while(queryResult.next()) {
                 if (queryResult.getInt(1) == 1) {
-                    root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
+                    String username = adminUsernameField.getText();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/adminHomePage.fxml"));
+                    root = loader.load();
+                    HomePageController homePageController = loader.getController();
+                    homePageController.adminDisplayName(username);
                     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
@@ -121,6 +128,5 @@ public class LoginController {
             e.printStackTrace();
             e.getCause();
         }
-
     }
 }
