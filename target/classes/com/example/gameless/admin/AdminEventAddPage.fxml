@@ -48,7 +48,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventName" prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
@@ -63,7 +63,7 @@
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Label>
-            <TextArea prefHeight="180.0" prefWidth="800.0" stylesheets="@../EventBox.css">
+            <TextArea fx:id="eventDescription" prefHeight="180.0" prefWidth="800.0" stylesheets="@../EventBox.css">
                <font>
                   <Font name="MuktaMahee Regular" size="16.0" />
                </font>
@@ -97,7 +97,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventTime" prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
@@ -114,12 +114,12 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventLocation" prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="publishEventButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Publish">
+                  <Button fx:id="publishEventButton" mnemonicParsing="false" onAction="#publishButtonOnAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Publish">
                      <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                      </font>
