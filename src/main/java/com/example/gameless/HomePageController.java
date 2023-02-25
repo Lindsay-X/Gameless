@@ -78,7 +78,7 @@ public class HomePageController {
     }
 
     public void adminEventButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("admin/AdminEventPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

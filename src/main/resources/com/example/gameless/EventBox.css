@@ -1,0 +1,19 @@
+VBox{
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-radius: 7.5;
+}
+
+.text-area{
+    -fx-background-color: #FFE0BD;
+    -fx-background-radius: 7.5;
+}
+.text-area .content{
+    -fx-background-color: #FFE0BD;
+    -fx-background-insets: -20;
+    -fx-background-radius: 7.5;
+}
+.text-area:focus .content{
+    -fx-background-color: #FFE0BD;
+    -fx-background-insets: -20;
+    -fx-background-radius: 7.5;
+}

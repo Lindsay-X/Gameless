@@ -21,4 +21,28 @@ public class EventPageController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void backEventButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("admin/AdminEventPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void addEventButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("admin/AdminEventAddPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void viewEventButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("admin/AdminEventViewPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.EventPageController">
+   <top>
+      <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backEventButtonOnAction" stylesheets="@../BackButton.css" text="Back">
+               <HBox.margin>
+                  <Insets left="29.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="MuktaMahee Regular" size="20.0" />
+               </font>
+            </Button>
+         </children></HBox>
+   </top>
+   <right>
+      <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+   </right>
+   <left>
+      <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <VBox prefHeight="440.0" prefWidth="900.0" style="-fx-background-color: #FFC17B; -fx-background-radius: 7.5; -fx-border-radius: 7.5;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="TOP" minHeight="35.0" prefHeight="40.0" prefWidth="900.0" text="&lt;Event Name&gt;">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="studentInfoTable" prefHeight="450.0" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">
+              <columns>
+                <TableColumn fx:id="studentNumber" prefWidth="250.0" text="Student Number" />
+                <TableColumn fx:id="fullName" minWidth="0.0" prefWidth="350.0" text="Full Name" />
+                  <TableColumn fx:id="grade" prefWidth="150.26470947265625" text="Grade" />
+                  <TableColumn fx:id="present" prefWidth="93.4622802734375" text="Present?" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
