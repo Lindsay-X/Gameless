@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,12 +41,25 @@ public class EventPageController implements Initializable{
     private TextField eventLocation;
     @FXML
     private TextArea eventDescription;
+    @FXML
+    private VBox eventBox;
+    @FXML
+    private VBox eventBoxes;
 
     public void initialize(URL arg0, ResourceBundle arg1){
         eventTagChoice.getItems().addAll(tag);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("admin/EventBox.fxml"));
+        VBox eventBox = null;
+        try {
+            eventBox = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        eventBoxes.getChildren().add(eventBox);
     }
 
-    public void getTag(ActionEvent event){
+    public void getTag(ActionEvent event) {
         String tagChosen = eventTagChoice.getValue();
     }
 
@@ -101,6 +115,4 @@ public class EventPageController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
-
-
 }
