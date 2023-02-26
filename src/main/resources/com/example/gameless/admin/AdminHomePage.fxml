@@ -19,7 +19,7 @@
                      </font>
                   </Button>
                   <Pane layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="265.0" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="Prizes">
+                  <Button fx:id="adminPrizeButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#adminPrizeButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="Prizes">
                      <font>
                         <Font size="24.0" />
                      </font>
