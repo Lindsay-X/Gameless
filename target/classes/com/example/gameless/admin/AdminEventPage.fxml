@@ -64,9 +64,9 @@
                      <children>
                         <VBox maxHeight="200.0" maxWidth="800.0" minHeight="200.0" minWidth="800.0" prefHeight="200.0" prefWidth="800.0" stylesheets="@../EventBox.css" VBox.vgrow="ALWAYS">
                            <children>
-                              <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="800.0" spacing="650.0">
+                              <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="800.0" spacing="75.0">
                                  <children>
-                                    <Label text="&lt;Event&gt;">
+                                    <Label maxWidth="650.0" minWidth="650.0" prefWidth="650.0" text="&lt;Event&gt;">
                                        <font>
                                           <Font name="Arial Bold" size="20.0" />
                                        </font>

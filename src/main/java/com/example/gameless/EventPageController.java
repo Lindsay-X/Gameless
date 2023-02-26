@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -34,29 +35,18 @@ public class EventPageController implements Initializable{
     private Parent root;
 
     @FXML
-    private TextField eventName;
-    @FXML
-    private TextField eventTime;
-    @FXML
-    private TextField eventLocation;
-    @FXML
-    private TextArea eventDescription;
-    @FXML
-    private VBox eventBox;
-    @FXML
     private VBox eventBoxes;
 
     public void initialize(URL arg0, ResourceBundle arg1){
         eventTagChoice.getItems().addAll(tag);
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("admin/EventBox.fxml"));
-        VBox eventBox = null;
-        try {
-            eventBox = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        getEvents();
+    }
+
+    public void getEvents() {
+        for (int i = 0; i < 2; i++) {
+            EventBox eventBox1 = new EventBox();
+            eventBoxes.getChildren().add(eventBox1.eventBox);
         }
-        eventBoxes.getChildren().add(eventBox);
     }
 
     public void getTag(ActionEvent event) {
@@ -65,35 +55,6 @@ public class EventPageController implements Initializable{
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void backEventButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminEventPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void publishButtonOnAction(ActionEvent event) throws IOException {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-
-        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventTime.getText() + "', '" + eventTagChoice.getValue() + "')";
-
-        try {
-            Statement statement = connectDb.createStatement();
-            statement.executeUpdate(addEvent);
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-
-        root = FXMLLoader.load(getClass().getResource("admin/AdminEventPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
