@@ -42,7 +42,7 @@
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="Raymond Zhang" wrapText="true">
+                  <Label fx:id="studentNameLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="Raymond Zhang" wrapText="true">
                      <font>
                         <Font name="MuktaMahee Regular" size="20.0" />
                      </font>
@@ -59,7 +59,7 @@
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="12" wrapText="true">
+                  <Label fx:id="studentGradeLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="12" wrapText="true">
                      <font>
                         <Font name="MuktaMahee Regular" size="20.0" />
                      </font>
@@ -76,7 +76,7 @@
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="352741642" wrapText="true">
+                  <Label fx:id="studentNumberLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="352741642" wrapText="true">
                      <font>
                         <Font name="MuktaMahee Regular" size="20.0" />
                      </font>
@@ -88,12 +88,12 @@
             </VBox>
             <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-radius: 7.5; -fx-background-color: rgba(255, 255, 255, 0.5);">
                <children>
-                  <Label text="Coins:">
+                  <Label text="Points:">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="999" wrapText="true">
+                  <Label fx:id="studentPointsLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="999" wrapText="true">
                      <font>
                         <Font name="MuktaMahee Regular" size="20.0" />
                      </font>

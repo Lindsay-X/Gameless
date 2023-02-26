@@ -66,11 +66,29 @@ public class HomePageController {
     }
 
     public void studentProfileButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("student/StudentProfilePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+
+        String verifyLogin = "SELECT * FROM student_accounts WHERE studentNumber = '" + username + "';";
+
+        try {
+            Statement statement = connectDb.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+
+            while(queryResult.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("student/StudentProfilePage.fxml"));
+                root = loader.load();
+                ProfilePageController profilePageController = loader.getController();
+                profilePageController.displayStudentInfo(username, queryResult.getString("studentFirstName") + " " + queryResult.getString("studentFirstName"), queryResult.getInt("studentPoints"), queryResult.getInt("studentGrade"));
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 
     public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
