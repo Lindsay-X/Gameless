@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,6 +26,16 @@ public class HomePageController {
     private Button studentInfoButton;
     @FXML
     private Button adminAnnouncementsButton;
+    @FXML
+    private Label adminEventNameLabel;
+    @FXML
+    private Label adminEventDescriptionLabel;
+    @FXML
+    private Label adminEventTimeLabel;
+    @FXML
+    private Label adminEventLocationLabel;
+    @FXML
+    private Label adminEventPointsLabel;
 
     public void studentDisplayName(String username) {
         this.username = username;
