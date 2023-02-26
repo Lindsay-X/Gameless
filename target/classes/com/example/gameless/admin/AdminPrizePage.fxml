@@ -28,7 +28,7 @@
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Student List">
+                <Button fx:id="studentListButton" mnemonicParsing="false" onAction="#studentListButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Student List">
                     <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                     </font>
