@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.ProfilePageController">
+<top>
+    <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+        <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonOnAction" stylesheets="@../BackButton.css" text="Back">
+                <HBox.margin>
+                    <Insets left="29.0" top="20.0" />
+                </HBox.margin>
+                <font>
+                    <Font name="MuktaMahee Regular" size="20.0" />
+                </font>
+            </Button>
+        </children></HBox>
+</top>
+<right>
+    <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+</right>
+<left>
+    <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+</left>
+<bottom>
+    <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
+</bottom>
+<center>
+    <VBox prefHeight="440.0" prefWidth="900.0" spacing="15.0" style="-fx-background-color: #FFC17B; -fx-background-radius: 7.5; -fx-border-radius: 7.5;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+               <children>
+                  <Label text="Event Name:">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="Raymond Zhang" wrapText="true">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="15.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+               <children>
+                  <Label text="Grade:">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="12" wrapText="true">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="15.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+               <children>
+                  <Label text="Student Number:">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="352741642" wrapText="true">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="15.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-radius: 7.5; -fx-background-color: rgba(255, 255, 255, 0.5);">
+               <children>
+                  <Label text="Coins:">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="999" wrapText="true">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="25.0" right="25.0" top="15.0" />
+               </padding>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+         </padding></VBox>
+</center>
+</BorderPane>

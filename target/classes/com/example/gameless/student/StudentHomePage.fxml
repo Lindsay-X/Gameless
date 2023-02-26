@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="com.example.gameless.HomePageController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.HomePageController">
    <children>
       <HBox layoutX="140.0" layoutY="88.0" prefHeight="365.0" prefWidth="680.0">
          <children>
             <VBox prefHeight="365.0" prefWidth="265.0">
                <children>
-                  <Button fx:id="studentInfoButton" mnemonicParsing="false" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="&lt;Student Name&gt;">
+                  <Button fx:id="studentProfileButton" mnemonicParsing="false" onAction="#studentProfileButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="&lt;Student Name&gt;">
                      <font>
                         <Font size="24.0" />
                      </font>

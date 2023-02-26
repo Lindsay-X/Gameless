@@ -23,7 +23,7 @@ public class HomePageController {
     private Parent root;
     private String username;
     @FXML
-    private Button studentInfoButton;
+    private Button studentProfileButton;
     @FXML
     private Button adminAnnouncementsButton;
     @FXML
@@ -54,7 +54,7 @@ public class HomePageController {
                 name += queryResult.getString("studentFirstName") + " " + queryResult.getString("studentLastName");
             }
 
-            studentInfoButton.setText(name);
+            studentProfileButton.setText(name);
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
@@ -63,6 +63,14 @@ public class HomePageController {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void studentProfileButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("student/StudentProfilePage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
