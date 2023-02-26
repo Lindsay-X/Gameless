@@ -64,7 +64,7 @@
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="eventDescription" prefHeight="180.0" prefWidth="800.0" stylesheets="@../EventBox.css">
+            <TextArea fx:id="eventDescription" prefHeight="180.0" prefWidth="800.0" style="-fx-wrap-text: true;" stylesheets="@../EventBox.css">
                <font>
                   <Font name="MuktaMahee Regular" size="16.0" />
                </font>

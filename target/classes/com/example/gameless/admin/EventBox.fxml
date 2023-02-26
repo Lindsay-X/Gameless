@@ -35,7 +35,7 @@
                 <Insets bottom="5.0" left="32.0" />
             </padding>
         </HBox>
-        <Label fx:id="eventDescriptionLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="STO CRUST PIZZA. Call now and garlic. The hot crust from Domino's Pizza Now! Another NEW crust Pizza Now! Another NEW crust is topped off with herbs and you'll love from the newest delicious crust is topped off with herbs and you'll get a large 1-topping Pesto Crust sensation, handmade just from a zesty blend of sweet basil, parsley and you'll get a large 1-topping Pesto Crust Pizza for you." wrapText="true">
+        <Label fx:id="eventDescriptionLabel"  alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="STO CRUST PIZZA. Call now and garlic. The hot crust from Domino's Pizza Now! Another NEW crust Pizza Now! Another NEW crust is topped off with herbs and you'll love from the newest delicious crust is topped off with herbs and you'll get a large 1-topping Pesto Crust sensation, handmade just from a zesty blend of sweet basil, parsley and you'll get a large 1-topping Pesto Crust Pizza for you." wrapText="true">
             <font>
                 <Font name="MuktaMahee Regular" size="16.0" />
             </font>

@@ -13,6 +13,7 @@ public class AnnouncementPageController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
     public void backButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
