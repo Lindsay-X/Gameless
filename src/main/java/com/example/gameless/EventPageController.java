@@ -39,13 +39,54 @@ public class EventPageController implements Initializable{
 
     public void initialize(URL arg0, ResourceBundle arg1){
         eventTagChoice.getItems().addAll(tag);
-        getEvents();
+        try {
+            getEvents();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void getEvents() {
-        for (int i = 0; i < 2; i++) {
-            EventBox eventBox1 = new EventBox();
-            eventBoxes.getChildren().add(eventBox1.eventBox);
+    public void getEvents() throws IOException {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+        String getNames = "SELECT eventName FROM events;";
+
+        try {
+            Statement statement1 = connectDb.createStatement();
+            ResultSet queryResult1 = statement1.executeQuery(getNames);
+
+            while (queryResult1.next()) {
+                String username = queryResult1.getString(1);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/EventBox.fxml"));
+                root = loader.load();
+                EventBoxController eventBoxController = loader.getController();
+                eventBoxController.initData(username);
+
+
+                String getEvents = "SELECT * FROM events WHERE eventName = '" + eventBoxController.eventNameLabel.getText() + "';";
+
+                try {
+                    Statement statement = connectDb.createStatement();
+                    ResultSet queryResult = statement.executeQuery(getEvents);
+
+                    while (queryResult.next()) {
+                        eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
+                        eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
+                        eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
+                        eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
+                        eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    e.getCause();
+                }
+
+                eventBoxes.getChildren().add(root);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
         }
     }
 

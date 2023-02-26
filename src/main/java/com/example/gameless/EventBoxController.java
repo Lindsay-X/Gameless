@@ -23,15 +23,15 @@ public class EventBoxController implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
-    private Label eventDescriptionLabel;
+    Label eventDescriptionLabel;
     @FXML
-    public Label eventNameLabel;
+    Label eventNameLabel;
     @FXML
-    private Label eventTimeLabel;
+    Label eventTimeLabel;
     @FXML
-    private Label eventLocationLabel;
+    Label eventLocationLabel;
     @FXML
-    private Label eventPointsLabel;
+    Label eventPointsLabel;
 
     public void viewEventButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminEventViewPage.fxml"));
@@ -42,28 +42,9 @@ public class EventBoxController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        eventNameLabel.setText("pogger");
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
-        String getEvents = "SELECT * FROM events WHERE eventName = '" + eventNameLabel.getText() + "';";
-
-        try {
-            Statement statement = connectDb.createStatement();
-            ResultSet queryResult = statement.executeQuery(getEvents);
-
-            while(queryResult.next()) {
-                eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
-                eventNameLabel.setText(queryResult.getString("eventName"));
-                eventTimeLabel.setText(queryResult.getString("eventTime"));
-                eventPointsLabel.setText(queryResult.getString("eventPoints"));
-                eventLocationLabel.setText(queryResult.getString("eventLocation"));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
+    void initData(String eventName) {
+        eventNameLabel.setText(eventName);
     }
 }
