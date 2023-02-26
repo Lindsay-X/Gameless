@@ -101,4 +101,6 @@ public class EventPageController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
+
+
 }

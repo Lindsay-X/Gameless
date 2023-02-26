@@ -17,3 +17,60 @@ VBox{
     -fx-background-insets: -20;
     -fx-background-radius: 7.5;
 }
+
+.date-picker .text-field {
+  -fx-background-color: #FFE0BD;
+}
+/*Customize the right button background color*/
+.date-picker .arrow-button {
+  -fx-background-color: #c26000;
+  -fx-background-radius: 0;
+}
+
+.date-picker .arrow-button:hover {
+  -fx-background-color: #864500;
+}
+
+.date-picker .arrow-button .arrow {
+  -fx-background-color: white;
+}
+
+/*Customize popup content*/
+.date-picker .cell {
+  -fx-background-color: white;
+}
+
+.date-picker .cell:hover {
+  -fx-background-color: #c26000;
+}
+
+.date-picker .cell:focused {
+  -fx-background-color: #c26000;
+}
+
+/*Customize the selected cell*/
+.date-picker .selected {
+  -fx-background-color: #c26000;
+  -fx-text-fill: white;
+}
+
+.date-picker .selected:focused {
+  -fx-background-color: #c26000;
+  -fx-text-fill: white;
+}
+
+.date-picker-popup {
+  -fx-border-color: transparent;
+}
+
+.date-picker-popup .month-year-pane {
+  -fx-background-color: #c26000;
+}
+
+.date-picker-popup .month-year-pane .label {
+  -fx-text-fill: white;
+}
+
+.date-picker-popup .week-number-cell {
+  -fx-text-fill: #864500;
+}
