@@ -69,7 +69,7 @@ public class EventPageController implements Initializable{
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
-        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventTime.getText() + "')";
+        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventTime.getText() + "', '" + eventTagChoice.getValue() + "')";
 
         try {
             Statement statement = connectDb.createStatement();

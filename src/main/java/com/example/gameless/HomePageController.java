@@ -20,12 +20,15 @@ public class HomePageController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private String username;
     @FXML
     private Button studentInfoButton;
     @FXML
-    private Button adminInfoButton;
+    private Button adminAnnouncementsButton;
 
     public void studentDisplayName(String username) {
+        this.username = username;
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
@@ -47,26 +50,8 @@ public class HomePageController {
         }
     }
 
-    public void adminDisplayName(String username) {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-
-        String getName = "SELECT adminFirstName, adminLastName FROM admin_accounts WHERE adminID = '" + username + "';";
-
-        try {
-            Statement statement = connectDb.createStatement();
-            ResultSet queryResult = statement.executeQuery(getName);
-            String name = "";
-
-            while(queryResult.next()) {
-                name += queryResult.getString("adminFirstName") + " " + queryResult.getString("adminLastName");
-            }
-
-            adminInfoButton.setText(name);
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void studentInfoButtonOnAction(ActionEvent event) throws IOException {

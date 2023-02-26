@@ -115,7 +115,7 @@ public class LoginController {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/adminHomePage.fxml"));
                     root = loader.load();
                     HomePageController homePageController = loader.getController();
-                    homePageController.adminDisplayName(username);
+                    homePageController.setUsername(username);
                     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);
