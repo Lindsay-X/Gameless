@@ -1,17 +1,17 @@
 package com.example.gameless;
 
 public class StudentInfo {
-    private long studentNumber;
+    private String studentNumber;
     private String fullName;
     private int points;
 
-    public StudentInfo(long studentNumber, String fullName, int points) {
+    public StudentInfo(String studentNumber, String fullName, int points) {
         this.studentNumber = studentNumber;
         this.fullName = fullName;
         this.points = points;
     }
 
-    public long getStudentNumber() {
+    public String getStudentNumber() {
         return studentNumber;
     }
 
