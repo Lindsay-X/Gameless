@@ -16,7 +16,7 @@
             <children>
                 <Label fx:id="eventNameLabel" minWidth="650" prefWidth="650" maxWidth="650" text="&lt;Event&gt;">
                     <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                     <HBox.margin>
                         <Insets />
@@ -53,7 +53,7 @@
             <children>
                 <Label prefHeight="40.0" prefWidth="55.0" text="Points:">
                     <font>
-                        <Font name="Arial Bold" size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                     <HBox.margin>
                         <Insets right="2.0" />
@@ -66,7 +66,7 @@
                 </Label>
                 <Label prefHeight="40.0" prefWidth="45.0" text="Time:">
                     <font>
-                        <Font name="Arial Bold" size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                     <HBox.margin>
                         <Insets left="35.0" right="2.0" />
@@ -79,7 +79,7 @@
                 </Label>
                 <Label prefHeight="40.0" prefWidth="70.0" text="Location:">
                     <font>
-                        <Font name="Arial Bold" size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                     <HBox.margin>
                         <Insets left="35.0" right="2.0" />

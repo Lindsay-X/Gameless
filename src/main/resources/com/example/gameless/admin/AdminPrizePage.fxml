@@ -91,7 +91,7 @@
                                         </ImageView>
                                         <Label fx:id="prizeName" text="Prize name" textFill="WHITE">
                                             <font>
-                                                <Font name="Arial Bold" size="22.0" />
+                                                <Font name="System Bold" size="22.0" />
                                             </font>
                                             <StackPane.margin>
                                                 <Insets top="40.0" />
@@ -99,7 +99,7 @@
                                         </Label>
                                         <Label fx:id="prizeDescription" text="Short Despcription">
                                             <font>
-                                                <Font name="Arial Bold" size="16.0" />
+                                                <Font name="System Bold" size="16.0" />
                                             </font>
                                             <StackPane.margin>
                                                 <Insets top="85.0" />
@@ -107,7 +107,7 @@
                                         </Label>
                                         <Label fx:id="prizeCost" text="Cost">
                                             <font>
-                                                <Font name="Arial Bold" size="14.0" />
+                                                <Font name="System Bold" size="14.0" />
                                             </font>
                                             <StackPane.margin>
                                                 <Insets top="125.0" />
@@ -115,7 +115,7 @@
                                         </Label>
                               <Label fx:id="prizeClaimStatus" text="Prize claimed!">
                                  <font>
-                                    <Font name="Arial" size="16.0" />
+                                    <Font name="System" size="16.0" />
                                  </font>
                                  <StackPane.margin>
                                     <Insets top="290.0" />

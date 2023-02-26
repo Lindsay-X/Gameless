@@ -46,7 +46,7 @@
             <children>
                 <Label alignment="CENTER" contentDisplay="TOP" minHeight="35.0" prefHeight="40.0" prefWidth="900.0" text="&lt;Event Name&gt;">
                     <font>
-                        <Font name="Arial Bold" size="24.0" />
+                        <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
                 <TableView fx:id="studentInfoTable" prefHeight="450.0" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">

@@ -39,7 +39,7 @@
                <children>
                   <Label text="Event Name:">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="studentNameLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="Raymond Zhang" wrapText="true">
@@ -56,7 +56,7 @@
                <children>
                   <Label text="Grade:">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="studentGradeLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="12" wrapText="true">
@@ -73,7 +73,7 @@
                <children>
                   <Label text="Student Number:">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="studentNumberLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="352741642" wrapText="true">
@@ -90,7 +90,7 @@
                <children>
                   <Label text="Points:">
                      <font>
-                        <Font name="Arial Bold" size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="studentPointsLabel" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="800.0" text="999" wrapText="true">

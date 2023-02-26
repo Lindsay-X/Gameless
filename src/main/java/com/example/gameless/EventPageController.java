@@ -82,7 +82,7 @@ public class EventPageController implements Initializable{
                     e.getCause();
                 }
 
-                eventBoxes.getChildren().add(root);
+                eventBoxes.getChildren().add(0, root);
             }
         } catch (Exception e) {
             e.printStackTrace();
