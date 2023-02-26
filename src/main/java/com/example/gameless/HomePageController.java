@@ -88,4 +88,12 @@ public class HomePageController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void adminAnnouncementsButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
