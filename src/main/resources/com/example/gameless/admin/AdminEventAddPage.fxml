@@ -84,7 +84,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <ChoiceBox fx:id="eventTags" prefHeight="30.0" prefWidth="200.0" style="-fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #FFE0BD; -fx-background-radius: 7.5; -fx-border-insets: -1;" />
+                  <ChoiceBox fx:id="eventTagChoice" prefHeight="30.0" prefWidth="200.0" style="-fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #FFE0BD; -fx-background-radius: 7.5; -fx-border-insets: -1;" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">

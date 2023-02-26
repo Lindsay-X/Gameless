@@ -3,6 +3,7 @@ package com.example.gameless;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,8 +15,19 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
-public class EventPageController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class EventPageController implements Initializable{
+    @FXML
+    private ChoiceBox<String> eventTagChoice;
+    private String[] tag = {"Sports", "Art", "Theater", "Music", "Community Service", "Academic"};
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -28,6 +40,14 @@ public class EventPageController {
     private TextField eventLocation;
     @FXML
     private TextArea eventDescription;
+
+    public void initialize(URL arg0, ResourceBundle arg1){
+        eventTagChoice.getItems().addAll(tag);
+    }
+
+    public void getTag(ActionEvent event){
+        String tagChosen = eventTagChoice.getValue();
+    }
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
