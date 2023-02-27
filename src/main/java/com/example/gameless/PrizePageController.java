@@ -1,10 +1,12 @@
 package com.example.gameless;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,6 +15,9 @@ public class PrizePageController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public void keyReleasedProperty(){
+    }
 
     public void backPrizeButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));

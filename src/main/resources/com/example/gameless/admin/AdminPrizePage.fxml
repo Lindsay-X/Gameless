@@ -97,12 +97,12 @@
                                                 <Insets top="40.0" />
                                             </StackPane.margin>
                                         </Label>
-                                        <Label fx:id="prizeDescription" text="Short Despcription">
+                                        <Label fx:id="prizeDescription" text="Short Description">
                                             <font>
                                                 <Font name="System Bold" size="16.0" />
                                             </font>
                                             <StackPane.margin>
-                                                <Insets top="85.0" />
+                                                <Insets top="90.0" />
                                             </StackPane.margin>
                                         </Label>
                                         <Label fx:id="prizeCost" text="Cost">
