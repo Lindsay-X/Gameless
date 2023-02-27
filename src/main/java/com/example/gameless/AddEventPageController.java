@@ -28,6 +28,10 @@ public class AddEventPageController {
     @FXML
     private TextField eventTime;
     @FXML
+    private TextField eventDate;
+    @FXML
+    private TextField eventPoints;
+    @FXML
     private TextField eventLocation;
     @FXML
     private TextArea eventDescription;
@@ -44,7 +48,7 @@ public class AddEventPageController {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
-        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventTime.getText() + "', '" + eventTagChoice.getValue() + "')";
+        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag, eventPoints) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventDate.getText() + " " + eventTime.getText() + "', '" + eventTagChoice.getValue() + "'," + eventPoints.getText() + " '')";
 
         try {
             Statement statement = connectDb.createStatement();

@@ -94,7 +94,7 @@
                         <Insets left="150.0" right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="eventTime1" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventTime" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
@@ -103,7 +103,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
                <children>
-                  <Label text="Time:">
+                  <Label text="Date:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -111,7 +111,20 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 7.5;" stylesheets="@../EventBox.css" />
+                  <DatePicker editable="false" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 7.5;" stylesheets="@../EventBox.css" />
+                  <Label text="Time:">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="eventTime1" prefHeight="30.0" prefWidth="200.0" promptText="HH:MM" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="14.0" />
+                     </font>
+                  </TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
