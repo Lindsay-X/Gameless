@@ -64,10 +64,14 @@ public class AddEventPageController implements Initializable {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag, eventPoints) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventDate.getValue().toString() + " " + eventTime.getText() + ":00', '" + eventTagChoice.getValue() + "', '" + eventPoints.getText() + "')";
-
+        String addDB = "CREATE TABLE `fbla`.`" + eventName.getText() + "_participants` (\n" +
+                "  `participantID` VARCHAR(45) NOT NULL,\n" +
+                "  `showedUp` TINYINT(3) UNSIGNED ZEROFILL NOT NULL DEFAULT 0,\n" +
+                "  PRIMARY KEY (`participantID`));";
         try {
             Statement statement = connectDb.createStatement();
             statement.executeUpdate(addEvent);
+            statement.execute(addDB);
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();

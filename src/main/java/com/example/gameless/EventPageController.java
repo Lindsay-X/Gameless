@@ -34,7 +34,7 @@ public class EventPageController implements Initializable{
     private Scene scene;
     private Parent root;
     private boolean isStudent;
-
+    private String studentID;
     @FXML
     private VBox eventBoxes;
 
@@ -63,6 +63,7 @@ public class EventPageController implements Initializable{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(boxURL));
                 root = loader.load();
                 EventBoxController eventBoxController = loader.getController();
+                eventBoxController.setStudentID(studentID);
                 eventBoxController.initData(id);
 
 
@@ -113,6 +114,7 @@ public class EventPageController implements Initializable{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(boxURL));
                 root = loader.load();
                 EventBoxController eventBoxController = loader.getController();
+                eventBoxController.setStudentID(studentID);
                 eventBoxController.initData(id);
 
 
@@ -184,5 +186,9 @@ public class EventPageController implements Initializable{
 
     public void setStudent(boolean student) {
         isStudent = student;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 }

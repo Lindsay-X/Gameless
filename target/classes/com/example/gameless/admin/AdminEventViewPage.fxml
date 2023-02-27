@@ -35,10 +35,7 @@
     <bottom>
         <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER">
          <children>
-            <ChoiceBox fx:id="eventTagChoice" layoutX="925.0" maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" style="-fx-border-width: 1.5; -fx-background-color: transparent; -fx-background-radius: 7.5; -fx-border-insets: -1;">
-               <padding>
-                  <Insets top="90.0" />
-               </padding></ChoiceBox>
+
          </children></Pane>
     </bottom>
     <center>

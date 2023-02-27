@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -23,7 +24,7 @@ public class EventBoxController implements Initializable {
     private Scene scene;
     private Parent root;
     int id;
-    String studentID;
+    private String studentID;
     @FXML
     Label eventDescriptionLabel;
     @FXML
@@ -34,9 +35,29 @@ public class EventBoxController implements Initializable {
     Label eventLocationLabel;
     @FXML
     Label eventPointsLabel;
+    @FXML
+    Button joinEventButton;
 
-    public void joinEventButtonOnAction(ActionEvent event) throws IOException {
+    public void joinEventButtonOnAction(ActionEvent event) {
+        joinEventButton.setText("Leave");
+        joinEventButton.setStyle("-fx-background-color: #ff0000; ");
+        joinEventButton.setOnAction(this::leaveEventButtonOnAction);
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+        String addEvent = "INSERT INTO `" + eventNameLabel.getText() + "_participants` (participantID) VALUES ('" + studentID + "')";
+        try {
+            Statement statement = connectDb.createStatement();
+            statement.executeUpdate(addEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
+    public void leaveEventButtonOnAction(ActionEvent event) {
+        joinEventButton.setText("Join");
+        joinEventButton.setStyle("-fx-background-color: #ABFFC9; ");
+        joinEventButton.setOnAction(this::joinEventButtonOnAction);
     }
 
     public void viewEventButtonOnAction(ActionEvent event) throws IOException {
@@ -52,5 +73,9 @@ public class EventBoxController implements Initializable {
 
     void initData(int id) {
         this.id = id;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 }
