@@ -3,6 +3,7 @@ package com.example.gameless;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,17 +14,20 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class AddEventPageController {
+public class AddEventPageController implements Initializable {
+    @FXML
+    private ChoiceBox<String> eventTagChoice;
+    private String[] tag = {"Sports", "Art", "Theater", "Music", "Community Service", "Academic"};
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    @FXML
-    private ChoiceBox<String> eventTagChoice;
     @FXML
     private TextField eventName;
     @FXML
@@ -36,6 +40,17 @@ public class AddEventPageController {
     private TextField eventLocation;
     @FXML
     private TextArea eventDescription;
+
+    public void initialize(URL arg0, ResourceBundle arg1){
+        eventTagChoice.getItems().addAll(tag);
+        eventTagChoice.setOnAction(this::getTag); //calls the method
+    }
+
+    //method to get the tage value
+    public void getTag(ActionEvent event) {
+        String tagChosen = eventTagChoice.getValue();
+        System.out.println(tagChosen); // prints the value onto the console
+    }
 
     public void backEventButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminEventPage.fxml"));
