@@ -63,7 +63,7 @@ public class AddEventPageController implements Initializable {
     public void publishButtonOnAction(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag, eventPoints) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventDate.getValue().toString() + " " + eventTime.getText() + "', '" + eventTagChoice.getValue() + "'," + eventPoints.getText() + " '')";
+        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag, eventPoints) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventDate.getValue().toString() + " " + eventTime.getText() + ":00', '" + eventTagChoice.getValue() + "', '" + eventPoints.getText() + "')";
 
         try {
             Statement statement = connectDb.createStatement();

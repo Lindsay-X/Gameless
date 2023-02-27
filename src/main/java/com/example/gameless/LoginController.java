@@ -85,6 +85,7 @@ public class LoginController {
                     root = loader.load();
                     HomePageController homePageController = loader.getController();
                     homePageController.studentDisplayName(username);
+                    homePageController.getAnnouncements();
                     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                     scene = new Scene(root);
                     stage.setScene(scene);

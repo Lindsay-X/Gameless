@@ -29,26 +29,9 @@ public class HomePageController implements Initializable {
     @FXML
     private Button studentProfileButton;
     @FXML
-    private Button adminAnnouncementsButton;
-    @FXML
-    private Label adminEventNameLabel;
-    @FXML
-    private Label adminEventDescriptionLabel;
-    @FXML
-    private Label adminEventTimeLabel;
-    @FXML
-    private Label adminEventLocationLabel;
-    @FXML
-    private Label adminEventPointsLabel;
-    @FXML
     private VBox studentHomePageAnnouncementPanes;
 
     public void initialize(URL arg0, ResourceBundle arg1) {
-        try {
-            getAnnouncements();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void getAnnouncements() throws IOException {
