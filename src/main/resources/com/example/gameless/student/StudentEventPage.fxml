@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.EventPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.EventPageController">
 <top>
     <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
         <children>
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonOnAction" stylesheets="@../BackButton.css" text="Back">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#studentBackButtonOnAction" stylesheets="@../BackButton.css" text="Back">
                 <HBox.margin>
                     <Insets left="29.0" top="20.0" />
                 </HBox.margin>
@@ -34,7 +34,7 @@
     <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
 </bottom>
 <center>
-    <VBox prefHeight="440.0" prefWidth="900.0" style="-fx-background-color: #FFC17B; -fx-background-radius: 7.5; -fx-border-radius: 7.5;" BorderPane.alignment="CENTER">
+    <VBox prefHeight="440.0" prefWidth="900.0" BorderPane.alignment="CENTER">
         <children>
             <HBox prefHeight="45.0" prefWidth="900.0" spacing="600.0">
                 <children>
@@ -46,7 +46,7 @@
             </HBox>
             <ScrollPane hbarPolicy="NEVER" maxWidth="850.0" prefHeight="375.0" prefWidth="850.0" style="-fx-background-color: transparent;" stylesheets="@../TransparentScrollPane.css" vbarPolicy="ALWAYS">
                <content>
-                  <VBox fx:id="eventBoxes" minHeight="375.0" prefWidth="800.0" style="-fx-background-color: #FFC17B;">
+                  <VBox fx:id="eventBoxes" minHeight="375.0" prefWidth="800.0">
                      </VBox>
                </content>
                <VBox.margin>

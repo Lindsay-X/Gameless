@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.HomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.HomePageController">
    <children>
       <HBox layoutX="140.0" layoutY="88.0" prefHeight="365.0" prefWidth="680.0">
          <children>
-            <VBox prefHeight="365.0" prefWidth="265.0">
+            <VBox prefHeight="365.0" prefWidth="265.0" style="-fx-background-color: transparent;">
                <children>
                   <Button fx:id="adminAnnouncementsButton" mnemonicParsing="false" onAction="#adminAnnouncementsButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="Announcements">
                      <font>

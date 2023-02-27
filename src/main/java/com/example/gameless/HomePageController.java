@@ -86,6 +86,7 @@ public class HomePageController implements Initializable {
     }
 
     public void studentProfileButtonOnAction(ActionEvent event) throws IOException {
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
@@ -109,8 +110,21 @@ public class HomePageController implements Initializable {
             e.printStackTrace();
             e.getCause();
         }
+
+        root = FXMLLoader.load(getClass().getResource("student/StudentProfilePage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
+    public void studentEventButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("student/studentEventPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

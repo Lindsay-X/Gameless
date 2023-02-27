@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #00706A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.AddEventPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.AddEventPageController">
 <top>
     <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
         <children>
@@ -37,7 +37,7 @@
     <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
 </bottom>
 <center>
-    <VBox prefHeight="440.0" prefWidth="900.0" spacing="5.0" style="-fx-background-color: #FFC17B; -fx-background-radius: 7.5;" BorderPane.alignment="CENTER">
+    <VBox prefHeight="440.0" prefWidth="900.0" spacing="5.0" BorderPane.alignment="CENTER">
         <children>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
                <children>

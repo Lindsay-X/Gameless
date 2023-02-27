@@ -1,0 +1,17 @@
+BorderPane{
+    -fx-background-color: #08A89E;
+}
+
+AnchorPane{
+    -fx-background-color: #00539C;
+}
+
+GridPane{
+    -fx-background-color: #EEA47F;
+}
+
+VBox{
+    -fx-background-color: #EEA47F;
+    -fx-background-radius: 7.5;
+    -fx-border-radius: 7.5;
+}
