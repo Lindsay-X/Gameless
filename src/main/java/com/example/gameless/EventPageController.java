@@ -86,10 +86,59 @@ public class EventPageController implements Initializable{
         }
     }
 
+    public void getEvents(String tag) throws IOException {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+        String getNames = "SELECT eventID FROM events WHERE eventTag = '" + tag + "';";
+
+        try {
+            Statement statement1 = connectDb.createStatement();
+            ResultSet queryResult1 = statement1.executeQuery(getNames);
+
+            while (queryResult1.next()) {
+                int id = queryResult1.getInt("eventID");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/EventBox.fxml"));
+                root = loader.load();
+                EventBoxController eventBoxController = loader.getController();
+                eventBoxController.initData(id);
+
+
+                String getEvents = "SELECT * FROM events WHERE eventID = '" + id + "';";
+
+                try {
+                    Statement statement = connectDb.createStatement();
+                    ResultSet queryResult = statement.executeQuery(getEvents);
+
+                    while (queryResult.next()) {
+                        eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
+                        eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
+                        eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
+                        eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
+                        eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    e.getCause();
+                }
+
+                eventBoxes.getChildren().add(0, root);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
     //method to get the tag values
     public void getTag(ActionEvent event) {
         String tagChosen = eventTagChoice.getValue();
-        System.out.println(tagChosen); // prints the value onto the console
+        eventBoxes.getChildren().clear();
+        try {
+            getEvents(tagChosen);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //Button Actions

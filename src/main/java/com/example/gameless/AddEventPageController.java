@@ -49,7 +49,7 @@ public class AddEventPageController implements Initializable {
     //method to get the tage value
     public void getTag(ActionEvent event) {
         String tagChosen = eventTagChoice.getValue();
-        System.out.println(tagChosen); // prints the value onto the console
+        //System.out.println(tagChosen); // prints the value onto the console
     }
 
     public void backEventButtonOnAction(ActionEvent event) throws IOException {
