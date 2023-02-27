@@ -94,7 +94,7 @@
                         <Insets left="150.0" right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="eventTime" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventPoints" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
@@ -120,7 +120,7 @@
                         <Insets left="50.0" right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="eventTime1" prefHeight="30.0" prefWidth="200.0" promptText="HH:MM" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventTime" prefHeight="30.0" prefWidth="200.0" promptText="HH:MM" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>

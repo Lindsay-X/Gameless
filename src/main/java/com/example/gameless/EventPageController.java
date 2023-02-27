@@ -39,6 +39,7 @@ public class EventPageController implements Initializable{
 
     public void initialize(URL arg0, ResourceBundle arg1){
         eventTagChoice.getItems().addAll(tag);
+        eventTagChoice.setOnAction(this::getTag); //calls the method
         try {
             getEvents();
         } catch (IOException e) {
@@ -90,10 +91,13 @@ public class EventPageController implements Initializable{
         }
     }
 
+    //method to get the tag values
     public void getTag(ActionEvent event) {
         String tagChosen = eventTagChoice.getValue();
+        System.out.println(tagChosen); // prints the value onto the console
     }
 
+    //Button Actions
     public void backButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -104,14 +108,6 @@ public class EventPageController implements Initializable{
 
     public void addEventButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminEventAddPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void viewEventButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminEventViewPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
