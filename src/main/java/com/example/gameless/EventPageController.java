@@ -33,6 +33,7 @@ public class EventPageController implements Initializable{
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private boolean isStudent;
 
     @FXML
     private VBox eventBoxes;
@@ -42,7 +43,7 @@ public class EventPageController implements Initializable{
         eventTagChoice.setOnAction(this::getTag); //calls the method
     }
 
-    public void getEvents() throws IOException {
+    public void getEvents(boolean isStudent) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         String getNames = "SELECT eventID FROM events;";
@@ -53,7 +54,13 @@ public class EventPageController implements Initializable{
 
             while (queryResult1.next()) {
                 int id = queryResult1.getInt("eventID");
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/EventBox.fxml"));
+                String boxURL;
+                if (!isStudent) {
+                    boxURL = "admin/EventBox.fxml";
+                } else {
+                    boxURL = "student/StudentEventBox.fxml";
+                }
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(boxURL));
                 root = loader.load();
                 EventBoxController eventBoxController = loader.getController();
                 eventBoxController.initData(id);
@@ -78,7 +85,7 @@ public class EventPageController implements Initializable{
                     e.getCause();
                 }
 
-                eventBoxes.getChildren().add(0, root);
+                eventBoxes.getChildren().add(root);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,7 +93,7 @@ public class EventPageController implements Initializable{
         }
     }
 
-    public void getEvents(String tag) throws IOException {
+    public void getEvents(boolean isStudent, String tag) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         String getNames = "SELECT eventID FROM events WHERE eventTag = '" + tag + "';";
@@ -97,7 +104,13 @@ public class EventPageController implements Initializable{
 
             while (queryResult1.next()) {
                 int id = queryResult1.getInt("eventID");
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/EventBox.fxml"));
+                String boxURL;
+                if (!isStudent) {
+                    boxURL = "admin/EventBox.fxml";
+                } else {
+                    boxURL = "student/StudentEventBox.fxml";
+                }
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(boxURL));
                 root = loader.load();
                 EventBoxController eventBoxController = loader.getController();
                 eventBoxController.initData(id);
@@ -122,7 +135,7 @@ public class EventPageController implements Initializable{
                     e.getCause();
                 }
 
-                eventBoxes.getChildren().add(0, root);
+                eventBoxes.getChildren().add(root);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -136,9 +149,9 @@ public class EventPageController implements Initializable{
         eventBoxes.getChildren().clear();
         try {
             if (tagChosen != "None") {
-                getEvents(tagChosen);
+                getEvents(isStudent, tagChosen);
             } else {
-                getEvents();
+                getEvents(isStudent);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -167,5 +180,9 @@ public class EventPageController implements Initializable{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void setStudent(boolean student) {
+        isStudent = student;
     }
 }

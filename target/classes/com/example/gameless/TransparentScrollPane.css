@@ -38,3 +38,7 @@
 .scroll-pane > .corner {
     -fx-background-color: transparent;
 }
+
+.corner {
+    -fx-background-color: transparent;
+}

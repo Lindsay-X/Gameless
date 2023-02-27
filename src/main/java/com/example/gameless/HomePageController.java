@@ -118,13 +118,6 @@ public class HomePageController implements Initializable {
         stage.show();
     }
 
-    public void studentEventButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("student/studentEventPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
     public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -137,7 +130,8 @@ public class HomePageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
         root = loader.load();
         EventPageController eventPageController = loader.getController();
-        eventPageController.getEvents();
+        eventPageController.getEvents(false);
+        eventPageController.setStudent(false);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -154,6 +148,18 @@ public class HomePageController implements Initializable {
 
     public void adminPrizeButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void studentEventButtonOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("student/studentEventPage.fxml"));
+        root = loader.load();
+        EventPageController eventPageController = loader.getController();
+        eventPageController.getEvents(true);
+        eventPageController.setStudent(true);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

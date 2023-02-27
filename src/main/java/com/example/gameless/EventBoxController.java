@@ -23,6 +23,7 @@ public class EventBoxController implements Initializable {
     private Scene scene;
     private Parent root;
     int id;
+    String studentID;
     @FXML
     Label eventDescriptionLabel;
     @FXML
@@ -35,6 +36,7 @@ public class EventBoxController implements Initializable {
     Label eventPointsLabel;
 
     public void joinEventButtonOnAction(ActionEvent event) throws IOException {
+
     }
 
     public void viewEventButtonOnAction(ActionEvent event) throws IOException {
