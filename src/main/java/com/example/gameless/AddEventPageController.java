@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -41,15 +38,42 @@ public class AddEventPageController implements Initializable {
     @FXML
     private TextArea eventDescription;
 
+    @FXML
+    private Button publishEventButton;
+
+    @FXML
+    private Label characterCount;
+
     public void initialize(URL arg0, ResourceBundle arg1){
         eventTagChoice.getItems().addAll(tag);
         eventTagChoice.setOnAction(this::getTag); //calls the method
+        publishEventButton.setDisable(true);
+        characterCount.textProperty().bind(eventDescription.textProperty()
+                .length()
+                .asString("Character Count: %d"));
     }
 
-    //method to get the tage value
+    //method to get the tag value
     public void getTag(ActionEvent event) {
         String tagChosen = eventTagChoice.getValue();
         //System.out.println(tagChosen); // prints the value onto the console
+    }
+
+    //method to disable to the publish button if the inputs are invalid
+    public void keyReleasedProperty(){
+        String name = eventName.getText();
+        String time = eventTime.getText();
+        String date = eventDate.getValue().toString();
+        String point = eventPoints.getText();
+        String loc = eventLocation.getText();
+        String desc = eventDescription.getText();
+        boolean isDisabled = (name.isEmpty() || name.trim().isEmpty()) ||
+                (time.isEmpty() || time.trim().isEmpty()|| (!time.matches("([01]\\d|2[0-4]):[0-5]\\d")) && !time.matches("[1-9]:[0-5]\\d")) ||
+                (date.isEmpty() || date.trim().isEmpty()) ||
+                (point.isEmpty() || point.trim().isEmpty() || !point.matches("0|[1-9]\\d*")) ||
+                (loc.isEmpty() || loc.trim().isEmpty()) ||
+                (desc.isEmpty() || desc.trim().isEmpty() || desc.length()>450);
+        publishEventButton.setDisable(isDisabled);
     }
 
     public void backEventButtonOnAction(ActionEvent event) throws IOException {

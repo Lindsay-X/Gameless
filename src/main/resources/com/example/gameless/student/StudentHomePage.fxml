@@ -35,7 +35,7 @@
                </children>
             </VBox>
             <Pane prefHeight="365.0" prefWidth="30.0" />
-            <BorderPane prefHeight="365.0" prefWidth="385.0" style="-fx-background-color: #FFC17B; -fx-background-radius: 7.5;">
+            <BorderPane prefHeight="365.0" prefWidth="385.0" style="-fx-background-color: #EEA47F; -fx-background-radius: 7.5;">
                <top>
                   <Pane prefHeight="20.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                </top>
@@ -51,7 +51,7 @@
                <center>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" stylesheets="@../TransparentScrollPane.css" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
                      <content>
-                        <VBox fx:id="studentHomePageAnnouncementPanes" minHeight="325.0" prefWidth="328.0" style="-fx-background-color: #FFC17B;">
+                        <VBox fx:id="studentHomePageAnnouncementPanes" minHeight="325.0" prefWidth="328.0" style="-fx-background-color: #EEA47F;">
                            <children>
 
                            </children>
