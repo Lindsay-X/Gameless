@@ -22,6 +22,7 @@ public class EventBoxController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    int id;
     @FXML
     Label eventDescriptionLabel;
     @FXML
@@ -47,7 +48,7 @@ public class EventBoxController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
-    void initData(String eventName) {
-        eventNameLabel.setText(eventName);
+    void initData(int id) {
+        this.id = id;
     }
 }

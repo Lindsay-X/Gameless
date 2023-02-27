@@ -40,31 +40,26 @@ public class EventPageController implements Initializable{
     public void initialize(URL arg0, ResourceBundle arg1){
         eventTagChoice.getItems().addAll(tag);
         eventTagChoice.setOnAction(this::getTag); //calls the method
-        try {
-            getEvents();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void getEvents() throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-        String getNames = "SELECT eventName FROM events;";
+        String getNames = "SELECT eventID FROM events;";
 
         try {
             Statement statement1 = connectDb.createStatement();
             ResultSet queryResult1 = statement1.executeQuery(getNames);
 
             while (queryResult1.next()) {
-                String username = queryResult1.getString(1);
+                int id = queryResult1.getInt("eventID");
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/EventBox.fxml"));
                 root = loader.load();
                 EventBoxController eventBoxController = loader.getController();
-                eventBoxController.initData(username);
+                eventBoxController.initData(id);
 
 
-                String getEvents = "SELECT * FROM events WHERE eventName = '" + eventBoxController.eventNameLabel.getText() + "';";
+                String getEvents = "SELECT * FROM events WHERE eventID = '" + id + "';";
 
                 try {
                     Statement statement = connectDb.createStatement();

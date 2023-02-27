@@ -73,7 +73,10 @@ public class AddEventPageController implements Initializable {
             e.getCause();
         }
 
-        root = FXMLLoader.load(getClass().getResource("admin/AdminEventPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
+        root = loader.load();
+        EventPageController eventPageController = loader.getController();
+        eventPageController.getEvents();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
