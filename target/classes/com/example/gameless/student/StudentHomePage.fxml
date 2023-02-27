@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -62,5 +65,19 @@
             </BorderPane>
          </children>
       </HBox>
+      <Pane layoutX="760.0" layoutY="15.0" maxHeight="38.0" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="7.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/coin.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="coinValue" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="6.0" text="0">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

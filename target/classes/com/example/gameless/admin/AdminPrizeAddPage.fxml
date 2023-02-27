@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.PrizePageController">
+<top>
+    <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+        <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backPrizeButtonOnAction" stylesheets="@../BackButton.css" text="Back">
+                <HBox.margin>
+                    <Insets left="29.0" top="20.0" />
+                </HBox.margin>
+                <font>
+                    <Font name="MuktaMahee Regular" size="20.0" />
+                </font>
+            </Button>
+        </children></HBox>
+</top>
+<right>
+    <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+</right>
+<left>
+    <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+</left>
+<bottom>
+    <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
+</bottom>
+<center>
+    <VBox prefHeight="440.0" prefWidth="900.0" spacing="8.0" BorderPane.alignment="CENTER">
+        <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
+               <children>
+                  <Label text="Prize Name:">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="prizeName" onKeyReleased="#keyReleasedProperty" prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <Label text="Description (Maximum 100 characters):">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="prizeDescription" onKeyReleased="#keyReleasedProperty" prefHeight="150.0" prefWidth="800.0" style="-fx-wrap-text: true;" stylesheets="@../EventBox.css">
+               <font>
+                  <Font name="MuktaMahee Regular" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextArea>
+            <Label fx:id="characterCount" contentDisplay="RIGHT" text="Character Count:">
+               <VBox.margin>
+                  <Insets bottom="-10.0" left="680.0" top="-10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefWidth="900.0">
+               <children>
+                  <Label text="Icon:">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
+               <children>
+                  <Label text="Cost:">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="prizeCost" onKeyReleased="#keyReleasedProperty" prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="publishEventButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Publish">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="250.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="0.5" />
+                     </padding>
+                  </Button>
+               </children>
+            </HBox>
+        </children>
+         <padding>
+            <Insets left="50.0" right="50.0" top="15.0" />
+         </padding>
+    </VBox>
+</center>
+</BorderPane>

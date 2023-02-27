@@ -1,7 +1,10 @@
-.scroll-pane {
-    -fx-background-color: rgb(255, 193, 123);
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
 }
 
+.scroll-pane {
+    -fx-background-color:  #EEA47F;
+}
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color: white;
@@ -15,8 +18,6 @@
     -fx-padding: 2;
 }
 
-.scroll-bar:horizontal,
-.scroll-bar:vertical,
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track{
     -fx-background-color: transparent;
@@ -39,6 +40,6 @@
     -fx-background-color: transparent;
 }
 
-.corner {
-    -fx-background-color: transparent;
+.scroll-pane > .content{
+    -fx-background-color: #EEA47F;
 }

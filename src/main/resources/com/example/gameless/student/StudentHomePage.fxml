@@ -14,20 +14,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.HomePageController">
    <children>
-      <Pane layoutX="780.0" layoutY="20.0" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
-         <children>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/coin.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="coinValue" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="3.5" text="0">
-               <font>
-                  <Font name="Arial Bold" size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <HBox layoutX="140.0" layoutY="88.0" prefHeight="365.0" prefWidth="680.0">
          <children>
             <VBox prefHeight="365.0" prefWidth="265.0" style="-fx-background-color: transparent;">
@@ -79,5 +65,19 @@
             </BorderPane>
          </children>
       </HBox>
+      <Pane layoutX="760.0" layoutY="15.0" maxHeight="38.0" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="7.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/coin.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="coinValue" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="6.0" text="0">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
