@@ -43,7 +43,7 @@
                <children>
                   <Label text="Event Name:">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Arial Bold" size="20.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="5.0" />
@@ -61,10 +61,10 @@
             </HBox>
             <Label text="Description:">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="Arial Bold" size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="eventDescription" prefHeight="180.0" prefWidth="800.0" style="-fx-wrap-text: true;" stylesheets="@../EventBox.css">
+            <TextArea fx:id="eventDescription" prefHeight="180.0" prefWidth="800.0" stylesheets="@../EventBox.css">
                <font>
                   <Font name="MuktaMahee Regular" size="16.0" />
                </font>
@@ -79,7 +79,7 @@
                <children>
                   <Label text="Tags:">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Arial Bold" size="20.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="5.0" />
@@ -88,7 +88,7 @@
                   <ChoiceBox fx:id="eventTagChoice" prefHeight="30.0" prefWidth="200.0" style="-fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #FFE0BD; -fx-background-radius: 7.5; -fx-border-insets: -1;" />
                   <Label text="Points:">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Arial Bold" size="20.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="150.0" right="5.0" />
@@ -103,22 +103,35 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
                <children>
-                  <Label text="Time:">
+                  <Label text="Date:">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Arial Bold" size="20.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 7.5;" stylesheets="@../EventBox.css" />
+                  <DatePicker editable="false" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 7.5;" stylesheets="@../EventBox.css" />
+                  <Label text="Time:">
+                     <font>
+                        <Font name="Arial Bold" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="eventLocation1" prefHeight="30.0" prefWidth="200.0" promptText="&lt;Hour&gt;:&lt;Minute&gt;" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                     <font>
+                        <Font name="MuktaMahee Regular" size="14.0" />
+                     </font>
+                  </TextField>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
                <children>
                   <Label text="Location:">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Arial Bold" size="20.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="5.0" />
