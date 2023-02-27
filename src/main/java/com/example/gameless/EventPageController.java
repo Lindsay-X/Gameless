@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 public class EventPageController implements Initializable{
     @FXML
     private ChoiceBox<String> eventTagChoice;
-    private String[] tag = {"Sports", "Art", "Theater", "Music", "Community Service", "Academic"};
+    private String[] tag = {"All","Sports", "Art", "Theater", "Music", "Community Service", "Academic"};
 
     private Stage stage;
     private Scene scene;
@@ -163,6 +163,14 @@ public class EventPageController implements Initializable{
     //Button Actions
     public void backButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void backEventButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("admin/AdminEventPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

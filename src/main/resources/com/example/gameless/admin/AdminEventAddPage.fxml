@@ -37,7 +37,7 @@
     <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
 </bottom>
 <center>
-    <VBox prefHeight="440.0" prefWidth="900.0" spacing="5.0" BorderPane.alignment="CENTER">
+    <VBox prefHeight="440.0" prefWidth="900.0" spacing="3.0" BorderPane.alignment="CENTER">
         <children>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
                <children>
@@ -49,7 +49,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="eventName" prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventName" onKeyReleased="#keyReleasedProperty" prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
@@ -59,12 +59,12 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <Label text="Description:">
+            <Label text="Description (Maximum 450 characters):">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="eventDescription" prefHeight="180.0" prefWidth="800.0" style="-fx-wrap-text: true;" stylesheets="@../EventBox.css">
+            <TextArea fx:id="eventDescription" onKeyReleased="#keyReleasedProperty" prefHeight="180.0" prefWidth="800.0" style="-fx-wrap-text: true;" stylesheets="@../EventBox.css">
                <font>
                   <Font name="MuktaMahee Regular" size="16.0" />
                </font>
@@ -75,6 +75,11 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextArea>
+            <Label fx:id="characterCount" contentDisplay="RIGHT" text="Character Count:">
+               <VBox.margin>
+                  <Insets left="680.0" />
+               </VBox.margin>
+            </Label>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
                <children>
                   <Label text="Tags:">
@@ -85,7 +90,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <ChoiceBox fx:id="eventTagChoice" prefHeight="30.0" prefWidth="200.0" style="-fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #FFE0BD; -fx-background-radius: 7.5; -fx-border-insets: -1;" />
+                  <ChoiceBox fx:id="eventTagChoice" onKeyReleased="#keyReleasedProperty" prefHeight="30.0" prefWidth="200.0" style="-fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #FFE0BD; -fx-background-radius: 7.5; -fx-border-insets: -1;" />
                   <Label text="Points:">
                      <font>
                         <Font name="System Bold" size="20.0" />
@@ -94,7 +99,7 @@
                         <Insets left="150.0" right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="eventPoints" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventPoints" onKeyReleased="#keyReleasedProperty" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
@@ -111,7 +116,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker fx:id="eventDate" editable="false" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 7.5;" stylesheets="@../EventBox.css" />
+                  <DatePicker fx:id="eventDate" editable="false" onKeyReleased="#keyReleasedProperty" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 7.5;" stylesheets="@../EventBox.css" />
                   <Label text="Time:">
                      <font>
                         <Font name="System Bold" size="20.0" />
@@ -120,7 +125,7 @@
                         <Insets left="50.0" right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="eventTime" prefHeight="30.0" prefWidth="200.0" promptText="HH:MM" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventTime" onKeyReleased="#keyReleasedProperty" prefHeight="30.0" prefWidth="200.0" promptText="HH:MM" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
@@ -137,7 +142,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="eventLocation" prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
+                  <TextField fx:id="eventLocation" onKeyReleased="#keyReleasedProperty" prefHeight="30.0" prefWidth="400.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;">
                      <font>
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
@@ -157,7 +162,7 @@
             </HBox>
         </children>
          <padding>
-            <Insets left="50.0" right="50.0" top="25.0" />
+            <Insets left="50.0" right="50.0" top="15.0" />
          </padding>
     </VBox>
 </center>
