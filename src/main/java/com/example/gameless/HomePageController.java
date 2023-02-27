@@ -3,19 +3,23 @@ package com.example.gameless;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class HomePageController {
+public class HomePageController implements Initializable {
 
     @FXML
     private Stage stage;
@@ -36,6 +40,39 @@ public class HomePageController {
     private Label adminEventLocationLabel;
     @FXML
     private Label adminEventPointsLabel;
+    @FXML
+    private VBox studentHomePageAnnouncementPanes;
+
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        try {
+            getAnnouncements();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void getAnnouncements() throws IOException {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+        String getAnnouncements = "SELECT announcementSender, announcementMsg FROM announcements;";
+
+        try {
+            Statement statement1 = connectDb.createStatement();
+            ResultSet queryResult1 = statement1.executeQuery(getAnnouncements);
+
+            while (queryResult1.next()) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("student/HomePageAnnouncementPane.fxml"));
+                root = loader.load();
+                HomePageAnnouncementPaneController homePageAnnouncementPaneController = loader.getController();
+                homePageAnnouncementPaneController.initData(queryResult1.getString("announcementSender"), queryResult1.getString("announcementMsg"));
+
+                studentHomePageAnnouncementPanes.getChildren().add(0, root);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
     public void studentDisplayName(String username) {
         this.username = username;

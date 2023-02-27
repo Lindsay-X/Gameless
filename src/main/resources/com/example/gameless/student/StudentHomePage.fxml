@@ -53,50 +53,9 @@
                <center>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" stylesheets="@../TransparentScrollPane.css" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
                      <content>
-                        <VBox minHeight="325.0" prefWidth="328.0" style="-fx-background-color: #FFC17B;">
+                        <VBox fx:id="studentHomePageAnnouncementPanes" minHeight="325.0" prefWidth="328.0" style="-fx-background-color: #FFC17B;">
                            <children>
-                              <Pane maxWidth="316.0" opacity="0.5" prefHeight="92.0" prefWidth="316.0" style="-fx-background-color: white; -fx-background-radius: 7.5;">
-                                 <children>
-                                    <Label maxHeight="92.0" maxWidth="316.0" style="-fx-wrap-text: true;" text="&lt;Teacher&gt; on XX/XX/XXXX, 10:13 AM (edited)&#10;deez nuts">
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin></Pane>
-                              <Pane maxWidth="316.0" opacity="0.5" prefHeight="92.0" prefWidth="316.0" style="-fx-background-color: white; -fx-background-radius: 7.5;">
-                                 <children>
-                                    <Label maxHeight="92.0" maxWidth="316.0" style="-fx-wrap-text: true;" text="&lt;Teacher&gt; on XX/XX/XXXX, 10:13 AM (edited)&#10;deez nuts">
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin></Pane>
-                              <Pane maxWidth="316.0" opacity="0.5" prefHeight="92.0" prefWidth="316.0" style="-fx-background-color: white; -fx-background-radius: 7.5;">
-                                 <children>
-                                    <Label maxHeight="92.0" maxWidth="316.0" style="-fx-wrap-text: true;" text="&lt;Teacher&gt; on XX/XX/XXXX, 10:13 AM (edited)&#10;deez nuts">
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin></Pane>
+
                            </children>
                         </VBox>
                      </content>

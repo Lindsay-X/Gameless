@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -28,7 +29,7 @@ public class AddEventPageController {
     @FXML
     private TextField eventTime;
     @FXML
-    private TextField eventDate;
+    private DatePicker eventDate;
     @FXML
     private TextField eventPoints;
     @FXML
@@ -47,8 +48,7 @@ public class AddEventPageController {
     public void publishButtonOnAction(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-
-        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag, eventPoints) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventDate.getText() + " " + eventTime.getText() + "', '" + eventTagChoice.getValue() + "'," + eventPoints.getText() + " '')";
+        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag, eventPoints) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventDate.getValue().toString() + " " + eventTime.getText() + "', '" + eventTagChoice.getValue() + "'," + eventPoints.getText() + " '')";
 
         try {
             Statement statement = connectDb.createStatement();
