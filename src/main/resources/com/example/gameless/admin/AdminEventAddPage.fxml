@@ -111,7 +111,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker fx:id="eventDate" editable="false" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 7.5;" stylesheets="@../EventBox.css" />
+                  <DatePicker editable="false" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 7.5;" stylesheets="@../EventBox.css" />
                   <Label text="Time:">
                      <font>
                         <Font name="System Bold" size="20.0" />

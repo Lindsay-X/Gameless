@@ -33,6 +33,9 @@ public class EventBoxController implements Initializable {
     @FXML
     Label eventPointsLabel;
 
+    public void joinEventButtonOnAction(ActionEvent event) throws IOException {
+    }
+
     public void viewEventButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminEventViewPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
