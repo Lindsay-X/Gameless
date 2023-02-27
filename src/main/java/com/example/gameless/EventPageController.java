@@ -135,7 +135,11 @@ public class EventPageController implements Initializable{
         String tagChosen = eventTagChoice.getValue();
         eventBoxes.getChildren().clear();
         try {
-            getEvents(tagChosen);
+            if (tagChosen != "None") {
+                getEvents(tagChosen);
+            } else {
+                getEvents();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
