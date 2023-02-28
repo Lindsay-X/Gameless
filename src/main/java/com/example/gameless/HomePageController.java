@@ -143,6 +143,7 @@ public class HomePageController implements Initializable {
         root = loader.load();
         AnnouncementPageController announcementPageController = loader.getController();
         announcementPageController.getAnnouncements();
+        announcementPageController.username = username;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

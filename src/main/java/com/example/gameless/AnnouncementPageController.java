@@ -24,6 +24,7 @@ public class AnnouncementPageController implements Initializable {
     private Parent root;
     @FXML
     VBox announcementBoxes;
+    String username;
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
@@ -33,16 +34,11 @@ public class AnnouncementPageController implements Initializable {
         stage.show();
     }
 
-    public void backAnnouncementButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void addAnnouncementButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminAnnouncementAddPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementAddPage.fxml"));
+        root = loader.load();
+        AddAnnouncementPageController addAnnouncementPageController = loader.getController();
+        addAnnouncementPageController.username = username;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
