@@ -36,7 +36,7 @@
                         <Insets left="420.0" />
                     </HBox.margin>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Add">
+                <Button fx:id="addPrizeButton" mnemonicParsing="false" onAction="#addPrizeButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Add">
                     <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                     </font>
@@ -83,7 +83,7 @@
                                         </ImageView>
                                         <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../image/prizePicture1.png" />
+                                                <Image url="@../image/balloon.png" />
                                             </image>
                                             <StackPane.margin>
                                                 <Insets top="-175.0" />

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.PrizePageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.AddPrizePageController">
 <top>
     <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
         <children>
@@ -89,7 +89,7 @@
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;" />
+                  <ComboBox fx:id="prizeIconChoice" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;" />
                </children>
                <padding>
                   <Insets bottom="5.0" />
