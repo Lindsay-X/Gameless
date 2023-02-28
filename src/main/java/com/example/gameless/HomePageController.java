@@ -139,7 +139,10 @@ public class HomePageController implements Initializable {
     }
 
     public void adminAnnouncementsButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
+        root = loader.load();
+        AnnouncementPageController announcementPageController = loader.getController();
+        announcementPageController.getAnnouncements();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
