@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class AddPrizePageController implements Initializable {
     @FXML
     //private String[] icon = {"../../../../resources/com/example/gameless/image/balloon.png", "../../../../resources/com/example/gameless/image/coin.png", "../../../../resources/com/example/gameless/image/giftCard.png", "../../../../resources/com/example/gameless/image/hoodie.png", "../../../../resources/com/example/gameless/image/prizeBox.png", "../../../../resources/com/example/gameless/image/ticket.png"};
-    private String[] icon = {"/balloon1.png"};
+    private String[] icon = {""};
     private ObservableList<String> opt = FXCollections.observableArrayList();
     private ComboBox<String> prizeIconChoice;
 

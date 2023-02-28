@@ -110,7 +110,7 @@
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="publishEventButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Publish">
+                  <Button fx:id="publishAnnouncementButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Publish">
                      <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                      </font>
