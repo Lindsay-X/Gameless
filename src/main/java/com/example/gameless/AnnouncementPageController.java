@@ -37,6 +37,7 @@ public class AnnouncementPageController {
         stage.setScene(scene);
         stage.show();
     }
+
     public void addAnnouncementButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminAnnouncementAddPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

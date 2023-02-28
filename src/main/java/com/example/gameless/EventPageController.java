@@ -74,11 +74,24 @@ public class EventPageController implements Initializable{
                     ResultSet queryResult = statement.executeQuery(getEvents);
 
                     while (queryResult.next()) {
+
                         eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
                         eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
                         eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
                         eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
                         eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
+                        if (isStudent) {
+                            String getIsJoin = "SELECT count(1) FROM `" + eventBoxController.eventNameLabel.getText() + "_participants` WHERE participantID='" + studentID + "'";
+                            Statement statement2 = connectDb.createStatement();
+                            ResultSet queryResult2 = statement2.executeQuery(getIsJoin);
+                            while (queryResult2.next()) {
+                                if (queryResult2.getInt(1) == 1) {
+                                    eventBoxController.setButton(true);
+                                } else {
+                                    eventBoxController.setButton(false);
+                                }
+                            }
+                        }
                     }
 
                 } catch (Exception e) {
@@ -117,7 +130,6 @@ public class EventPageController implements Initializable{
                 eventBoxController.setStudentID(studentID);
                 eventBoxController.initData(id);
 
-
                 String getEvents = "SELECT * FROM events WHERE eventID = '" + id + "';";
 
                 try {
@@ -125,11 +137,24 @@ public class EventPageController implements Initializable{
                     ResultSet queryResult = statement.executeQuery(getEvents);
 
                     while (queryResult.next()) {
+
                         eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
                         eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
                         eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
                         eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
                         eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
+                        if (isStudent) {
+                            String getIsJoin = "SELECT count(1) FROM `" + eventBoxController.eventNameLabel.getText() + "_participants` WHERE participantID='" + studentID + "'";
+                            Statement statement2 = connectDb.createStatement();
+                            ResultSet queryResult2 = statement2.executeQuery(getIsJoin);
+                            while (queryResult2.next()) {
+                                if (queryResult2.getInt(1) == 1) {
+                                    eventBoxController.setButton(true);
+                                } else {
+                                    eventBoxController.setButton(false);
+                                }
+                            }
+                        }
                     }
 
                 } catch (Exception e) {
@@ -150,7 +175,7 @@ public class EventPageController implements Initializable{
         String tagChosen = eventTagChoice.getValue();
         eventBoxes.getChildren().clear();
         try {
-            if (tagChosen != "None") {
+            if (tagChosen != "All") {
                 getEvents(isStudent, tagChosen);
             } else {
                 getEvents(isStudent);
@@ -177,11 +202,33 @@ public class EventPageController implements Initializable{
         stage.show();
     }
     public void studentBackButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("student/StudentHomePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+
+        String verifyLogin = "SELECT count(1) FROM student_accounts WHERE studentNumber = '" + studentID + "';";
+
+        try {
+            Statement statement = connectDb.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+
+            while(queryResult.next()) {
+                if (queryResult.getInt(1) == 1) {
+                    String username = studentID;
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("student/StudentHomePage.fxml"));
+                    root = loader.load();
+                    HomePageController homePageController = loader.getController();
+                    homePageController.studentDisplayName(username);
+                    homePageController.getAnnouncements();
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 
     public void addEventButtonOnAction(ActionEvent event) throws IOException {

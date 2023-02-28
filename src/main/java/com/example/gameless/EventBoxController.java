@@ -39,8 +39,7 @@ public class EventBoxController implements Initializable {
     Button joinEventButton;
 
     public void joinEventButtonOnAction(ActionEvent event) {
-        joinEventButton.setText("Leave");
-        joinEventButton.setStyle("-fx-background-color: #ff0000; ");
+        setButton(true);
         joinEventButton.setOnAction(this::leaveEventButtonOnAction);
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
@@ -55,9 +54,28 @@ public class EventBoxController implements Initializable {
     }
 
     public void leaveEventButtonOnAction(ActionEvent event) {
-        joinEventButton.setText("Join");
-        joinEventButton.setStyle("-fx-background-color: #ABFFC9; ");
+        setButton(false);
         joinEventButton.setOnAction(this::joinEventButtonOnAction);
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+        String addEvent = "DELETE FROM `" + eventNameLabel.getText() + "_participants` WHERE participantID='" + studentID + "'";
+        try {
+            Statement statement = connectDb.createStatement();
+            statement.executeUpdate(addEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void setButton(boolean isJoin) {
+        if (!isJoin) {
+            joinEventButton.setText("Join");
+            joinEventButton.setStyle("-fx-background-color: #ABFFC9; -fx-background-radius: 7.5;");
+        } else {
+            joinEventButton.setText("Leave");
+            joinEventButton.setStyle("-fx-background-color: #ff0000; -fx-background-radius: 7.5;");
+        }
     }
 
     public void viewEventButtonOnAction(ActionEvent event) throws IOException {
