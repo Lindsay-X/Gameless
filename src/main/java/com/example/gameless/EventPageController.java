@@ -43,23 +43,29 @@ public class EventPageController implements Initializable{
         eventTagChoice.setOnAction(this::getTag); //calls the method
     }
 
+    //Method to get all events, either for student or admin
     public void getEvents(boolean isStudent) throws IOException {
+        //Establish database connection
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
+        //Select all event IDs from events table
         String getNames = "SELECT eventID FROM events;";
 
         try {
             Statement statement1 = connectDb.createStatement();
             ResultSet queryResult1 = statement1.executeQuery(getNames);
 
+            //Loop through each event ID
             while (queryResult1.next()) {
                 int id = queryResult1.getInt("eventID");
+                //Choose which FXML file to load based on user type
                 String boxURL;
                 if (!isStudent) {
                     boxURL = "admin/EventBox.fxml";
                 } else {
                     boxURL = "student/StudentEventBox.fxml";
                 }
+                //Load FXML file and gets controller
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(boxURL));
                 root = loader.load();
                 EventBoxController eventBoxController = loader.getController();
@@ -67,19 +73,23 @@ public class EventPageController implements Initializable{
                 eventBoxController.initData(id);
 
 
+                //Select all event details from events table for the current event ID
                 String getEvents = "SELECT * FROM events WHERE eventID = '" + id + "';";
 
                 try {
                     Statement statement = connectDb.createStatement();
                     ResultSet queryResult = statement.executeQuery(getEvents);
 
+                    //Loop through each row of event details
                     while (queryResult.next()) {
 
+                        //Set the event details in the event box controller
                         eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
                         eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
                         eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
                         eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
                         eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
+                        //If user is a student, check if they are already participating in the event
                         if (isStudent) {
                             String getIsJoin = "SELECT count(1) FROM `" + eventBoxController.eventNameLabel.getText() + "_participants` WHERE participantID='" + studentID + "'";
                             Statement statement2 = connectDb.createStatement();
@@ -98,7 +108,7 @@ public class EventPageController implements Initializable{
                     e.printStackTrace();
                     e.getCause();
                 }
-
+                //Add the event box to the eventBoxes
                 eventBoxes.getChildren().add(root);
             }
         } catch (Exception e) {
