@@ -49,6 +49,7 @@ public class StudentInfoPageController implements Initializable {
 
     public void initialize(URL arg0, ResourceBundle arg1){
         adminStudentGradeChoice.getItems().addAll(grades);
+        adminStudentGradeChoice.setOnAction(this::getGrade);
 
         studentNumber.setCellValueFactory(new PropertyValueFactory<StudentInfo, String>("studentNumber"));
         firstName.setCellValueFactory(new PropertyValueFactory<StudentInfo, String>("firstName"));
@@ -76,20 +77,35 @@ public class StudentInfoPageController implements Initializable {
         studentInfoTable.setItems(list);
     }
 
+    public void getStudents(int grade) {
+        DatabaseConnection connectNow1 = new DatabaseConnection();
+        Connection connectDb1 = connectNow1.getConnection();
+        String getStudentInfo = "SELECT * FROM student_accounts WHERE studentGrade=" + grade + ";";
+
+        try {
+            Statement statement = connectDb1.createStatement();
+            ResultSet queryResult = statement.executeQuery(getStudentInfo);
+
+            while (queryResult.next()) {
+                list.add(new StudentInfo(queryResult.getString("studentNumber"), queryResult.getString("studentFirstName"), queryResult.getString("studentLastName"), queryResult.getInt("studentGrade"), queryResult.getInt("studentPoints")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+        studentInfoTable.setItems(list);
+    }
+
     public void getGrade(ActionEvent event){
         String gradeChosen = adminStudentGradeChoice.getValue();
         for ( int i = 0; i<studentInfoTable.getItems().size(); i++) {
             studentInfoTable.getItems().clear();
         }
-        //try {
-            if (gradeChosen != "All") {
-
-            } else {
-
-            }
-        //} catch (IOException e) {
-         //   throw new RuntimeException(e);
-        //}
+        if (gradeChosen == "All") {
+            getStudents();
+        } else {
+            getStudents(Integer.parseInt(gradeChosen.substring(6)));
+        }
     }
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
