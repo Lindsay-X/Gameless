@@ -2,12 +2,16 @@ package com.example.gameless;
 
 public class StudentInfo {
     private String studentNumber;
-    private String fullName;
+    private String firstName;
+    private String lastName;
+    private int grade;
     private int points;
 
-    public StudentInfo(String studentNumber, String fullName, int points) {
+    public StudentInfo(String studentNumber, String firstName, String lastName, int grade, int points) {
         this.studentNumber = studentNumber;
-        this.fullName = fullName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.grade = grade;
         this.points = points;
     }
 
@@ -15,11 +19,19 @@ public class StudentInfo {
         return studentNumber;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
-
     public int getPoints() {
         return points;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getGrade() {
+        return grade;
     }
 }

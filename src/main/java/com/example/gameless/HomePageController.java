@@ -35,7 +35,10 @@ public class HomePageController implements Initializable {
     }
 
     public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
+        root = loader.load();
+        StudentInfoPageController studentInfoPageController = loader.getController();
+        studentInfoPageController.getStudents();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

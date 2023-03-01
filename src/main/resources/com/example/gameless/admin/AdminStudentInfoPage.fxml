@@ -59,9 +59,10 @@
             <TableView fx:id="studentInfoTable" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">
               <columns>
                 <TableColumn fx:id="studentNumber" prefWidth="250.0" text="Student Number" />
-                <TableColumn fx:id="fullName" minWidth="0.0" prefWidth="350.0" text="Full Name" />
+                <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="350.0" text="First Name" />
+                 <TableColumn fx:id="lastName" minWidth="0.0" prefWidth="350.0" text="Last Name" />
                   <TableColumn fx:id="points" prefWidth="125.6004638671875" text="Points" />
-                  <TableColumn fx:id="studentNumber1" prefWidth="69.3995361328125" text="Grades" />
+                  <TableColumn fx:id="grade" prefWidth="69.3995361328125" text="Grade" />
               </columns>
             </TableView>
          </children>
