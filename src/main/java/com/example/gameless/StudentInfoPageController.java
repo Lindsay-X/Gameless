@@ -21,7 +21,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentInfoPageController implements Initializable {
-
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     @FXML
     private ChoiceBox<String> adminStudentGradeChoice;
     private String[] grade = {"All", "Grade 9", "Grade 10", "Grade 11", "Grade 12"};
@@ -72,11 +74,17 @@ public class StudentInfoPageController implements Initializable {
 
     public void getGrade(ActionEvent event){
         String gradeChosen = adminStudentGradeChoice.getValue();
-    }
+        studentInfoTable.getItems().clear();
+        //try {
+            if (gradeChosen != "All") {
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+            } else {
+
+            }
+        //} catch (IOException e) {
+         //   throw new RuntimeException(e);
+        //}
+    }
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
