@@ -76,6 +76,7 @@ public class AnnouncementPageController implements Initializable {
                 announcementBoxes.getChildren().add(0, root);
             }
         } catch (Exception e) {
+            //Print
             e.printStackTrace();
             e.getCause();
         }

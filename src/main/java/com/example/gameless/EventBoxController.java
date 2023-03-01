@@ -39,8 +39,11 @@ public class EventBoxController implements Initializable {
     Button joinEventButton;
 
     public void joinEventButtonOnAction(ActionEvent event) {
+        //Set the button appearance and text for when the student is signed up for the event
         setButton(true);
+        //Set the button action to remove the student's ID from the database when clicked
         joinEventButton.setOnAction(this::leaveEventButtonOnAction);
+        //Get a database connection and insert the student's ID into the event's participants table
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         String addEvent = "INSERT INTO `" + eventNameLabel.getText() + "_participants` (participantID) VALUES ('" + studentID + "')";
@@ -54,8 +57,11 @@ public class EventBoxController implements Initializable {
     }
 
     public void leaveEventButtonOnAction(ActionEvent event) {
+        //Set the button appearance and text for when the student is not signed up for the event
         setButton(false);
+        //Set the button action to sign up the student for the event when clicked
         joinEventButton.setOnAction(this::joinEventButtonOnAction);
+        //Get a database connection and remove the student's ID from the event's participants table
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         String addEvent = "DELETE FROM `" + eventNameLabel.getText() + "_participants` WHERE participantID='" + studentID + "'";

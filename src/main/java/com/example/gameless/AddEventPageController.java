@@ -99,7 +99,7 @@ public class AddEventPageController implements Initializable {
         //Connect to database
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-        //Define SQL statement to add new event to databse
+        //Define SQL statement to add new event to database
         String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag, eventPoints) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventDate.getValue().toString() + " " + eventTime.getText() + ":00', '" + eventTagChoice.getValue() + "', '" + eventPoints.getText() + "')";
         String addDB = "CREATE TABLE `fbla`.`" + eventName.getText() + "_participants` (\n" +
                 "  `participantID` VARCHAR(45) NOT NULL,\n" +
