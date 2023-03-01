@@ -34,6 +34,46 @@ public class HomePageController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
     }
 
+    public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void adminEventButtonOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
+        root = loader.load();
+        EventPageController eventPageController = loader.getController();
+        eventPageController.getEvents(false);
+        eventPageController.setStudent(false);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void adminAnnouncementsButtonOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
+        root = loader.load();
+        AnnouncementPageController announcementPageController = loader.getController();
+        announcementPageController.getAnnouncements();
+        announcementPageController.username = username;
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void adminPrizeButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void getAnnouncements() throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
@@ -118,46 +158,6 @@ public class HomePageController implements Initializable {
         stage.show();
     }
 
-    public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void adminEventButtonOnAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
-        root = loader.load();
-        EventPageController eventPageController = loader.getController();
-        eventPageController.getEvents(false);
-        eventPageController.setStudent(false);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void adminAnnouncementsButtonOnAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
-        root = loader.load();
-        AnnouncementPageController announcementPageController = loader.getController();
-        announcementPageController.getAnnouncements();
-        announcementPageController.username = username;
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void adminPrizeButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void studentEventButtonOnAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("student/studentEventPage.fxml"));
         root = loader.load();
@@ -165,6 +165,14 @@ public class HomePageController implements Initializable {
         eventPageController.setStudentID(username);
         eventPageController.getEvents(true);
         eventPageController.setStudent(true);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void studentPrizeButtonOnAction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("student/StudentPrizePage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
