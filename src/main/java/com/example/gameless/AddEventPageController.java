@@ -39,7 +39,7 @@ public class AddEventPageController implements Initializable {
     private TextArea eventDescription;
 
     @FXML
-    private Button publishEventButton;
+    private Button publishEventButton = new Button();
 
     @FXML
     private Label characterCount;

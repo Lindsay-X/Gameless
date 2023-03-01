@@ -16,7 +16,8 @@ public class PrizePageController {
     private Scene scene;
     private Parent root;
 
-    public void keyReleasedProperty(){
+    public void drawStudentButtonOnAction(ActionEvent event) throws IOException {
+
     }
 
     public void backPrizeButtonOnAction(ActionEvent event) throws IOException {

@@ -3,26 +3,49 @@ package com.example.gameless;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
-public class AddAnnouncementPageController {
-
+public class AddAnnouncementPageController implements Initializable {
     @FXML
-    public TextArea announcementMsg;
     private Stage stage;
     private Scene scene;
     private Parent root;
-    String username;
 
+    @FXML
+    public TextArea announcementMsg;
+    String username;
+    @FXML
+    private Button publishAnnouncementButton;
+    @FXML
+    private Label characterCount;
+
+    public void initialize(URL arg0, ResourceBundle arg1){
+        publishAnnouncementButton.setDisable(true);
+        characterCount.textProperty().bind(announcementMsg.textProperty()
+                .length()
+                .asString("Character Count: %d"));
+    }
+
+    public void keyReleasedProperty(){
+        String msg = announcementMsg.getText();
+        boolean isDisabled = (msg.isEmpty() || msg.trim().isEmpty() || msg.length()>200);
+        publishAnnouncementButton.setDisable(isDisabled);
+    }
     public void backAnnouncementButtonOnAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
         root = loader.load();

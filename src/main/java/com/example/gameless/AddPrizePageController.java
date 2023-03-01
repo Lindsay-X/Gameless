@@ -21,12 +21,6 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class AddPrizePageController implements Initializable {
-    @FXML
-    //private String[] icon = {"../../../../resources/com/example/gameless/image/balloon.png", "../../../../resources/com/example/gameless/image/coin.png", "../../../../resources/com/example/gameless/image/giftCard.png", "../../../../resources/com/example/gameless/image/hoodie.png", "../../../../resources/com/example/gameless/image/prizeBox.png", "../../../../resources/com/example/gameless/image/ticket.png"};
-    private String[] icon = {""};
-    private ObservableList<String> opt = FXCollections.observableArrayList();
-    private ComboBox<String> prizeIconChoice;
-
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -39,42 +33,16 @@ public class AddPrizePageController implements Initializable {
     private TextArea prizeDescription;
 
     @FXML
-    private Button publishEventButton;
+    private Button publishPrizeButton = new Button();
 
     @FXML
     private Label characterCount;
 
     public void initialize(URL arg0, ResourceBundle arg1){
-        opt.addAll(icon);
-        prizeIconChoice = new ComboBox<>(opt);
-        prizeIconChoice.setButtonCell(new StatusListCell());
-        prizeIconChoice.setCellFactory(e -> new StatusListCell());
-        prizeIconChoice.setOnAction(this::getTag); //calls the method
-
-        publishEventButton.setDisable(true);
+        publishPrizeButton.setDisable(true);
         characterCount.textProperty().bind(prizeDescription.textProperty()
                 .length()
                 .asString("Character Count: %d"));
-    }
-
-    public class StatusListCell extends ListCell<String> {
-
-        protected void updateItem(String item, boolean empty){
-            super.updateItem(item, empty);
-            setGraphic(null);
-            if(item!=null){
-                ImageView imageView = new ImageView(new Image(item));
-                imageView.setFitWidth(80);
-                imageView.setFitHeight(80);
-                setGraphic(imageView);
-            }
-        }
-
-    }
-
-    //method to get the tag value
-    public void getTag(ActionEvent event) {
-        String iconChosen = prizeIconChoice.getValue();
     }
 
     //method to disable to the publish button if the inputs are invalid
@@ -85,7 +53,7 @@ public class AddPrizePageController implements Initializable {
         boolean isDisabled = (name.isEmpty() || name.trim().isEmpty()) ||
                 (point.isEmpty() || point.trim().isEmpty() || !point.matches("0|[1-9]\\d*")) ||
                 (desc.isEmpty() || desc.trim().isEmpty() || desc.length()>450);
-        publishEventButton.setDisable(isDisabled);
+        publishPrizeButton.setDisable(isDisabled);
     }
 
     public void backPrizeButtonOnAction(ActionEvent event) throws IOException {

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.text.Font?>
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gameless.PrizeBoxController" prefHeight="150.0" prefWidth="200.0">
+    <children>
+        <ImageView fitHeight="380.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/prizeBackground1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="iconImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/giftBox.png" />
+            </image>
+            <StackPane.margin>
+                <Insets top="-175.0" />
+            </StackPane.margin>
+        </ImageView>
+        <Label fx:id="prizeName" text="Prize name" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+            <StackPane.margin>
+                <Insets top="35.0" />
+            </StackPane.margin>
+        </Label>
+        <Label fx:id="prizeDescription" text="Short Description">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+            <StackPane.margin>
+                <Insets top="90.0" />
+            </StackPane.margin>
+        </Label>
+        <Label fx:id="prizeCost" text="Cost">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+            <StackPane.margin>
+                <Insets top="130.0" />
+            </StackPane.margin>
+        </Label>
+        <Button fx:id="studentListButton" mnemonicParsing="false" onAction="#studentListButtonOnAction" prefHeight="75.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 7.5;" text="Student List" textFill="#00539c" underline="true">
+            <font>
+                <Font name="MuktaMahee Regular" size="18.0" />
+            </font>
+            <StackPane.margin>
+                <Insets top="290.0" />
+            </StackPane.margin>
+        </Button>
+    </children>
+</StackPane>
+

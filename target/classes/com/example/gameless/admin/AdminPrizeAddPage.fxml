@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -36,7 +35,7 @@
     <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
 </bottom>
 <center>
-    <VBox prefHeight="440.0" prefWidth="900.0" spacing="8.0" BorderPane.alignment="CENTER">
+    <VBox prefHeight="440.0" prefWidth="900.0" spacing="15.0" BorderPane.alignment="CENTER">
         <children>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
                <children>
@@ -80,17 +79,6 @@
                </VBox.margin>
             </Label>
             <HBox alignment="CENTER_LEFT" prefWidth="900.0">
-               <children>
-                  <Label text="Icon:">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="5.0" />
-                     </HBox.margin>
-                  </Label>
-                  <ComboBox fx:id="prizeIconChoice" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #FFE0BD; -fx-background-radius: 7.5;" />
-               </children>
                <padding>
                   <Insets bottom="5.0" />
                </padding>
@@ -110,22 +98,22 @@
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="publishAnnouncementButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Publish">
-                     <font>
-                        <Font name="MuktaMahee Regular" size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="250.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets top="0.5" />
-                     </padding>
-                  </Button>
                </children>
             </HBox>
+            <Button fx:id="publishAnnouncementButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Publish">
+               <font>
+                  <Font name="MuktaMahee Regular" size="18.0" />
+               </font>
+               <padding>
+                  <Insets top="0.5" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="700.0" />
+               </VBox.margin>
+            </Button>
         </children>
          <padding>
-            <Insets left="50.0" right="50.0" top="15.0" />
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </padding>
     </VBox>
 </center>
