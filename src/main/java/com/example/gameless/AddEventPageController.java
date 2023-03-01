@@ -56,7 +56,6 @@ public class AddEventPageController implements Initializable {
     //method to get the tag value
     public void getTag(ActionEvent event) {
         String tagChosen = eventTagChoice.getValue();
-        //System.out.println(tagChosen); // prints the value onto the console
     }
 
     //method to disable to the publish button if the inputs are invalid

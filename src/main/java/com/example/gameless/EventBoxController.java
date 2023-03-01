@@ -79,7 +79,10 @@ public class EventBoxController implements Initializable {
     }
 
     public void viewEventButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminEventViewPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventViewPage.fxml"));
+        root = loader.load();
+        EventViewPageController eventviewPageController = loader.getController();
+        eventviewPageController.getStudents(eventNameLabel.getText());
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
