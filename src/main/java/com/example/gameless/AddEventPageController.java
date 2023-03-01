@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddEventPageController implements Initializable {
@@ -63,14 +64,14 @@ public class AddEventPageController implements Initializable {
         //Extracting the value of the variables
         String name = eventName.getText();
         String time = eventTime.getText();
-        String date = eventDate.getValue().toString();
+        LocalDate date = eventDate.getValue();
         String point = eventPoints.getText();
         String loc = eventLocation.getText();
         String desc = eventDescription.getText();
         //Checks if all the inputs are valid
         boolean isDisabled = (name.isEmpty() || name.trim().isEmpty()) ||
                 (time.isEmpty() || time.trim().isEmpty()|| (!time.matches("([01]\\d|2[0-4]):[0-5]\\d")) && !time.matches("[1-9]:[0-5]\\d")) ||
-                (date.isEmpty() || date.trim().isEmpty()) ||
+                (date != null) ||
                 (point.isEmpty() || point.trim().isEmpty() || !point.matches("0|[1-9]\\d*")) ||
                 (loc.isEmpty() || loc.trim().isEmpty()) ||
                 (desc.isEmpty() || desc.trim().isEmpty() || desc.length()>450);
