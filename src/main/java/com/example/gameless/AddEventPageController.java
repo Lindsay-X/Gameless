@@ -76,7 +76,11 @@ public class AddEventPageController implements Initializable {
     }
 
     public void backEventButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminEventPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
+        root = loader.load();
+        EventPageController eventPageController = loader.getController();
+        eventPageController.getEvents(false);
+        eventPageController.setStudent(false);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

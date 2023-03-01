@@ -63,31 +63,4 @@ public class AddPrizePageController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-   /* public void publishButtonOnAction(ActionEvent event) throws IOException {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-        String addEvent = "INSERT INTO events (eventName, eventDescription, eventLocation, eventTime, eventTag, eventPoints) VALUES ('" + eventName.getText() + "', '" + eventDescription.getText() + "', '" + eventLocation.getText() + "', '" + eventDate.getValue().toString() + " " + eventTime.getText() + ":00', '" + prizeIconChoice.getValue() + "', '" + eventPoints.getText() + "')";
-        String addDB = "CREATE TABLE `fbla`.`" + eventName.getText() + "_participants` (\n" +
-                "  `participantID` VARCHAR(45) NOT NULL,\n" +
-                "  `showedUp` TINYINT(3) UNSIGNED ZEROFILL NOT NULL DEFAULT 0,\n" +
-                "  PRIMARY KEY (`participantID`));";
-        try {
-            Statement statement = connectDb.createStatement();
-            statement.executeUpdate(addEvent);
-            statement.execute(addDB);
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
-        root = loader.load();
-        EventPageController eventPageController = loader.getController();
-        eventPageController.getEvents(false);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }*/
 }
