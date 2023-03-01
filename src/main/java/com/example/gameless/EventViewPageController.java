@@ -1,5 +1,6 @@
 package com.example.gameless;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,9 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -25,7 +28,7 @@ import java.util.ResourceBundle;
 public class EventViewPageController implements Initializable {
 
     @FXML
-    public TableView studentInfoTable;
+    public TableView<EventStudentInfo> studentInfoTable;
     @FXML
     public Label eventNameLabel;
     @FXML

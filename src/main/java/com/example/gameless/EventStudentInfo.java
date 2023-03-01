@@ -3,6 +3,8 @@ package com.example.gameless;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 
 public class EventStudentInfo {
 
@@ -10,14 +12,18 @@ public class EventStudentInfo {
     private SimpleStringProperty firstName;
     private SimpleStringProperty lastName;
     private SimpleIntegerProperty grade;
-    private SimpleBooleanProperty showedUp;
+    //private SimpleBooleanProperty showedUp;
+
+    @FXML
+    private CheckBox showedUp;
 
     public EventStudentInfo(String studentId, String firstName, String lastName, int grade, boolean showedUp) {
         this.studentNumber = new SimpleStringProperty(studentId);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
         this.grade = new SimpleIntegerProperty(grade);
-        this.showedUp = new SimpleBooleanProperty(showedUp);
+        //this.showedUp = new SimpleBooleanProperty(showedUp);
+        this.showedUp = new CheckBox();
     }
 
     public String getStudentNumber() {
@@ -52,11 +58,19 @@ public class EventStudentInfo {
         this.grade = new SimpleIntegerProperty(grade);
     }
 
-    public boolean getShowedUp() {
+    /*public boolean getShowedUp() {
         return showedUp.get();
     }
 
     public void setShowedUp(boolean showedUp) {
         this.showedUp = new SimpleBooleanProperty(showedUp);
+    }*/
+
+    public CheckBox getSelect() {
+        return showedUp;
+    }
+
+    public void setShowedUp(CheckBox showedUp1) {
+        this.showedUp = showedUp;
     }
 }
