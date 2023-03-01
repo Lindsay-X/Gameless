@@ -27,7 +27,7 @@
                         <Insets />
                     </HBox.margin>
                 </Label>
-                <Button fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" minHeight="22.0" minWidth="22.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="22.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textOverrun="CLIP">
+                <Button fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" minHeight="22.0" minWidth="22.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="22.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textOverrun="CLIP" onAction="#deleteButtonOnAction">
                     <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                             <image>

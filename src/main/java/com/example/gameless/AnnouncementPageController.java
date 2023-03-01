@@ -57,7 +57,7 @@ public class AnnouncementPageController implements Initializable {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         //Define SQL query to retrieve announcements
-        String getAnnouncements = "SELECT announcementSender, announcementMsg FROM announcements;";
+        String getAnnouncements = "SELECT announcementSender, announcementMsg, announcementID FROM announcements;";
 
         try {
             //Create statement object and execute the query
@@ -71,6 +71,8 @@ public class AnnouncementPageController implements Initializable {
                 AnnouncementPageBoxController announcementPageBoxController = loader.getController();
                 announcementPageBoxController.teacherLabel.setText(queryResult1.getString("announcementSender"));
                 announcementPageBoxController.msgLabel.setText(queryResult1.getString("announcementMsg"));
+                announcementPageBoxController.username = username;
+                announcementPageBoxController.announcementID = queryResult1.getInt("announcementID");
                 announcementBoxes.getChildren().add(0, root);
             }
         } catch (Exception e) {
