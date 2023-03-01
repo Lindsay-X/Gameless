@@ -18,7 +18,7 @@
          <children>
             <VBox prefHeight="365.0" prefWidth="265.0" style="-fx-background-color: transparent;">
                <children>
-                  <Button fx:id="studentProfileButton" mnemonicParsing="false" onAction="#studentProfileButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="&lt;Student Name&gt;">
+                  <Button fx:id="studentProfileButton" mnemonicParsing="false" onAction="#studentProfileButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5; -fx-wrap-text: true;" stylesheets="@../HomePageButton.css" text="&lt;Student Name&gt;" textAlignment="CENTER">
                      <font>
                         <Font size="24.0" />
                      </font>
