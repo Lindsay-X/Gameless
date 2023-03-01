@@ -74,7 +74,9 @@ public class StudentInfoPageController implements Initializable {
 
     public void getGrade(ActionEvent event){
         String gradeChosen = adminStudentGradeChoice.getValue();
-        studentInfoTable.getItems().clear();
+        for ( int i = 0; i<studentInfoTable.getItems().size(); i++) {
+            studentInfoTable.getItems().clear();
+        }
         //try {
             if (gradeChosen != "All") {
 
