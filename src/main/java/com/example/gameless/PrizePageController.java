@@ -72,7 +72,7 @@ public class PrizePageController {
                 PrizeBoxController prizeBoxController = loader.getController();
                 prizeBoxController.initData(queryResult1.getString("prizeName"), queryResult1.getString("prizeDescription"), queryResult1.getInt("prizeCost"));
 
-                prizeBoxes.add(root, counter / 3, counter % 3, 1, 1);
+                prizeBoxes.add(root, counter % 3, counter / 3, 1, 1);
                 counter++;
             }
         } catch (Exception e) {
