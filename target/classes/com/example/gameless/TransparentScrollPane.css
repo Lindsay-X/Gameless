@@ -3,7 +3,7 @@
 }
 
 .scroll-pane {
-    -fx-background-color:  #EEA47F;
+    -fx-background-color: #e8e3d7;
 }
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
@@ -41,5 +41,5 @@
 }
 
 .scroll-pane > .content{
-    -fx-background-color: #EEA47F;
+    -fx-background-color: #e8e3d7;
 }

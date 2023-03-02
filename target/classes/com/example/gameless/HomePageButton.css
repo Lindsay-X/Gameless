@@ -1,5 +1,5 @@
 .button{
-    -fx-background-color: #72B4ED;
+    -fx-background-color: #a2cfc2;
     -fx-background-radius: 7.5;
     -fx-border-radius: 7.5;
     -fx-pref-height: 101.5;
@@ -9,5 +9,5 @@
     -fx-font-color: rgba(0,0,0,1);
 }
 .button:pressed{
-    -fx-background-color: rgba(217, 217, 217, 0.8);
+    -fx-background-color: #6ed2b5;
 }

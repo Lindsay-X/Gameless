@@ -1,17 +1,17 @@
 BorderPane{
-    -fx-background-color: #00539C;
+    -fx-background-color: #706f69;
 }
 
 AnchorPane{
-    -fx-background-color: #00539C;
+    -fx-background-color: #8c8b87;
 }
 
 GridPane{
-    -fx-background-color: #EEA47F;
+    -fx-background-color: #e8e3d7;
 }
 
 VBox{
-    -fx-background-color: #EEA47F;
+    -fx-background-color: #e8e3d7;
     -fx-background-radius: 7.5;
     -fx-border-radius: 7.5;
 }

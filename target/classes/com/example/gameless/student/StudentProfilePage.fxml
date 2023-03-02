@@ -35,7 +35,7 @@
 <center>
     <VBox prefHeight="440.0" prefWidth="900.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.7); -fx-background-radius: 7.5;">
                <children>
                   <Label text="Event Name:">
                      <font>
@@ -52,7 +52,7 @@
                   <Insets bottom="10.0" left="25.0" right="25.0" top="15.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.7); -fx-background-radius: 7.5;">
                <children>
                   <Label text="Grade:">
                      <font>
@@ -69,7 +69,7 @@
                   <Insets bottom="10.0" left="25.0" right="25.0" top="15.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: rgba(255, 255, 255, 0.7); -fx-background-radius: 7.5;">
                <children>
                   <Label text="Student Number:">
                      <font>
@@ -86,7 +86,7 @@
                   <Insets bottom="10.0" left="25.0" right="25.0" top="15.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-radius: 7.5; -fx-background-color: rgba(255, 255, 255, 0.5);">
+            <VBox prefHeight="90.0" prefWidth="800.0" spacing="5.0" style="-fx-background-radius: 7.5; -fx-background-color: rgba(255, 255, 255, 0.7);">
                <children>
                   <Label text="Points:">
                      <font>

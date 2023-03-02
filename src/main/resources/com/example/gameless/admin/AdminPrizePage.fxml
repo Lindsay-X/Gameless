@@ -28,7 +28,7 @@
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="addPrizeButton" mnemonicParsing="false" onAction="#addPrizeButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Add">
+                <Button fx:id="addPrizeButton" mnemonicParsing="false" onAction="#addPrizeButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #afeddb; -fx-background-radius: 7.5;" text="Add">
                     <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                     </font>
@@ -73,7 +73,7 @@
                                     <children>
                                         <ImageView fitHeight="380.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../image/prizeBackground1.png" />
+                                                <Image url="@../image/prizeBackground2.png" />
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="iconImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
@@ -84,7 +84,7 @@
                                                 <Insets top="-175.0" />
                                             </StackPane.margin>
                                         </ImageView>
-                                        <Label fx:id="prizeName" text="Prize name" textFill="WHITE">
+                                        <Label fx:id="prizeName" text="Prize name">
                                             <font>
                                                 <Font name="System Bold" size="22.0" />
                                             </font>

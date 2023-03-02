@@ -38,11 +38,11 @@
         <children>
             <HBox prefHeight="45.0" prefWidth="900.0" spacing="600.0">
                 <children>
-                    <ChoiceBox fx:id="eventTagChoice" prefHeight="31.0" prefWidth="110.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #A66FD2; -fx-background-radius: 7.5; -fx-border-insets: -1;" value="Tag">
+                    <ChoiceBox fx:id="eventTagChoice" prefHeight="31.0" prefWidth="110.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #d3b1ae; -fx-background-radius: 7.5; -fx-border-insets: -1;" value="Tag">
                         <HBox.margin>
                             <Insets left="20.0" right="20.0" top="7.0" />
                         </HBox.margin></ChoiceBox>
-                  <Button fx:id="addEventButton" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#addEventButtonOnAction" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="add">
+                  <Button fx:id="addEventButton" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#addEventButtonOnAction" prefHeight="31.0" prefWidth="80.0" stylesheets="@../AddPublishButton.css" text="add">
                      <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                      </font>

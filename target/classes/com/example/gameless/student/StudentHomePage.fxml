@@ -18,19 +18,19 @@
          <children>
             <VBox prefHeight="365.0" prefWidth="265.0" style="-fx-background-color: transparent;">
                <children>
-                  <Button fx:id="studentProfileButton" mnemonicParsing="false" onAction="#studentProfileButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5; -fx-wrap-text: true;" stylesheets="@../HomePageButton.css" text="&lt;Student Name&gt;" textAlignment="CENTER">
+                  <Button fx:id="studentProfileButton" mnemonicParsing="false" onAction="#studentProfileButtonOnAction" prefHeight="102.0" prefWidth="265.0" stylesheets="@../HomePageButton.css" text="&lt;Student Name&gt;">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Pane layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="265.0" />
-                  <Button fx:id="studentPrizeButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#studentPrizeButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="Prizes">
+                  <Button fx:id="studentPrizeButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#studentPrizeButtonOnAction" prefHeight="102.0" prefWidth="265.0" stylesheets="@../HomePageButton.css" text="Prizes">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Pane layoutX="10.0" layoutY="254.0" prefHeight="30.0" prefWidth="265.0" />
-                  <Button fx:id="studentEventButton" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" onAction="#studentEventButtonOnAction" prefHeight="102.0" prefWidth="265.0" style="-fx-background-radius: 7.5;" stylesheets="@../HomePageButton.css" text="Events">
+                  <Button fx:id="studentEventButton" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" onAction="#studentEventButtonOnAction" prefHeight="102.0" prefWidth="265.0" stylesheets="@../HomePageButton.css" text="Events">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -38,7 +38,7 @@
                </children>
             </VBox>
             <Pane prefHeight="365.0" prefWidth="30.0" />
-            <BorderPane prefHeight="365.0" prefWidth="385.0" style="-fx-background-color: #EEA47F; -fx-background-radius: 7.5;">
+            <BorderPane prefHeight="365.0" prefWidth="385.0" style="-fx-background-color: e8e3d7; -fx-background-radius: 7.5;">
                <top>
                   <Pane prefHeight="20.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                </top>
@@ -54,7 +54,7 @@
                <center>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" stylesheets="@../TransparentScrollPane.css" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
                      <content>
-                        <VBox fx:id="studentHomePageAnnouncementPanes" minHeight="325.0" prefWidth="328.0" style="-fx-background-color: #EEA47F;">
+                        <VBox fx:id="studentHomePageAnnouncementPanes" minHeight="325.0" prefWidth="328.0">
                            <children>
 
                            </children>

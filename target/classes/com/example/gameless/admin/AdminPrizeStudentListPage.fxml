@@ -22,7 +22,7 @@
                   <Font name="MuktaMahee Regular" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="drawStudentButton" mnemonicParsing="false" onAction="#drawStudentButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="Draw">
+            <Button fx:id="drawStudentButton" mnemonicParsing="false" onAction="#drawStudentButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #afeddb; -fx-background-radius: 7.5;" text="Draw">
                <font>
                   <Font name="MuktaMahee Regular" size="18.0" />
                </font>
@@ -42,9 +42,9 @@
       <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
-      <VBox prefHeight="440.0" prefWidth="900.0" style="-fx-background-color: #FFB45F;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="440.0" prefWidth="900.0" style="-fx-background-color: #b4a4a4;" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="studentInfoTable" prefHeight="441.0" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">
+            <TableView fx:id="studentInfoTable" prefHeight="441.0" prefWidth="900.0" stylesheets="@../InfoTable.css">
               <columns>
                 <TableColumn fx:id="studentNumber" prefWidth="345.0" text="Student Number" />
                 <TableColumn fx:id="fullName" minWidth="0.0" prefWidth="488.0" text="Full Name" />

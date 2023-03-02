@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="eventBox" maxHeight="200.0" maxWidth="800.0" minHeight="200.0" minWidth="800.0" prefHeight="200.0" prefWidth="800.0" stylesheets="@../EventBox.css" VBox.vgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.gameless.EventBoxController">
+<VBox fx:id="eventBox" maxHeight="200.0" maxWidth="800.0" minHeight="200.0" minWidth="800.0" prefHeight="200.0" prefWidth="800.0" stylesheets="@../InfoInput.css" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.EventBoxController">
     <children>
         <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="800.0" spacing="75.0">
             <children>
@@ -21,7 +21,7 @@
                         <Insets />
                     </HBox.margin>
                 </Label>
-                <Button fx:id="deleteStudentButton" alignment="CENTER" contentDisplay="CENTER" minHeight="22.0" minWidth="22.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="22.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textOverrun="CLIP" onAction="#deleteButtonOnAction">
+                <Button fx:id="deleteStudentButton" alignment="CENTER" contentDisplay="CENTER" minHeight="22.0" minWidth="22.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" prefHeight="22.0" prefWidth="22.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textOverrun="CLIP">
                     <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -89,7 +89,7 @@
                         <Font name="MuktaMahee Regular" size="16.0" />
                     </font>
                 </Label>
-                <Button fx:id="viewEventButton" alignment="CENTER" mnemonicParsing="false" onAction="#viewEventButtonOnAction" prefWidth="100.0" style="-fx-background-color: #ABFFC9; -fx-background-radius: 7.5;" text="View">
+                <Button fx:id="viewEventButton" alignment="CENTER" mnemonicParsing="false" onAction="#viewEventButtonOnAction" prefWidth="100.0" stylesheets="@../AddPublishButton.css" text="View">
                     <font>
                         <Font name="MuktaMahee Regular" size="16.0" />
                     </font>

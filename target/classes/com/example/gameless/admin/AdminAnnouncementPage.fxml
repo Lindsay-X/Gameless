@@ -2,10 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -40,7 +37,7 @@
         <children>
             <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="900.0">
                 <children>
-                  <Button fx:id="addAnnouncementButton" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#addAnnouncementButtonOnAction" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #47E186; -fx-background-radius: 7.5;" text="add">
+                  <Button fx:id="addAnnouncementButton" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#addAnnouncementButtonOnAction" prefHeight="31.0" prefWidth="80.0" stylesheets="@../AddPublishButton.css" text="add">
                      <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                      </font>
@@ -61,7 +58,10 @@
                   <VBox fx:id="announcementBoxes" minHeight="375.0" prefWidth="800.0">
                      <children>
 
-                     </children></VBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></VBox>
                </content>
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />

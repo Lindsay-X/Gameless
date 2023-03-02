@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <?import javafx.geometry.Insets?>
-
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
-<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gameless.PrizeBoxController" prefHeight="150.0" prefWidth="200.0">
+
+<StackPane prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.PrizeBoxController">
     <children>
         <ImageView fitHeight="380.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../image/prizeBackground1.png" />
+                <Image url="@../image/prizeBackground2.png" />
             </image>
         </ImageView>
         <ImageView fx:id="iconImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
@@ -26,7 +23,7 @@
                 <Insets top="-175.0" />
             </StackPane.margin>
         </ImageView>
-        <Label fx:id="prizeName" text="Prize name" textFill="WHITE">
+        <Label fx:id="prizeName" text="Prize name">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>
@@ -60,4 +57,3 @@
         </Button>
     </children>
 </StackPane>
-
