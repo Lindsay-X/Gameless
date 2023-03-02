@@ -99,7 +99,7 @@ public class StudentInfoPageController implements Initializable {
         for ( int i = 0; i<studentInfoTable.getItems().size(); i++) {
             studentInfoTable.getItems().clear();
         }
-        if (gradeChosen == "All") {
+        if (gradeChosen.equals("All")) {
             getStudents();
         } else {
             getStudents(Integer.parseInt(gradeChosen.substring(6)));

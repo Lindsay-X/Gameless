@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -23,7 +24,7 @@
                   <Font name="MuktaMahee Regular" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="drawStudentButton" mnemonicParsing="false" onAction="#drawStudentButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #afeddb; -fx-background-radius: 7.5;" text="Draw">
+            <Button fx:id="drawStudentButton" mnemonicParsing="false" onAction="#drawStudentButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #afeddb; -fx-background-radius: 7.5;" text="Draw Winner">
                <font>
                   <Font name="MuktaMahee Regular" size="18.0" />
                </font>
@@ -45,12 +46,28 @@
    <center>
       <VBox prefHeight="440.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="45.0" prefWidth="900.0" spacing="650.0">
+            <HBox prefHeight="45.0" prefWidth="900.0">
                <children>
                   <ChoiceBox fx:id="adminStudentGradeChoice" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #d3b1ae; -fx-background-radius: 7.5; -fx-border-insets: -1;" value="Grade 9">
                      <HBox.margin>
-                        <Insets left="20.0" right="20.0" top="7.0" />
+                        <Insets left="20.0" right="45.0" top="7.0" />
                      </HBox.margin></ChoiceBox>
+                  <Label alignment="CENTER" text="Winner: ">
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="winnerLabel" text="None">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
             <TableView fx:id="studentInfoTable" prefWidth="900.0" stylesheets="@../InfoTable.css">

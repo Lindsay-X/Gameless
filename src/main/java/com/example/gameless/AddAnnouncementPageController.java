@@ -81,7 +81,7 @@ public class AddAnnouncementPageController implements Initializable {
         }
 
         String addAnnouncement = "";
-        if (publishAnnouncementButton.getText() == "Publish") {
+        if (publishAnnouncementButton.getText().equals("Publish")) {
             addAnnouncement = "INSERT INTO announcements (announcementSender, announcementMsg) VALUES ('" + name + "', '" + announcementMsg.getText() + "')";
         } else {
             addAnnouncement = "UPDATE announcements SET announcementMsg='" + announcementMsg.getText() + "' WHERE announcementID = " + announcementID + ";";

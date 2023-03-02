@@ -70,7 +70,10 @@ public class HomePageController implements Initializable {
     }
 
     public void adminPrizeButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
+        root = loader.load();
+        PrizePageController prizePageController = loader.getController();
+        prizePageController.getPrizes();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -175,7 +178,8 @@ public class HomePageController implements Initializable {
     }
 
     public void studentPrizeButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("student/StudentPrizePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("student/StudentPrizePage.fxml"));
+        root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
