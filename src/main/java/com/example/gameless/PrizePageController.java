@@ -16,9 +16,6 @@ public class PrizePageController {
     private Scene scene;
     private Parent root;
 
-    public void drawStudentButtonOnAction(ActionEvent event) throws IOException {
-
-    }
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
@@ -36,16 +33,12 @@ public class PrizePageController {
         stage.show();
     }
 
-    public void backPrizeButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void studentListButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizeStudentListPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizeStudentListPage.fxml"));
+        root = loader.load();
+        PrizeStudentInfoPageController prizeStudentInfoPageController = loader.getController();
+        prizeStudentInfoPageController.selectedGrade = 9;
+        prizeStudentInfoPageController.getStudents(prizeStudentInfoPageController.selectedGrade);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
