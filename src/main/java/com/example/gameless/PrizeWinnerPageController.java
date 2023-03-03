@@ -34,6 +34,7 @@ public class PrizeWinnerPageController implements Initializable{
     private Parent root;
     @FXML
     private VBox prizeWinnerBoxes;
+    String username;
 
     public void initialize(URL arg0, ResourceBundle arg1){}
 
@@ -101,6 +102,7 @@ public class PrizeWinnerPageController implements Initializable{
         root = loader.load();
         PrizePageController prizePageController = loader.getController();
         prizePageController.isStudent = false;
+        prizePageController.username = username;
         prizePageController.getPrizes();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

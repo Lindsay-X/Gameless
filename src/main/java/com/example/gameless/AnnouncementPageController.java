@@ -27,13 +27,14 @@ public class AnnouncementPageController implements Initializable {
     String username;
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
-        //Load the FXML file for the admin home page and set it as the root object
-        root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
-        //Get the stage from the event source and set new scene to root object
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        String username = this.username;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/adminHomePage.fxml"));
+        root = loader.load();
+        HomePageController homePageController = loader.getController();
+        homePageController.setUsername(username);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        //Show updated stage
         stage.show();
     }
 

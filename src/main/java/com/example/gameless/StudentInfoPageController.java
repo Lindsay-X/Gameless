@@ -42,6 +42,7 @@ public class StudentInfoPageController implements Initializable {
     private TableColumn<StudentInfo, Integer> grade;
     @FXML
     private TableColumn<StudentInfo, Integer> points;
+    String username;
     ObservableList<StudentInfo> list = FXCollections.observableArrayList();
 
     public void initialize(URL arg0, ResourceBundle arg1){
@@ -106,8 +107,11 @@ public class StudentInfoPageController implements Initializable {
     }
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/adminHomePage.fxml"));
+        root = loader.load();
+        HomePageController homePageController = loader.getController();
+        homePageController.setUsername(username);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

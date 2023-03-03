@@ -51,6 +51,7 @@ public class AddAnnouncementPageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
         root = loader.load();
         AnnouncementPageController announcementPageController = loader.getController();
+        announcementPageController.username = username;
         announcementPageController.getAnnouncements();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -98,6 +99,7 @@ public class AddAnnouncementPageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
         root = loader.load();
         AnnouncementPageController announcementPageController = loader.getController();
+        announcementPageController.username = username;
         announcementPageController.getAnnouncements();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

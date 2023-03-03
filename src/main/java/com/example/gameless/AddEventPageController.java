@@ -18,6 +18,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddEventPageController implements Initializable {
+    public String username;
     @FXML
     private ChoiceBox<String> eventTagChoice;
     private String[] tag = {"Sports", "Art", "Theater", "Music", "Community Service", "Academic"};
@@ -87,6 +88,7 @@ public class AddEventPageController implements Initializable {
         EventPageController eventPageController = loader.getController();
         eventPageController.getEvents(false);
         eventPageController.setStudent(false);
+        eventPageController.adminUsername = username;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         //Get the stage from the event source and set the new scene to the root object
         scene = new Scene(root);
@@ -121,6 +123,8 @@ public class AddEventPageController implements Initializable {
         //Get the class from the FXML loader and calls a method to update events
         EventPageController eventPageController = loader.getController();
         eventPageController.getEvents(false);
+        eventPageController.setStudent(false);
+        eventPageController.adminUsername = username;
         //Set the new scene to the root object and display the updated stage
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

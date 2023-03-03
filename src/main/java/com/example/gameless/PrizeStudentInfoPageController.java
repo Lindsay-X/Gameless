@@ -34,6 +34,7 @@ public class PrizeStudentInfoPageController implements Initializable {
     private Parent root;
     int selectedGrade;
     String prizeName;
+    String username;
     @FXML
     private ChoiceBox<String> adminStudentGradeChoice;
     private String[] grades = {"Grade 9", "Grade 10", "Grade 11", "Grade 12"};
@@ -133,6 +134,7 @@ public class PrizeStudentInfoPageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
         root = loader.load();
         PrizePageController prizePageController = loader.getController();
+        prizePageController.username = username;
         prizePageController.getPrizes();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

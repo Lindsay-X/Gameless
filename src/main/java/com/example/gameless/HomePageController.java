@@ -39,6 +39,7 @@ public class HomePageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
         root = loader.load();
         StudentInfoPageController studentInfoPageController = loader.getController();
+        studentInfoPageController.username = username;
         studentInfoPageController.getStudents();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -52,6 +53,7 @@ public class HomePageController implements Initializable {
         EventPageController eventPageController = loader.getController();
         eventPageController.getEvents(false);
         eventPageController.setStudent(false);
+        eventPageController.adminUsername = username;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -74,6 +76,7 @@ public class HomePageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
         root = loader.load();
         PrizePageController prizePageController = loader.getController();
+        prizePageController.username = username;
         prizePageController.isStudent = false;
         prizePageController.getPrizes();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

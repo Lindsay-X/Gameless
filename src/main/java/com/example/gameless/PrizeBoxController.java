@@ -21,12 +21,14 @@ public class PrizeBoxController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    String username;
 
     public void studentListButtonOnAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizeStudentListPage.fxml"));
         root = loader.load();
         PrizeStudentInfoPageController prizeStudentInfoPageController = loader.getController();
         prizeStudentInfoPageController.selectedGrade = 9;
+        prizeStudentInfoPageController.username = username;
         prizeStudentInfoPageController.prizeName = prizeName.getText();
         prizeStudentInfoPageController.pointThreshold = Integer.parseInt(prizeCost.getText().substring(17));
         prizeStudentInfoPageController.getStudents(prizeStudentInfoPageController.selectedGrade);

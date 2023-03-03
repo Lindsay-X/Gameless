@@ -30,8 +30,12 @@ public class PrizePageController {
     boolean isStudent;
 
     public void backButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        String username = this.username;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/adminHomePage.fxml"));
+        root = loader.load();
+        HomePageController homePageController = loader.getController();
+        homePageController.setUsername(username);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -50,7 +54,10 @@ public class PrizePageController {
     }
 
     public void addPrizeButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizeAddPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizeAddPage.fxml"));
+        root = loader.load();
+        AddPrizePageController addPrizePageController = loader.getController();
+        addPrizePageController.username = username;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -81,6 +88,7 @@ public class PrizePageController {
                 root = loader.load();
                 PrizeBoxController prizeBoxController = loader.getController();
                 prizeBoxController.initData(queryResult1.getString("prizeName"), queryResult1.getString("prizeDescription"), queryResult1.getInt("prizeCost"));
+                prizeBoxController.username = username;
 
                 prizeBoxes.add(root, counter % 3, counter / 3, 1, 1);
                 counter++;
@@ -95,6 +103,7 @@ public class PrizePageController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizeWinnerPage.fxml"));
         root = loader.load();
         PrizeWinnerPageController prizeWinnerPageController = loader.getController();
+        prizeWinnerPageController.username = username;
         prizeWinnerPageController.getWinners();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

@@ -36,6 +36,7 @@ public class EventPageController implements Initializable{
     private Parent root;
     private boolean isStudent;
     private String studentID;
+    String adminUsername;
     @FXML
     private VBox eventBoxes;
 
@@ -104,7 +105,6 @@ public class EventPageController implements Initializable{
                             }
                         }
                     }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                     e.getCause();
@@ -198,8 +198,12 @@ public class EventPageController implements Initializable{
 
     //Button Actions
     public void backButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        String username = adminUsername;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/adminHomePage.fxml"));
+        root = loader.load();
+        HomePageController homePageController = loader.getController();
+        homePageController.setUsername(username);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -236,7 +240,10 @@ public class EventPageController implements Initializable{
     }
 
     public void addEventButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminEventAddPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventAddPage.fxml"));
+        root = loader.load();
+        AddEventPageController addEventPageController = loader.getController();
+        addEventPageController.username = adminUsername;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
