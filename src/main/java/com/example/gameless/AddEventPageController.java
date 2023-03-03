@@ -72,7 +72,7 @@ public class AddEventPageController implements Initializable {
         //Checks if all the inputs are valid
         boolean isDisabled = (name.isEmpty() || name.trim().isEmpty()) ||
                 (time.isEmpty() || time.trim().isEmpty()|| (!time.matches("([01]\\d|2[0-4]):[0-5]\\d")) && !time.matches("[1-9]:[0-5]\\d")) ||
-                (date != null) ||
+                (date == null) ||
                 (point.isEmpty() || point.trim().isEmpty() || !point.matches("0|[1-9]\\d*")) ||
                 (loc.isEmpty() || loc.trim().isEmpty()) ||
                 (desc.isEmpty() || desc.trim().isEmpty() || desc.length()>450);
