@@ -28,6 +28,7 @@ import java.util.ResourceBundle;
 
 public class PrizeWinnerPageController implements Initializable{
 
+    public Label studentNumberLabel;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -38,6 +39,32 @@ public class PrizeWinnerPageController implements Initializable{
 
     //Method to get all events, either for student or admin
     public void getWinners() throws IOException {
+        DatabaseConnection connectNow1 = new DatabaseConnection();
+        Connection connectDb1 = connectNow1.getConnection();
+        String getHighestPoints = "SELECT  studentNumber, studentPoints\n" +
+                "FROM student_accounts\n" +
+                "WHERE studentPoints = (SELECT MAX(studentPoints) FROM student_accounts);";
+
+        String studentNumbers = "";
+
+        try {
+            Statement statement1 = connectDb1.createStatement();
+            ResultSet queryResult1 = statement1.executeQuery(getHighestPoints);
+
+            while (queryResult1.next()) {
+                studentNumbers += ", " + (queryResult1.getString("studentNumber"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        if (studentNumbers.length() >= 110) {
+            studentNumberLabel.setText("Too many");
+        } else {
+            studentNumberLabel.setText(studentNumbers.substring(2));
+        }
+
         //Establish database connection
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
