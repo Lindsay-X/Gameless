@@ -13,7 +13,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.EventViewPageController">
     <top>
-        <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="960.0" spacing="690.0" BorderPane.alignment="CENTER">
+        <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="960.0" spacing="570.0" BorderPane.alignment="CENTER">
             <children>
                 <Button fx:id="backButton" mnemonicParsing="false" onAction="#backEventButtonOnAction" stylesheets="@../BackButton.css" text="Back">
                     <HBox.margin>
@@ -23,7 +23,7 @@
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>
                 </Button>
-            <Button fx:id="submitButton" mnemonicParsing="false" onAction="#submitButtonOnAction" prefHeight="40.0" prefWidth="80.0" stylesheets="@../AddPublishButton.css" text="Submit">
+            <Button fx:id="submitButton" mnemonicParsing="false" onAction="#submitButtonOnAction" prefHeight="40.0" prefWidth="200.0" stylesheets="@../AddPublishButton.css" text="Submit &amp; End Event">
                <font>
                   <Font size="16.0" />
                </font>

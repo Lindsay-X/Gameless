@@ -91,6 +91,7 @@ public class EventBoxController implements Initializable {
         EventViewPageController eventviewPageController = loader.getController();
         eventviewPageController.getStudents(eventNameLabel.getText());
         eventviewPageController.username = username;
+        eventviewPageController.points = Integer.parseInt(eventPointsLabel.getText());
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -127,6 +128,7 @@ public class EventBoxController implements Initializable {
             e.printStackTrace();
             e.getCause();
         }
+
         //Load admin event page and set it as the root object
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
         root = loader.load();

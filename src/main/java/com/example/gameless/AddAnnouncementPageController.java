@@ -80,7 +80,7 @@ public class AddAnnouncementPageController implements Initializable {
 
         try {
             //Execute SQL statement
-            Statement statement = connectDb1.createStatement();
+            Statement statement = connectDb.createStatement();
             ResultSet queryResult = statement.executeQuery(getName);
 
             while(queryResult.next()) {

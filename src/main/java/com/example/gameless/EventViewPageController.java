@@ -43,9 +43,9 @@ public class EventViewPageController implements Initializable {
     private Parent root;
     private ObservableList<EventStudentInfo> eventStudentInfo = FXCollections.observableArrayList();
     String username;
+    int points;
     @FXML
     private Button submitButton;
-
     public void backEventButtonOnAction(ActionEvent event) throws IOException {
         //Loads the AdminEventPage.fxml file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
@@ -118,9 +118,9 @@ public class EventViewPageController implements Initializable {
         present.setCellValueFactory(new PropertyValueFactory<>("showedUp"));
     }
 
-    public void submitButtonOnAction(ActionEvent event){
+    public void submitButtonOnAction(ActionEvent event) throws IOException {
         ObservableList<EventStudentInfo> dataListPresent = FXCollections.observableArrayList();
-        submitButton.setDisable(true);
+        //submitButton.setDisable(true);
 
         for (EventStudentInfo studentInfo : eventStudentInfo) {
             if (studentInfo.getShowedUp().isSelected()) {
@@ -143,6 +143,33 @@ public class EventViewPageController implements Initializable {
                 for (EventStudentInfo studentInfo : dataListPresent) {
                     if (studentInfo.getStudentNumber().equals(queryResult1.getString("participantID"))) {
                         studentHasShowedUp = 1;
+                        DatabaseConnection connectNow2 = new DatabaseConnection();
+                        Connection connectDb2 = connectNow2.getConnection();
+
+                        String getPreviousPoints = "SELECT studentPoints FROM student_accounts WHERE studentNumber='" + queryResult1.getString("participantID") + "';";
+                        DatabaseConnection connectNow3 = new DatabaseConnection();
+                        Connection connectDb3 = connectNow3.getConnection();
+
+                        int previousPoints = 0;
+
+                        try {
+                            Statement statement = connectDb3.createStatement();
+                            ResultSet queryResult = statement.executeQuery(getPreviousPoints);
+                            queryResult.next();
+                            previousPoints = queryResult.getInt("studentPoints");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            e.getCause();
+                        }
+
+                        String updateStudentPoints = "UPDATE `student_accounts` SET studentPoints=(" + previousPoints + " + " + points + ") WHERE studentNumber='" + queryResult1.getString("participantID") + "';";
+                        try {
+                            Statement statement = connectDb2.createStatement();
+                            statement.execute(updateStudentPoints);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            e.getCause();
+                        }
                     }
                 }
                 String getStudentInfo = "UPDATE `" + eventNameLabel.getText() + "_participants` SET showedUp='" + studentHasShowedUp + "' WHERE participantID='" + queryResult1.getString("participantID") + "';";
@@ -159,5 +186,36 @@ public class EventViewPageController implements Initializable {
             e.printStackTrace();
             e.getCause();
         }
+
+        //Connect to database
+        DatabaseConnection connectNow2 = new DatabaseConnection();
+        Connection connectDb2 = connectNow2.getConnection();
+        //Define SQL statement to delete event from database
+        String delEvent = "DELETE FROM events WHERE eventName='" + eventNameLabel.getText() + "'";
+        String delDB = "DROP TABLE `" + eventNameLabel.getText() + "_participants`;";
+        try {
+            //Execute SQL statement
+            Statement statement = connectDb2.createStatement();
+            statement.executeUpdate(delEvent);
+            statement.execute(delDB);
+        } catch (Exception e) {
+            //Print errors that occur
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        //Load admin event page and set it as the root object
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
+        root = loader.load();
+        //Get the class from the FXML loader and calls a method to update events
+        EventPageController eventPageController = loader.getController();
+        eventPageController.adminUsername = username;
+        eventPageController.setStudent(false);
+        eventPageController.getEvents(false);
+        //Set the new scene to the root object and display the updated stage
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
