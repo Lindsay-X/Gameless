@@ -85,7 +85,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="900.0">
                <children>
-                  <Label text="Cost:">
+                  <Label text="Point Threshold:">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -100,7 +100,7 @@
                   </TextField>
                </children>
             </HBox>
-            <Button fx:id="publishPrizeButton" onAction="#publishPrizeButtonOnAction" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" stylesheets="@../AddPublishButton.css" text="Publish">
+            <Button fx:id="publishPrizeButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#publishPrizeButtonOnAction" prefHeight="30.0" prefWidth="100.0" stylesheets="@../AddPublishButton.css" text="Publish">
                <font>
                   <Font name="MuktaMahee Regular" size="18.0" />
                </font>

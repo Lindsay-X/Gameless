@@ -79,9 +79,11 @@ public class EventBoxController implements Initializable {
         if (!isJoin) {
             joinEventButton.setText("Join");
             joinEventButton.setStyle("-fx-background-color: #ABFFC9; -fx-background-radius: 7.5;");
+            joinEventButton.setOnAction(this::joinEventButtonOnAction);
         } else {
             joinEventButton.setText("Leave");
             joinEventButton.setStyle("-fx-background-color: #ff0000; -fx-background-radius: 7.5;");
+            joinEventButton.setOnAction(this::leaveEventButtonOnAction);
         }
     }
 
@@ -109,38 +111,5 @@ public class EventBoxController implements Initializable {
 
     public void setStudentID(String studentID) {
         this.studentID = studentID;
-    }
-
-    public void deleteButtonOnAction(ActionEvent event) throws IOException {
-        //Connect to database
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-        //Define SQL statement to delete event from database
-        String delEvent = "DELETE FROM events WHERE eventName='" + eventNameLabel.getText() + "'";
-        String delDB = "DROP TABLE `" + eventNameLabel.getText() + "_participants`;";
-        try {
-            //Execute SQL statement
-            Statement statement = connectDb.createStatement();
-            statement.executeUpdate(delEvent);
-            statement.execute(delDB);
-        } catch (Exception e) {
-            //Print errors that occur
-            e.printStackTrace();
-            e.getCause();
-        }
-
-        //Load admin event page and set it as the root object
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
-        root = loader.load();
-        //Get the class from the FXML loader and calls a method to update events
-        EventPageController eventPageController = loader.getController();
-        eventPageController.adminUsername = username;
-        eventPageController.setStudent(false);
-        eventPageController.getEvents(false);
-        //Set the new scene to the root object and display the updated stage
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 }

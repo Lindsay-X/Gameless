@@ -30,9 +30,9 @@ public class PrizeWinnerBoxController implements Initializable {
     //sey the winner box information
     void initData(String prizeName, String winner9, String winner10, String winner11, String winner12) {
         prizeNameLabel.setText(prizeName);
-        winner9Label.setText(winner9);
-        winner10Label.setText(winner10);
-        winner11Label.setText(winner11);
-        winner12Label.setText(winner12);
+        winner9Label.setText("Grade 9: " + winner9);
+        winner10Label.setText("Grade 10: " + winner10);
+        winner11Label.setText("Grade 11: " + winner11);
+        winner12Label.setText("Grade 12: " + winner12);
     }
 }
