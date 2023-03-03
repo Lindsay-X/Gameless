@@ -30,7 +30,7 @@
                 <Insets top="25.0" />
             </StackPane.margin>
         </Label>
-        <Label fx:id="prizeDescription" alignment="CENTER" maxHeight="70.0" maxWidth="170.0" prefHeight="60.0" prefWidth="132.0" style="-fx-wrap-text: true;" text="Short Description" textAlignment="CENTER">
+        <Label fx:id="prizeDescription" alignment="TOP_CENTER" maxHeight="70.0" maxWidth="170.0" prefHeight="60.0" prefWidth="132.0" style="-fx-wrap-text: true;" text="Short Description" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="10.0" />
             </font>

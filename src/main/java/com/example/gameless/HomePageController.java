@@ -51,9 +51,9 @@ public class HomePageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
         root = loader.load();
         EventPageController eventPageController = loader.getController();
+        eventPageController.adminUsername = username;
         eventPageController.getEvents(false);
         eventPageController.setStudent(false);
-        eventPageController.adminUsername = username;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

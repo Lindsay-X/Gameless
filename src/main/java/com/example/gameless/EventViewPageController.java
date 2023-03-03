@@ -45,11 +45,13 @@ public class EventViewPageController implements Initializable {
     private Scene scene;
     private Parent root;
     private ObservableList<EventStudentInfo> eventStudentInfo = FXCollections.observableArrayList();
+    String username;
 
     public void backEventButtonOnAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
         root = loader.load();
         EventPageController eventPageController = loader.getController();
+        eventPageController.adminUsername = username;
         eventPageController.getEvents(false);
         eventPageController.setStudent(false);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -59,6 +61,8 @@ public class EventViewPageController implements Initializable {
     }
 
     public void getStudents(String eventName) {
+        eventNameLabel.setText(eventName);
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         String getStudents = "SELECT * FROM `" + eventName + "_participants`;";
