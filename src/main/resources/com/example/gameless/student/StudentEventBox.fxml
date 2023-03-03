@@ -79,7 +79,7 @@
                         <Font name="MuktaMahee Regular" size="16.0" />
                     </font>
                 </Label>
-                <Button fx:id="joinEventButton" alignment="CENTER" mnemonicParsing="false" onAction="#joinEventButtonOnAction" prefWidth="100.0" stylesheets="@../JoinButton.css" text="Join">
+                <Button fx:id="joinEventButton" alignment="CENTER" mnemonicParsing="false" onAction="#joinEventButtonOnAction" prefWidth="100.0" stylesheets="@../AddPublishButton.css" text="Join">
                     <font>
                         <Font name="MuktaMahee Regular" size="16.0" />
                     </font>
