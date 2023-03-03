@@ -36,6 +36,9 @@ public class HomePageController implements Initializable {
     }
 
     public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
+        //Load the AdminStudentIntoPage.fxml file
+        root = FXMLLoader.load(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
+        //Get the current stage and set the scene to the loaded root
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
         root = loader.load();
         StudentInfoPageController studentInfoPageController = loader.getController();
@@ -48,11 +51,15 @@ public class HomePageController implements Initializable {
     }
 
     public void adminEventButtonOnAction(ActionEvent event) throws IOException {
+        //Load the AdminEventPage.fxml file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
         root = loader.load();
+        //Get the controller for the loaded page
         EventPageController eventPageController = loader.getController();
+        //Call the getEvents method on the controller with parameter false
         eventPageController.adminUsername = username;
         eventPageController.getEvents(false);
+        //Get the current stage and set the scene to the loaded root
         eventPageController.setStudent(false);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -61,11 +68,16 @@ public class HomePageController implements Initializable {
     }
 
     public void adminAnnouncementsButtonOnAction(ActionEvent event) throws IOException {
+        //Load the AdminAnnouncementPage.fxml file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
         root = loader.load();
+        //Get the controller for the loaded page
         AnnouncementPageController announcementPageController = loader.getController();
+        //Call the getAnnouncements method on the controller
         announcementPageController.getAnnouncements();
+        //Set the username field of the controller to the current user's username
         announcementPageController.username = username;
+        //Get the current stage and set the scene to the loaded root
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -73,12 +85,16 @@ public class HomePageController implements Initializable {
     }
 
     public void adminPrizeButtonOnAction(ActionEvent event) throws IOException {
+        //Load the AdminPrizePage.fxml file
+        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));
+        //Get the current stage and set the scene to the loaded root
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
         root = loader.load();
         PrizePageController prizePageController = loader.getController();
         prizePageController.username = username;
         prizePageController.isStudent = false;
         prizePageController.getPrizes();
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -86,20 +102,25 @@ public class HomePageController implements Initializable {
     }
 
     public void getAnnouncements() throws IOException {
+        //Create a connection to the database
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
+        //Create the SQL statement to get the announcements
         String getAnnouncements = "SELECT announcementSender, announcementMsg FROM announcements;";
 
         try {
             Statement statement1 = connectDb.createStatement();
             ResultSet queryResult1 = statement1.executeQuery(getAnnouncements);
 
+            //Loop through the query result and create a new pane for each announcement
             while (queryResult1.next()) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("student/HomePageAnnouncementPane.fxml"));
                 root = loader.load();
                 HomePageAnnouncementPaneController homePageAnnouncementPaneController = loader.getController();
+                //Initialize the data of the pane with the announcement information
                 homePageAnnouncementPaneController.initData(queryResult1.getString("announcementSender"), queryResult1.getString("announcementMsg"));
 
+                //Add the pane to the studentHomePageAnnouncementPanes VBox
                 studentHomePageAnnouncementPanes.getChildren().add(0, root);
             }
         } catch (Exception e) {

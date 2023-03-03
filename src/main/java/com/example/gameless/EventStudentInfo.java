@@ -18,6 +18,7 @@ public class EventStudentInfo {
     private CheckBox showedUp;
 
     public EventStudentInfo(String studentId, String firstName, String lastName, int grade, boolean showedUp) {
+        //initializes a property with a specified value
         this.studentNumber = new SimpleStringProperty(studentId);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);

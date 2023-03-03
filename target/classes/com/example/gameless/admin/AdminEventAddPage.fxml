@@ -147,7 +147,7 @@
                         <Font name="MuktaMahee Regular" size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="publishEventButton" mnemonicParsing="false" onAction="#publishButtonOnAction" prefHeight="30.0" prefWidth="100.0" stylesheets="@../AddPublishButton.css" text="Publish">
+                  <Button fx:id="publishPrizeButton" mnemonicParsing="false" onAction="#publishButtonOnAction" prefHeight="30.0" prefWidth="100.0" stylesheets="@../AddPublishButton.css" text="Publish">
                      <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                      </font>

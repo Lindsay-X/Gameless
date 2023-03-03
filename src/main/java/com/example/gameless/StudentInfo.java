@@ -7,14 +7,19 @@ public class StudentInfo {
     private int grade;
     private int points;
 
+
+    public StudentInfo(String studentNumber, String fullName, int points) {
+        //Constructor method takes the student information
+    }
     public StudentInfo(String studentNumber, String firstName, String lastName, int grade, int points) {
+
         this.studentNumber = studentNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.grade = grade;
         this.points = points;
     }
-
+    //Gets method and returns value
     public String getStudentNumber() {
         return studentNumber;
     }

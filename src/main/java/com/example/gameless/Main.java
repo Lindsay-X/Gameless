@@ -12,8 +12,11 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("admin/AdminHomePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960, 540);
+        //Sets title of stage
         stage.setTitle("Spirit Tracker");
+        //Sets scene of stage
         stage.setScene(scene);
+        //Shows stage
         stage.show();
     }
 

@@ -62,9 +62,6 @@ public class AddAnnouncementPageController implements Initializable {
     public void publishButtonOnAction(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-
-        DatabaseConnection connectNow1 = new DatabaseConnection();
-        Connection connectDb1 = connectNow1.getConnection();
         String name = "";
 
         String getName = "SELECT adminFirstName, adminLastName FROM admin_accounts WHERE adminID = '" + username + "';";
