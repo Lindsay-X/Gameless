@@ -26,19 +26,22 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PrizeStudentInfoPageController implements Initializable {
-    public int pointThreshold;
-    @FXML
-    Label winnerLabel;
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    public int pointThreshold;
+    @FXML
+    Label winnerLabel;
     int selectedGrade;
     String prizeName;
     String username;
+
     @FXML
     private ChoiceBox<String> adminStudentGradeChoice;
     private String[] grades = {"Grade 9", "Grade 10", "Grade 11", "Grade 12"};
     private String prizeWinnerID;
+
     @FXML
     private TableView<StudentInfo> studentInfoTable;
     @FXML
@@ -64,20 +67,25 @@ public class PrizeStudentInfoPageController implements Initializable {
         points.setCellValueFactory(new PropertyValueFactory<StudentInfo, Integer>("points"));
     }
 
+    //get student information from the database and set them on the table with students eligible for the prize
     public void getStudents(int grade) {
+        //Connect to database
         DatabaseConnection connectNow2 = new DatabaseConnection();
         Connection connectDb2 = connectNow2.getConnection();
+        //Define SQL statement to add new event to database
         String getWinner = "SELECT `prizeWinner" + grade + "` FROM prizes WHERE prizeName='" + prizeName + "';";
 
         DatabaseConnection connectNow3 = new DatabaseConnection();
         Connection connectDb3 = connectNow3.getConnection();
         try {
+            //Execute SQL statement
             Statement statement = connectDb3.createStatement();
             ResultSet queryResult = statement.executeQuery(getWinner);
 
             queryResult.next();
             prizeWinnerID = queryResult.getString("prizeWinner" + grade);
         } catch (Exception e) {
+            //Print errors that occur
             e.printStackTrace();
             e.getCause();
         }
@@ -85,14 +93,17 @@ public class PrizeStudentInfoPageController implements Initializable {
         String winnerName = "None";
 
         if (!prizeWinnerID.equals("None")) {
+            //Define SQL statement to add new event to database
             String getWinnerName = "SELECT studentFirstName, studentLastName FROM student_accounts WHERE studentNumber = '" + prizeWinnerID + "';";
             try {
+                //Execute SQL statement
                 Statement statement = connectDb2.createStatement();
                 ResultSet queryResult = statement.executeQuery(getWinnerName);
 
                 queryResult.next();
                 winnerName = (queryResult.getString("studentFirstName") + " " + queryResult.getString("studentLastName") + " (" + prizeWinnerID + ")");
             } catch (Exception e) {
+                //Print errors that occur
                 e.printStackTrace();
                 e.getCause();
             }
@@ -105,6 +116,7 @@ public class PrizeStudentInfoPageController implements Initializable {
         String getStudentInfo = "SELECT * FROM student_accounts WHERE studentGrade=" + grade + " AND studentPoints>=" + pointThreshold + ";";
 
         try {
+            //Execute SQL statement
             Statement statement = connectDb1.createStatement();
             ResultSet queryResult = statement.executeQuery(getStudentInfo);
 
@@ -114,12 +126,14 @@ public class PrizeStudentInfoPageController implements Initializable {
                 list.add(new StudentInfo(queryResult.getString("studentNumber"), queryResult.getString("studentFirstName"), queryResult.getString("studentLastName"), queryResult.getInt("studentGrade"), queryResult.getInt("studentPoints")));
             }
         } catch (Exception e) {
+            //Print errors that occur
             e.printStackTrace();
             e.getCause();
         }
         studentInfoTable.setItems(list);
     }
 
+    // get the grade of the student
     public void getGrade(ActionEvent event){
         String gradeChosen = adminStudentGradeChoice.getValue();
         for ( int i = 0; i < studentInfoTable.getItems().size(); i++) {
@@ -129,31 +143,40 @@ public class PrizeStudentInfoPageController implements Initializable {
         getStudents(selectedGrade);
     }
 
-
+    //action for when back button is pressed --> goes back to prize page
     public void backPrizeButtonOnAction(ActionEvent event) throws IOException {
+        //Load the FXML file for the admin event page and set it as the root object
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
         root = loader.load();
+        //Load the events onto the event page
         PrizePageController prizePageController = loader.getController();
         prizePageController.username = username;
         prizePageController.getPrizes();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        //Get the stage from the event source and set the new scene to the root object
         scene = new Scene(root);
         stage.setScene(scene);
+        //Show the updated stage with the new scene
         stage.show();
     }
 
+    //action for drawing the prize winner from each grade
     public void drawStudentButtonOnAction(ActionEvent event) throws IOException {
         if (list.size() != 0) {
             StudentInfo winnerID = list.get((int) (Math.random() * list.size()));
 
+            //Define SQL statement to add new event to database
             DatabaseConnection connectNow = new DatabaseConnection();
             Connection connectDb = connectNow.getConnection();
+            //Define SQL statement to add new event to database
             String putWinner = "UPDATE prizes SET `prizeWinner" + selectedGrade + "` = '" + winnerID.getStudentNumber() + "' WHERE prizeName = '" + prizeName + "';";
 
             try {
+                //Execute SQL statement
                 Statement statement = connectDb.createStatement();
                 statement.execute(putWinner);
             } catch (Exception e) {
+                //Print errors that occur
                 e.printStackTrace();
                 e.getCause();
             }
