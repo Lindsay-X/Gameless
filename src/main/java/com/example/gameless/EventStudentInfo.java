@@ -66,11 +66,11 @@ public class EventStudentInfo {
         this.showedUp = new SimpleBooleanProperty(showedUp);
     }*/
 
-    public CheckBox getSelect() {
+    public CheckBox getShowedUp() {
         return showedUp;
     }
 
-    public void setShowedUp(CheckBox showedUp1) {
+    public void setShowedUp(CheckBox showedUp) {
         this.showedUp = showedUp;
     }
 }
