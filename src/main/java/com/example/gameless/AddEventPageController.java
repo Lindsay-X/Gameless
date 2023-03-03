@@ -86,9 +86,9 @@ public class AddEventPageController implements Initializable {
         root = loader.load();
         //Load the events onto the event page
         EventPageController eventPageController = loader.getController();
+        eventPageController.adminUsername = username;
         eventPageController.getEvents(false);
         eventPageController.setStudent(false);
-        eventPageController.adminUsername = username;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         //Get the stage from the event source and set the new scene to the root object
         scene = new Scene(root);
@@ -122,9 +122,9 @@ public class AddEventPageController implements Initializable {
         root = loader.load();
         //Get the class from the FXML loader and calls a method to update events
         EventPageController eventPageController = loader.getController();
+        eventPageController.adminUsername = username;
         eventPageController.getEvents(false);
         eventPageController.setStudent(false);
-        eventPageController.adminUsername = username;
         //Set the new scene to the root object and display the updated stage
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

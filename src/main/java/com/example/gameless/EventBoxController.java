@@ -25,6 +25,7 @@ public class EventBoxController implements Initializable {
     private Parent root;
     int id;
     private String studentID;
+    String username;
     @FXML
     Label eventDescriptionLabel;
     @FXML
@@ -89,6 +90,7 @@ public class EventBoxController implements Initializable {
         root = loader.load();
         EventViewPageController eventviewPageController = loader.getController();
         eventviewPageController.getStudents(eventNameLabel.getText());
+        eventviewPageController.username = username;
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -96,10 +98,12 @@ public class EventBoxController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
 
-    void initData(int id) {
+    void initData(int id, String username) {
         this.id = id;
+        this.username = username;
     }
 
     public void setStudentID(String studentID) {
@@ -128,6 +132,8 @@ public class EventBoxController implements Initializable {
         root = loader.load();
         //Get the class from the FXML loader and calls a method to update events
         EventPageController eventPageController = loader.getController();
+        eventPageController.adminUsername = username;
+        eventPageController.setStudent(false);
         eventPageController.getEvents(false);
         //Set the new scene to the root object and display the updated stage
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

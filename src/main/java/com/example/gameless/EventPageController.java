@@ -72,8 +72,7 @@ public class EventPageController implements Initializable{
                 root = loader.load();
                 EventBoxController eventBoxController = loader.getController();
                 eventBoxController.setStudentID(studentID);
-                eventBoxController.initData(id);
-
+                eventBoxController.initData(id, adminUsername);
 
                 //Select all event details from events table for the current event ID
                 String getEvents = "SELECT * FROM events WHERE eventID = '" + id + "';";
@@ -139,7 +138,7 @@ public class EventPageController implements Initializable{
                 root = loader.load();
                 EventBoxController eventBoxController = loader.getController();
                 eventBoxController.setStudentID(studentID);
-                eventBoxController.initData(id);
+                eventBoxController.initData(id, adminUsername);
 
                 String getEvents = "SELECT * FROM events WHERE eventID = '" + id + "';";
 

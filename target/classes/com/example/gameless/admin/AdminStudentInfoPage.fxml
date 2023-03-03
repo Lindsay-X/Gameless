@@ -43,17 +43,6 @@
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" top="7.0" />
                      </HBox.margin></ChoiceBox>
-                  <Button fx:id="deleteStudentButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #F24D4D; -fx-background-radius: 60;" textAlignment="CENTER" textOverrun="CLIP">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
             <TableView fx:id="studentInfoTable" prefWidth="900.0" stylesheets="@../InfoTable.css">

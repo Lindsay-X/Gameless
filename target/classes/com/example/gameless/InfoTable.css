@@ -34,9 +34,10 @@
 }
 .table-row-cell: selected {
     -fx-background-color: #d7cac5;
+    -fx-text-fill: #000000;
 }
 .table-row-cell: odd{
-    -fx-background-color: #b9b5ac;
+    -fx-background-color: #e8e3d7;
     -fx-padding: 0.0em;
 }
 .table-row-cell: even{
@@ -70,4 +71,16 @@
     -fx-border-color: #000000;
     -fx-border-insets: -4px -1px -4px -1px;
     -fx-border-weight: 3px;
+}
+
+.check-box .box {
+    -fx-background-color: #fbfaf7;
+    -fx-border-color: #d7cac5;
+    -fx-border-radius: 1.5px;
+}
+.check-box:selected .mark {
+-fx-background-color: #d7cac5;
+}
+.check-box:selected .box {
+-fx-background-color: #fbfaf7;
 }
