@@ -48,7 +48,7 @@
                         <Insets right="2.0" />
                     </HBox.margin>
                 </Label>
-                <Label fx:id="eventPointsLabel" prefHeight="40.0" prefWidth="50.0" text="&lt;no.&gt;">
+                <Label fx:id="eventPointsLabel" prefHeight="40.0" prefWidth="70.0" text="&lt;no.&gt;">
                     <font>
                         <Font name="MuktaMahee Regular" size="15.0" />
                     </font>
@@ -61,7 +61,7 @@
                         <Insets left="35.0" right="2.0" />
                     </HBox.margin>
                 </Label>
-                <Label fx:id="eventTimeLabel" prefHeight="40.0" prefWidth="200.0" text="December 18, 2023">
+                <Label fx:id="eventTimeLabel" prefHeight="40.0" prefWidth="180.0" text="December 18, 2023">
                     <font>
                         <Font name="MuktaMahee Regular" size="15.0" />
                     </font>
