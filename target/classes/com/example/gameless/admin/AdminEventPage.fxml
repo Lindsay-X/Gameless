@@ -42,7 +42,7 @@
                         <HBox.margin>
                             <Insets left="20.0" right="20.0" top="7.0" />
                         </HBox.margin></ChoiceBox>
-                  <Button fx:id="addEventButton" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#addEventButtonOnAction" prefHeight="31.0" prefWidth="80.0" stylesheets="@../AddPublishButton.css" text="add">
+                  <Button fx:id="addEventButton" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#addEventButtonOnAction" prefHeight="31.0" prefWidth="80.0" stylesheets="@../AddPublishButton.css" text="Add">
                      <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                      </font>

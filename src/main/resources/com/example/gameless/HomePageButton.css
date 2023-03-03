@@ -7,6 +7,9 @@
     -fx-font-size: 24;
     -fx-font-weight: 800;
     -fx-font-color: rgba(0,0,0,1);
+    -fx-border-color: #003a4b;
+    -fx-border-width: 2;
+    -fx-background-insets: 1;
 }
 .button:pressed{
     -fx-background-color: #6ed2b5;

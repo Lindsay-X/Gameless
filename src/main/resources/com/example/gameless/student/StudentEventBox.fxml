@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="eventBox" maxHeight="200.0" maxWidth="800.0" minHeight="200.0" minWidth="800.0" prefHeight="200.0" prefWidth="800.0" stylesheets="@../InfoInput.css" VBox.vgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.gameless.EventBoxController">
+<VBox fx:id="eventBox" maxHeight="200.0" maxWidth="800.0" minHeight="200.0" minWidth="800.0" prefHeight="200.0" prefWidth="800.0" stylesheets="@../InfoInput.css" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.EventBoxController">
     <children>
         <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="800.0" spacing="75.0">
             <children>
@@ -79,7 +79,7 @@
                         <Font name="MuktaMahee Regular" size="16.0" />
                     </font>
                 </Label>
-                <Button fx:id="joinEventButton" alignment="CENTER" mnemonicParsing="false" onAction="#joinEventButtonOnAction" prefWidth="100.0" stylesheets="@../AddPublishButton.css" text="Join">
+                <Button fx:id="joinEventButton" alignment="CENTER" mnemonicParsing="false" onAction="#joinEventButtonOnAction" prefWidth="100.0" stylesheets="@../JoinButton.css" text="Join">
                     <font>
                         <Font name="MuktaMahee Regular" size="16.0" />
                     </font>

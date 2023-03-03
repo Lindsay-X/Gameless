@@ -19,7 +19,7 @@
                         <Insets />
                     </HBox.margin>
                 </Label>
-                <Button fx:id="deleteStudentButton" alignment="CENTER" contentDisplay="CENTER" minWidth="22.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" prefWidth="80.0" style="-fx-background-color: #f05454; -fx-text-fill: #FFFFFF; -fx-background-radius: 7.5;" text="End Event" textAlignment="CENTER" textOverrun="CLIP" />
+                <Button fx:id="deleteStudentButton" alignment="CENTER" contentDisplay="CENTER" minWidth="22.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" prefWidth="80.0" style="-fx-background-color: #f05454; -fx-text-fill: #FFFFFF; -fx-background-radius: 7.5; -fx-border-color: #782a2a; -fx-border-radius: 7.5; -fx-background-insets: 1;" text="End Event" textAlignment="CENTER" textOverrun="CLIP" />
             </children>
             <padding>
                 <Insets bottom="5.0" left="32.0" />

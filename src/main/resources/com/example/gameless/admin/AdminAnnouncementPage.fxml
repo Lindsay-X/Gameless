@@ -37,7 +37,7 @@
         <children>
             <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="900.0">
                 <children>
-                  <Button fx:id="addAnnouncementButton" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#addAnnouncementButtonOnAction" prefHeight="31.0" prefWidth="80.0" stylesheets="@../AddPublishButton.css" text="add">
+                  <Button fx:id="addAnnouncementButton" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#addAnnouncementButtonOnAction" prefHeight="31.0" prefWidth="80.0" stylesheets="@../AddPublishButton.css" text="Add">
                      <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                      </font>
