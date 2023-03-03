@@ -100,4 +100,8 @@ public class EventViewPageController implements Initializable {
         grade.setCellValueFactory(new PropertyValueFactory<>("grade"));
         present.setCellValueFactory(new PropertyValueFactory<>("showedUp"));
     }
+
+    public void submitButtonOnAction(ActionEvent event){
+        ObservableList<EventStudentInfo> dataListPresent = FXCollections.observableArrayList();
+    }
 }
