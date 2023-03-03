@@ -128,6 +128,7 @@ public class EventBoxController implements Initializable {
             e.printStackTrace();
             e.getCause();
         }
+
         //Load admin event page and set it as the root object
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
         root = loader.load();
