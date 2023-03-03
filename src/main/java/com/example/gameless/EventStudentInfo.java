@@ -12,7 +12,6 @@ public class EventStudentInfo {
     private SimpleStringProperty firstName;
     private SimpleStringProperty lastName;
     private SimpleIntegerProperty grade;
-    //private SimpleBooleanProperty showedUp;
 
     @FXML
     private CheckBox showedUp;
