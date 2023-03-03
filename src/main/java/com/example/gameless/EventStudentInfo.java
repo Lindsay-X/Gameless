@@ -22,7 +22,6 @@ public class EventStudentInfo {
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
         this.grade = new SimpleIntegerProperty(grade);
-        //this.showedUp = new SimpleBooleanProperty(showedUp);
         this.showedUp = new CheckBox();
     }
 
@@ -70,7 +69,7 @@ public class EventStudentInfo {
         return showedUp;
     }
 
-    public void setShowedUp(CheckBox showedUp) {
-        this.showedUp = showedUp;
+    public void setShowedUp(boolean showedUp) {
+        this.showedUp.setSelected(showedUp);
     }
 }

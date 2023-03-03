@@ -81,7 +81,10 @@ public class EventViewPageController implements Initializable {
                     ResultSet queryResult = statement.executeQuery(getStudentInfo);
 
                     while (queryResult.next()) {
-                        eventStudentInfo.add(new EventStudentInfo(queryResult.getString("studentNumber"), queryResult.getString("studentFirstName"), queryResult.getString("studentLastName"), queryResult.getInt("studentGrade"), queryResult1.getBoolean("showedUp")));
+                        EventStudentInfo eventStudent = new EventStudentInfo(queryResult.getString("studentNumber"), queryResult.getString("studentFirstName"), queryResult.getString("studentLastName"), queryResult.getInt("studentGrade"), queryResult1.getBoolean("showedUp"));
+                        eventStudent.setShowedUp(queryResult1.getBoolean("showedUp"));
+                        eventStudentInfo.add(eventStudent);
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -124,15 +127,17 @@ public class EventViewPageController implements Initializable {
             while (queryResult1.next()) {
                 DatabaseConnection connectNow1 = new DatabaseConnection();
                 Connection connectDb1 = connectNow1.getConnection();
-                String getStudentInfo = "SELECT * FROM student_accounts WHERE studentNumber='" + queryResult1.getString("participantID") + "';";
+                int studentHasShowedUp = 0;
+                for (EventStudentInfo studentInfo : dataListPresent) {
+                    if (studentInfo.getStudentNumber().equals(queryResult1.getString("participantID"))) {
+                        studentHasShowedUp = 1;
+                    }
+                }
+                String getStudentInfo = "UPDATE `" + eventNameLabel.getText() + "_participants` SET showedUp='" + studentHasShowedUp + "' WHERE participantID='" + queryResult1.getString("participantID") + "';";
 
                 try {
                     Statement statement = connectDb1.createStatement();
-                    ResultSet queryResult = statement.executeQuery(getStudentInfo);
-
-                    while (queryResult.next()) {
-                        eventStudentInfo.add(new EventStudentInfo(queryResult.getString("studentNumber"), queryResult.getString("studentFirstName"), queryResult.getString("studentLastName"), queryResult.getInt("studentGrade"), queryResult1.getBoolean("showedUp")));
-                    }
+                    statement.execute(getStudentInfo);
                 } catch (Exception e) {
                     e.printStackTrace();
                     e.getCause();
