@@ -27,6 +27,7 @@ public class PrizeWinnerBoxController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
+    //sey the winner box information
     void initData(String prizeName, String winner9, String winner10, String winner11, String winner12) {
         prizeNameLabel.setText(prizeName);
         winner9Label.setText(winner9);

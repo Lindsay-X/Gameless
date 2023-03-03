@@ -16,6 +16,8 @@ public class Main extends Application {
         stage.setTitle("Spirit Tracker");
         //Sets scene of stage
         stage.setScene(scene);
+        //lock stage size
+        stage.setResizable(false);
         //Shows stage
         stage.show();
     }
