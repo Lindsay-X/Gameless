@@ -18,14 +18,14 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddEventPageController implements Initializable {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     public String username;
     @FXML
     private ChoiceBox<String> eventTagChoice;
     private String[] tag = {"Sports", "Art", "Theater", "Music", "Community Service", "Academic"};
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private TextField eventName;
@@ -80,6 +80,7 @@ public class AddEventPageController implements Initializable {
         publishEventButton.setDisable(isDisabled);
     }
 
+    //action for when back button is pressed --> goes back to event page
     public void backEventButtonOnAction(ActionEvent event) throws IOException {
         //Load the FXML file for the admin event page and set it as the root object
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminEventPage.fxml"));
@@ -97,6 +98,7 @@ public class AddEventPageController implements Initializable {
         stage.show();
     }
 
+    //action for when publish button is pressed
     public void publishButtonOnAction(ActionEvent event) throws IOException {
         //Connect to database
         DatabaseConnection connectNow = new DatabaseConnection();

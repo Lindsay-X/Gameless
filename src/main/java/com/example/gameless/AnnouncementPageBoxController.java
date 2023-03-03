@@ -25,6 +25,7 @@ public class AnnouncementPageBoxController {
     @FXML
     Label msgLabel;
 
+    //action for when edit button is pressed --> go to the announcement edit page
     public void editAnnouncementButtonOnAction(ActionEvent event) throws IOException {
         //Load the FXML file for the AdminAnnouncementEditPage
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementEditPage.fxml"));
@@ -41,6 +42,7 @@ public class AnnouncementPageBoxController {
         stage.show();
     }
 
+    //action for when delete button is pressed --> deletes announcement
     public void deleteButtonOnAction(ActionEvent event) throws IOException {
         //Connect to database
         DatabaseConnection connectNow = new DatabaseConnection();
