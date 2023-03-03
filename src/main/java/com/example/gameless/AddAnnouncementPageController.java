@@ -33,6 +33,7 @@ public class AddAnnouncementPageController implements Initializable {
     private Button publishAnnouncementButton;
     @FXML
     private Label characterCount;
+    int announcementID;
 
     public void initialize(URL arg0, ResourceBundle arg1){
         publishAnnouncementButton.setDisable(true);
@@ -50,6 +51,7 @@ public class AddAnnouncementPageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
         root = loader.load();
         AnnouncementPageController announcementPageController = loader.getController();
+        announcementPageController.username = username;
         announcementPageController.getAnnouncements();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -79,7 +81,12 @@ public class AddAnnouncementPageController implements Initializable {
             e.getCause();
         }
 
-        String addAnnouncement = "INSERT INTO announcements (announcementSender, announcementMsg) VALUES ('" + name + "', '" + announcementMsg.getText() + "')";
+        String addAnnouncement = "";
+        if (publishAnnouncementButton.getText().equals("Publish")) {
+            addAnnouncement = "INSERT INTO announcements (announcementSender, announcementMsg) VALUES ('" + name + "', '" + announcementMsg.getText() + "')";
+        } else {
+            addAnnouncement = "UPDATE announcements SET announcementMsg='" + announcementMsg.getText() + "' WHERE announcementID = " + announcementID + ";";
+        }
 
         try {
             Statement statement = connectDb.createStatement();
@@ -92,6 +99,7 @@ public class AddAnnouncementPageController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementPage.fxml"));
         root = loader.load();
         AnnouncementPageController announcementPageController = loader.getController();
+        announcementPageController.username = username;
         announcementPageController.getAnnouncements();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

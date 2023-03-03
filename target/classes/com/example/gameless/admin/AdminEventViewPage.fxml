@@ -46,7 +46,7 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
-                <TableView fx:id="studentInfoTable" prefHeight="450.0" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">
+                <TableView fx:id="studentInfoTable" prefHeight="450.0" prefWidth="900.0" stylesheets="@../InfoTable.css">
                     <columns>
                         <TableColumn fx:id="studentNumber" prefWidth="250.0" text="Student Number" />
                         <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="175.0" text="First Name" />

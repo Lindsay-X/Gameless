@@ -37,6 +37,7 @@ public class AddPrizePageController implements Initializable {
 
     @FXML
     private Label characterCount;
+    String username;
 
     public void initialize(URL arg0, ResourceBundle arg1){
         publishPrizeButton.setDisable(true);
@@ -57,7 +58,37 @@ public class AddPrizePageController implements Initializable {
     }
 
     public void backPrizeButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
+        root = loader.load();
+        PrizePageController prizePageController = loader.getController();
+        prizePageController.isStudent = false;
+        prizePageController.username = username;
+        prizePageController.getPrizes();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void publishPrizeButtonOnAction(ActionEvent event) throws IOException {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+        String addAnnouncement = "INSERT INTO prizes (prizeName, prizeDescription, prizeCost) VALUES ('" + prizeName.getText() + "', '" + prizeDescription.getText() + "', " + prizeCost.getText() + ")";
+
+        try {
+            Statement statement = connectDb.createStatement();
+            statement.executeUpdate(addAnnouncement);
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
+        root = loader.load();
+        PrizePageController prizePageController = loader.getController();
+        prizePageController.username = username;
+        prizePageController.isStudent = false;
+        prizePageController.getPrizes();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

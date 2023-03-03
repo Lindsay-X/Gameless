@@ -25,14 +25,29 @@ public class ProfilePageController {
     Label studentPointsLabel;
 
     public void studentBackButtonOnAction(ActionEvent event) throws IOException {
+<<<<<<< HEAD
+        //Load the StudentHomePage.fxml file using an FXMLLoader object
         root = FXMLLoader.load(getClass().getResource("student/StudentHomePage.fxml"));
+        //Get the Stage object and set it as the stage for the newly loaded scene
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        //Creates a new scene object
+=======
+        String username = studentNumberLabel.getText();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("student/StudentHomePage.fxml"));
+        root = loader.load();
+        HomePageController homePageController = loader.getController();
+        homePageController.studentDisplayName(username);
+        homePageController.getAnnouncements();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+>>>>>>> 42572a58659f29c4cc8a975adb4f4d93d996359e
         scene = new Scene(root);
         stage.setScene(scene);
+        //Shows stage
         stage.show();
     }
 
     public void displayStudentInfo(String username, String name, int points, int grade) {
+        //Sets the label to the student information
         studentGradeLabel.setText("" + grade);
         studentNameLabel.setText(name);
         studentNumberLabel.setText(username);

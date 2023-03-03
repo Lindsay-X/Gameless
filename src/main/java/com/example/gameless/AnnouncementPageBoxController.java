@@ -27,7 +27,12 @@ public class AnnouncementPageBoxController {
 
     public void editAnnouncementButtonOnAction(ActionEvent event) throws IOException {
         //Load the FXML file for the AdminAnnouncementEditPage
-        root = FXMLLoader.load(getClass().getResource("admin/AdminAnnouncementEditPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminAnnouncementEditPage.fxml"));
+        root = loader.load();
+        //Set the announcementID
+        AddAnnouncementPageController addAnnouncementPageController = loader.getController();
+        addAnnouncementPageController.announcementID = announcementID;
+        addAnnouncementPageController.announcementMsg.setText(msgLabel.getText());
         //Get the current stage and set its scene to the new scene
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

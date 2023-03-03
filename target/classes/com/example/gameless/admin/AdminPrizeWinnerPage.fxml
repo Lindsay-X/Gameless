@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../BasicLayout.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.PrizeWinnerPageController">
+<top>
+    <HBox prefHeight="75.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+        <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonOnAction" stylesheets="@../BackButton.css" text="Back">
+                <HBox.margin>
+                    <Insets left="29.0" top="20.0" />
+                </HBox.margin>
+                <font>
+                    <Font name="MuktaMahee Regular" size="20.0" />
+                </font>
+            </Button>
+        </children></HBox>
+</top>
+<right>
+    <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+</right>
+<left>
+    <Pane prefHeight="540.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+</left>
+<bottom>
+    <Pane prefHeight="25.0" prefWidth="960.0" BorderPane.alignment="CENTER" />
+</bottom>
+<center>
+    <VBox prefHeight="440.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+        <children>
+            <HBox prefHeight="45.0" prefWidth="900.0">
+                <children>
+                  <Button fx:id="drawStudentButton" alignment="CENTER" maxHeight="31.0" minHeight="31.0" mnemonicParsing="false" onAction="#drawAllWinnersButtonOnAction" prefHeight="31.0" prefWidth="160.0" stylesheets="@../AddPublishButton.css" text="Draw All Winners">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="750.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Button>
+                </children>
+            </HBox>
+            <ScrollPane hbarPolicy="NEVER" maxWidth="850.0" prefHeight="375.0" prefWidth="850.0" style="-fx-background-color: transparent;" stylesheets="@../TransparentScrollPane.css" vbarPolicy="ALWAYS">
+               <content>
+                  <VBox fx:id="prizeWinnerBoxes" minHeight="375.0" prefWidth="800.0">
+                      <children>
+                          <VBox fx:id="pointsWinnerBox" maxHeight="-Infinity" maxWidth="800.0" minHeight="90.0" minWidth="800.0" prefWidth="800.0" spacing="5.0" stylesheets="@../InfoInput.css" VBox.vgrow="ALWAYS">
+                              <children>
+                                    <Label text="Student with the Most Points: ">
+                                        <font>
+                                            <Font name="System Bold" size="20.0" />
+                                        </font>
+                                 <VBox.margin>
+                                    <Insets left="32.0" top="10.0" />
+                                 </VBox.margin>
+                                    </Label>
+                              <Label fx:id="studentNumberLabel" alignment="TOP_LEFT" maxWidth="788.0" prefWidth="788.0" style="-fx-wrap-text: true;" text="&lt;Student Number&gt;">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="32.0" right="32.0" />
+                                 </VBox.margin>
+                              </Label>
+                              </children>
+                              <VBox.margin>
+                                  <Insets bottom="10.0" />
+                              </VBox.margin>
+                          </VBox>
+                      </children>
+                     </VBox>
+               </content>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets right="35.0" />
+               </padding>
+            </ScrollPane>
+        </children>
+    </VBox>
+</center>
+</BorderPane>

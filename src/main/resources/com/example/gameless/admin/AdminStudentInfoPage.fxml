@@ -39,29 +39,19 @@
          <children>
             <HBox prefHeight="45.0" prefWidth="900.0" spacing="650.0">
                <children>
-                  <ChoiceBox fx:id="adminStudentGradeChoice" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #A66FD2; -fx-background-radius: 7.5; -fx-border-insets: -1;" value="All">
+                  <ChoiceBox fx:id="adminStudentGradeChoice" prefHeight="31.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-radius: 7.5; -fx-border-width: 1.5; -fx-background-color: #d3b1ae; -fx-background-radius: 7.5; -fx-border-insets: -1;" value="All">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" top="7.0" />
                      </HBox.margin></ChoiceBox>
-                  <Button fx:id="deleteStudentButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="28.0" maxWidth="28.0" minHeight="28.0" minWidth="28.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0" style="-fx-background-color: #F24D4D; -fx-background-radius: 60;" textAlignment="CENTER" textOverrun="CLIP">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
-            <TableView fx:id="studentInfoTable" prefWidth="900.0" stylesheets="@AdminStudentInfoTable.css">
+            <TableView fx:id="studentInfoTable" prefWidth="900.0" stylesheets="@../InfoTable.css">
               <columns>
-                <TableColumn fx:id="studentNumber" prefWidth="250.0" text="Student Number" />
-                <TableColumn fx:id="fullName" minWidth="0.0" prefWidth="350.0" text="Full Name" />
-                  <TableColumn fx:id="points" prefWidth="125.6004638671875" text="Points" />
-                  <TableColumn fx:id="studentNumber1" prefWidth="69.3995361328125" text="Grades" />
+                <TableColumn fx:id="studentNumber" prefWidth="200.0" text="Student Number" />
+                <TableColumn fx:id="firstName" minWidth="0.0" prefWidth="200.0" text="First Name" />
+                 <TableColumn fx:id="lastName" minWidth="0.0" prefWidth="200.0" text="Last Name" />
+                  <TableColumn fx:id="points" prefWidth="200.0" text="Points" />
+                  <TableColumn fx:id="grade" text="Grade" />
               </columns>
             </TableView>
          </children>

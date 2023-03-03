@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gameless.PrizeBoxController">
+    <children>
+        <ImageView fitHeight="380.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/prizeBackground2.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="iconImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/giftBox.png" />
+            </image>
+            <StackPane.margin>
+                <Insets top="-175.0" />
+            </StackPane.margin>
+        </ImageView>
+        <Label fx:id="prizeName" text="Prize name">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+            <StackPane.margin>
+                <Insets top="25.0" />
+            </StackPane.margin>
+        </Label>
+        <Label fx:id="prizeDescription" alignment="TOP_CENTER" maxHeight="70.0" maxWidth="170.0" prefHeight="60.0" prefWidth="132.0" style="-fx-wrap-text: true;" text="Short Description" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="10.0" />
+            </font>
+            <StackPane.margin>
+                <Insets top="130.0" />
+            </StackPane.margin>
+        </Label>
+      <Label fx:id="prizeCost" alignment="CENTER" layoutX="42.0" layoutY="230.0" maxHeight="50.0" maxWidth="170.0" prefHeight="60.0" prefWidth="132.0" text="Point Threshold: 100" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <StackPane.margin>
+            <Insets top="300.0" />
+         </StackPane.margin>
+      </Label>
+    </children>
+</StackPane>

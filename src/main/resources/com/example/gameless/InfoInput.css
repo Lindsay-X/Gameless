@@ -1,25 +1,53 @@
+*{
+    -primary-input: #F3F1EB;
+    -secondary-input: #d6d0bb;
+}
+
 VBox{
     -fx-background-color: rgba(255, 255, 255, 0.5);
     -fx-background-radius: 7.5;
 }
 
-.text-area{
-    -fx-background-color: #FFE0BD;
+.choice-box{
+    -fx-background-color: -primary-input;
     -fx-background-radius: 7.5;
+    -fx-border-radius: 7.5;
+    -fx-border-width: 1.5;
+    -fx-border-color: -secondary-input;
+    -fx-border-insets: -1;
+    -fx-border-radius: 7.5;
+    -fx-border-width: 1.5;
+}
+
+.text-field{
+    -fx-background-color: -primary-input;
+    -fx-background-radius: 7.5;
+    -fx-border-color: -secondary-input;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 7.5;
+}
+
+.text-area{
+    -fx-background-color: -primary-input;
+    -fx-background-radius: 7.5;
+    -fx-border-color: -secondary-input;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 7.5;
 }
 .text-area .content{
-    -fx-background-color: #FFE0BD;
+    -fx-background-color: -primary-input;
     -fx-background-insets: -20;
     -fx-background-radius: 7.5;
 }
 .text-area:focus .content{
-    -fx-background-color: #FFE0BD;
+    -fx-background-color: -primary-input;
     -fx-background-insets: -20;
     -fx-background-radius: 7.5;
 }
 
 .date-picker .text-field {
-  -fx-background-color: #FFE0BD;
+  -fx-background-color: -primary-input;
+  -fx-border-color: -secondary-input;
 }
 /*Customize the right button background color*/
 .date-picker .arrow-button {
