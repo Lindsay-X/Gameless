@@ -7,12 +7,12 @@ public class StudentInfo {
     private int grade;
     private int points;
 
-<<<<<<< HEAD
+
     public StudentInfo(String studentNumber, String fullName, int points) {
         //Constructor method takes the student information
-=======
+    }
     public StudentInfo(String studentNumber, String firstName, String lastName, int grade, int points) {
->>>>>>> 42572a58659f29c4cc8a975adb4f4d93d996359e
+
         this.studentNumber = studentNumber;
         this.firstName = firstName;
         this.lastName = lastName;

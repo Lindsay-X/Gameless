@@ -77,12 +77,8 @@ public class LoginController {
         }
     }
 
-<<<<<<< HEAD
     public void studentValidateLogin(ActionEvent event) throws IOException{ // test account: 1, adcbe
         //Creates connection to database
-=======
-    public void studentValidateLogin(ActionEvent event) throws IOException { // test account: 1, adcbe
->>>>>>> 42572a58659f29c4cc8a975adb4f4d93d996359e
         DatabaseConnection connectNow = new DatabaseConnection();
         //Gets the connection
         Connection connectDb = connectNow.getConnection();

@@ -36,17 +36,14 @@ public class HomePageController implements Initializable {
     }
 
     public void studentInfoButtonOnAction(ActionEvent event) throws IOException {
-<<<<<<< HEAD
         //Load the AdminStudentIntoPage.fxml file
         root = FXMLLoader.load(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
         //Get the current stage and set the scene to the loaded root
-=======
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminStudentInfoPage.fxml"));
         root = loader.load();
         StudentInfoPageController studentInfoPageController = loader.getController();
         studentInfoPageController.username = username;
         studentInfoPageController.getStudents();
->>>>>>> 42572a58659f29c4cc8a975adb4f4d93d996359e
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -59,11 +56,8 @@ public class HomePageController implements Initializable {
         root = loader.load();
         //Get the controller for the loaded page
         EventPageController eventPageController = loader.getController();
-<<<<<<< HEAD
         //Call the getEvents method on the controller with parameter false
-=======
         eventPageController.adminUsername = username;
->>>>>>> 42572a58659f29c4cc8a975adb4f4d93d996359e
         eventPageController.getEvents(false);
         //Get the current stage and set the scene to the loaded root
         eventPageController.setStudent(false);
@@ -91,18 +85,16 @@ public class HomePageController implements Initializable {
     }
 
     public void adminPrizeButtonOnAction(ActionEvent event) throws IOException {
-<<<<<<< HEAD
         //Load the AdminPrizePage.fxml file
         root = FXMLLoader.load(getClass().getResource("admin/AdminPrizePage.fxml"));
         //Get the current stage and set the scene to the loaded root
-=======
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
         root = loader.load();
         PrizePageController prizePageController = loader.getController();
         prizePageController.username = username;
         prizePageController.isStudent = false;
         prizePageController.getPrizes();
->>>>>>> 42572a58659f29c4cc8a975adb4f4d93d996359e
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

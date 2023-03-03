@@ -53,11 +53,7 @@ public class EventViewPageController implements Initializable {
         root = loader.load();
         //Get the EventPageController instance
         EventPageController eventPageController = loader.getController();
-<<<<<<< HEAD
-        //Get all events and set the 'isEditMode' flag to false
-=======
         eventPageController.adminUsername = username;
->>>>>>> 42572a58659f29c4cc8a975adb4f4d93d996359e
         eventPageController.getEvents(false);
         eventPageController.setStudent(false);
         //Get the stage from the event source and set the new scene
@@ -68,12 +64,9 @@ public class EventViewPageController implements Initializable {
     }
 
     public void getStudents(String eventName) {
-<<<<<<< HEAD
         //Create a new Database connection and get a connection to the database
-=======
         eventNameLabel.setText(eventName);
 
->>>>>>> 42572a58659f29c4cc8a975adb4f4d93d996359e
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         //Define the SQL query to get all students for the given event
@@ -122,5 +115,9 @@ public class EventViewPageController implements Initializable {
         firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         grade.setCellValueFactory(new PropertyValueFactory<>("grade"));
         present.setCellValueFactory(new PropertyValueFactory<>("showedUp"));
+    }
+
+    public void submitButtonOnAction(ActionEvent event){
+        ObservableList<EventStudentInfo> dataListPresent = FXCollections.observableArrayList();
     }
 }
