@@ -25,8 +25,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EventPageController implements Initializable{
-    public Label coinValue;
+public class PrizeWinnerPageController implements Initializable{
     @FXML
     private ChoiceBox<String> eventTagChoice;
     private String[] tag = {"All","Sports", "Art", "Theater", "Music", "Community Service", "Academic"};
@@ -37,7 +36,7 @@ public class EventPageController implements Initializable{
     private boolean isStudent;
     private String studentID;
     @FXML
-    private VBox eventBoxes;
+    private VBox prizeWinnerBoxes;
 
     public void initialize(URL arg0, ResourceBundle arg1){
         eventTagChoice.getItems().addAll(tag);

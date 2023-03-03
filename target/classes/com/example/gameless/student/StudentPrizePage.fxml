@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -28,20 +27,20 @@
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>
                 </Button>
-            <Pane maxHeight="38.0" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
-               <children>
-                  <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="7.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/coin.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="coinValue" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="6.0" text="0">
-                     <font>
-                        <Font name="Arial Bold" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
+                <Pane maxHeight="38.0" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.5); -fx-background-radius: 7.5;">
+                    <children>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="7.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/coin.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="coinValue" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="6.0" text="0">
+                            <font>
+                                <Font name="Arial Bold" size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
             </children></HBox>
     </top>
     <right>
@@ -56,7 +55,7 @@
     <center>
         <VBox prefHeight="440.0" prefWidth="900.0" BorderPane.alignment="CENTER">
             <children>
-                <ScrollPane hbarPolicy="NEVER" maxWidth="850.0" prefHeight="375.0" prefWidth="850.0" style="-fx-background-color: transparent;" stylesheets="@../TransparentScrollPane.css" vbarPolicy="ALWAYS">
+                <ScrollPane hbarPolicy="NEVER" maxWidth="850.0" minHeight="375.0" prefWidth="850.0" style="-fx-background-color: transparent;" stylesheets="@../TransparentScrollPane.css" vbarPolicy="ALWAYS">
                     <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="35.0" />
                     </VBox.margin>
@@ -64,7 +63,7 @@
                         <Insets right="35.0" />
                     </padding>
                     <content>
-                        <GridPane alignment="CENTER" hgap="50.0" prefHeight="355.0" prefWidth="800.0" vgap="15.0">
+                        <GridPane fx:id="prizeBoxes" alignment="TOP_CENTER" hgap="50.0" prefHeight="810.0" prefWidth="800.0" vgap="50.0">
                             <columnConstraints>
                                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -72,58 +71,14 @@
                             </columnConstraints>
                             <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <StackPane prefHeight="150.0" prefWidth="200.0">
-                                    <children>
-                                        <ImageView fitHeight="380.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../image/prizeBackground2.png" />
-                                            </image>
-                                        </ImageView>
-                                        <ImageView fx:id="iconImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../image/giftBox.png" />
-                                            </image>
-                                            <StackPane.margin>
-                                                <Insets top="-175.0" />
-                                            </StackPane.margin>
-                                        </ImageView>
-                                        <Label fx:id="prizeName" text="Prize name">
-                                            <font>
-                                                <Font name="System Bold" size="22.0" />
-                                            </font>
-                                            <StackPane.margin>
-                                                <Insets top="35.0" />
-                                            </StackPane.margin>
-                                        </Label>
-                                        <Label fx:id="prizeDescription" text="Short Description">
-                                            <font>
-                                                <Font name="System Bold" size="16.0" />
-                                            </font>
-                                            <StackPane.margin>
-                                                <Insets top="90.0" />
-                                            </StackPane.margin>
-                                        </Label>
-                                        <Label fx:id="prizeCost" text="Cost">
-                                            <font>
-                                                <Font name="System Bold" size="14.0" />
-                                            </font>
-                                            <StackPane.margin>
-                                                <Insets top="130.0" />
-                                            </StackPane.margin>
-                                        </Label>
-                                  <Button fx:id="enterDrawButton" mnemonicParsing="false" onAction="#enterDrawButtonOnAction" prefHeight="75.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 7.5;" text="Enter Draw!" textFill="#00539c" underline="true">
-                                      <font>
-                                          <Font name="MuktaMahee Regular" size="18.0" />
-                                      </font>
-                                 <StackPane.margin>
-                                    <Insets top="290.0" />
-                                 </StackPane.margin>
-                                  </Button>
-                                    </children>
-                                </StackPane>
+
                             </children>
+                            <padding>
+                                <Insets bottom="10.0" />
+                            </padding>
                         </GridPane>
                     </content>
                 </ScrollPane>

@@ -25,8 +25,13 @@ public class ProfilePageController {
     Label studentPointsLabel;
 
     public void studentBackButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("student/StudentHomePage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        String username = studentNumberLabel.getText();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("student/StudentHomePage.fxml"));
+        root = loader.load();
+        HomePageController homePageController = loader.getController();
+        homePageController.studentDisplayName(username);
+        homePageController.getAnnouncements();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

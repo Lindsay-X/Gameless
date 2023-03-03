@@ -28,6 +28,7 @@ public class PrizeBoxController {
         PrizeStudentInfoPageController prizeStudentInfoPageController = loader.getController();
         prizeStudentInfoPageController.selectedGrade = 9;
         prizeStudentInfoPageController.prizeName = prizeName.getText();
+        prizeStudentInfoPageController.pointThreshold = Integer.parseInt(prizeCost.getText().substring(17));
         prizeStudentInfoPageController.getStudents(prizeStudentInfoPageController.selectedGrade);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -38,6 +39,6 @@ public class PrizeBoxController {
     public void initData(String prizeName, String prizeDescription, int cost) {
         this.prizeName.setText(prizeName);
         this.prizeDescription.setText(prizeDescription);
-        prizeCost.setText("Cost: " + cost);
+        prizeCost.setText("Point Threshold: " + cost);
     }
 }

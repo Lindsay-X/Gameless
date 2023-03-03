@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PrizeStudentInfoPageController implements Initializable {
+    public int pointThreshold;
     @FXML
     Label winnerLabel;
     private Stage stage;
@@ -100,7 +101,7 @@ public class PrizeStudentInfoPageController implements Initializable {
 
         DatabaseConnection connectNow1 = new DatabaseConnection();
         Connection connectDb1 = connectNow1.getConnection();
-        String getStudentInfo = "SELECT * FROM student_accounts WHERE studentGrade=" + grade + ";";
+        String getStudentInfo = "SELECT * FROM student_accounts WHERE studentGrade=" + grade + " AND studentPoints>=" + pointThreshold + ";";
 
         try {
             Statement statement = connectDb1.createStatement();
@@ -140,31 +141,11 @@ public class PrizeStudentInfoPageController implements Initializable {
     }
 
     public void drawStudentButtonOnAction(ActionEvent event) throws IOException {
-        ArrayList<String> raffle = new ArrayList<String>();
-
-        DatabaseConnection connectNow1 = new DatabaseConnection();
-        Connection connectDb1 = connectNow1.getConnection();
-        String getStudentInfo = "SELECT * FROM student_accounts WHERE studentGrade=" + selectedGrade + ";";
-
-        try {
-            Statement statement = connectDb1.createStatement();
-            ResultSet queryResult = statement.executeQuery(getStudentInfo);
-
-            while (queryResult.next()) {
-                for (int i = 0; i < queryResult.getInt("studentPoints") + 1; i++) {
-                    raffle.add(queryResult.getString("studentNumber"));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-
-        String winnerID = raffle.get((int)(Math.random() * raffle.size()));
+        StudentInfo winnerID = list.get((int)(Math.random() * list.size()));
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-        String putWinner = "UPDATE prizes SET `prizeWinner" + selectedGrade + "` = '" + winnerID + "' WHERE prizeName = '" + prizeName + "';";
+        String putWinner = "UPDATE prizes SET `prizeWinner" + selectedGrade + "` = '" + winnerID.getStudentNumber() + "' WHERE prizeName = '" + prizeName + "';";
 
         try {
             Statement statement = connectDb.createStatement();

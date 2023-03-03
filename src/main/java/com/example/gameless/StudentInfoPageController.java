@@ -30,7 +30,6 @@ public class StudentInfoPageController implements Initializable {
     @FXML
     private ChoiceBox<String> adminStudentGradeChoice;
     private String[] grades = {"All", "Grade 9", "Grade 10", "Grade 11", "Grade 12"};
-
     @FXML
     private TableView<StudentInfo> studentInfoTable;
     @FXML
