@@ -119,5 +119,40 @@ public class EventViewPageController implements Initializable {
 
     public void submitButtonOnAction(ActionEvent event){
         ObservableList<EventStudentInfo> dataListPresent = FXCollections.observableArrayList();
+        for (EventStudentInfo studentInfo : eventStudentInfo) {
+            if (studentInfo.getShowedUp().isSelected()) {
+                dataListPresent.add(studentInfo);
+            }
+        }
+
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+        String getStudents = "SELECT * FROM `" + eventNameLabel.getText() + "_participants`;";
+
+        try {
+            Statement statement1 = connectDb.createStatement();
+            ResultSet queryResult1 = statement1.executeQuery(getStudents);
+
+            while (queryResult1.next()) {
+                DatabaseConnection connectNow1 = new DatabaseConnection();
+                Connection connectDb1 = connectNow1.getConnection();
+                String getStudentInfo = "SELECT * FROM student_accounts WHERE studentNumber='" + queryResult1.getString("participantID") + "';";
+
+                try {
+                    Statement statement = connectDb1.createStatement();
+                    ResultSet queryResult = statement.executeQuery(getStudentInfo);
+
+                    while (queryResult.next()) {
+                        eventStudentInfo.add(new EventStudentInfo(queryResult.getString("studentNumber"), queryResult.getString("studentFirstName"), queryResult.getString("studentLastName"), queryResult.getInt("studentGrade"), queryResult1.getBoolean("showedUp")));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    e.getCause();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 }
