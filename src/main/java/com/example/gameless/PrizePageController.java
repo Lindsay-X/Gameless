@@ -56,13 +56,6 @@ public class PrizePageController {
         stage.setScene(scene);
         stage.show();
     }
-    public void enterDrawButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminPrizeAddPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void getPrizes() throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
@@ -96,5 +89,16 @@ public class PrizePageController {
             e.printStackTrace();
             e.getCause();
         }
+    }
+
+    public void viewWinnersButtonOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizeWinnerPage.fxml"));
+        root = loader.load();
+        PrizeWinnerPageController prizeWinnerPageController = loader.getController();
+        prizeWinnerPageController.getWinners();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
