@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PrizeWinnerPageController implements Initializable{
@@ -80,6 +81,66 @@ public class PrizeWinnerPageController implements Initializable{
         stage.show();
     }
 
-    public void drawAllWinnersButtonOnAction(ActionEvent event) {
+    public void drawAllWinnersButtonOnAction(ActionEvent event) throws IOException {
+        DatabaseConnection connectNow2 = new DatabaseConnection();
+        Connection connectDb2 = connectNow2.getConnection();
+        String getPrizes = "SELECT prizeName, prizeCost FROM prizes";
+
+        try {
+            for (int j = 9; j <= 12; j++) {
+                Statement statement1 = connectDb2.createStatement();
+                ResultSet queryResult1 = statement1.executeQuery(getPrizes);
+
+                while (queryResult1.next()) {
+                    ArrayList<String> raffle = new ArrayList<String>();
+
+                    DatabaseConnection connectNow1 = new DatabaseConnection();
+                    Connection connectDb1 = connectNow1.getConnection();
+                    String getStudentInfo = "SELECT * FROM student_accounts WHERE studentGrade=" + j + " AND studentPoints>=" + queryResult1.getString("PrizeCost") + ";";
+
+                    try {
+                        Statement statement = connectDb1.createStatement();
+                        ResultSet queryResult = statement.executeQuery(getStudentInfo);
+
+                        while (queryResult.next()) {
+                            for (int i = 0; i < queryResult.getInt("studentPoints") + 1; i++) {
+                                raffle.add(queryResult.getString("studentNumber"));
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        e.getCause();
+                    }
+
+                    if (raffle.size() != 0) {
+                        String winnerID = raffle.get((int) (Math.random() * raffle.size()));
+
+                        DatabaseConnection connectNow = new DatabaseConnection();
+                        Connection connectDb = connectNow.getConnection();
+                        String putWinner = "UPDATE prizes SET `prizeWinner" + j + "` = '" + winnerID + "' WHERE prizeName = '" + queryResult1.getString("prizeName") + "';";
+
+                        try {
+                            Statement statement = connectDb.createStatement();
+                            statement.execute(putWinner);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            e.getCause();
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizeWinnerPage.fxml"));
+        root = loader.load();
+        PrizeWinnerPageController prizeWinnerPageController = loader.getController();
+        prizeWinnerPageController.getWinners();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

@@ -141,20 +141,22 @@ public class PrizeStudentInfoPageController implements Initializable {
     }
 
     public void drawStudentButtonOnAction(ActionEvent event) throws IOException {
-        StudentInfo winnerID = list.get((int)(Math.random() * list.size()));
+        if (list.size() != 0) {
+            StudentInfo winnerID = list.get((int) (Math.random() * list.size()));
 
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-        String putWinner = "UPDATE prizes SET `prizeWinner" + selectedGrade + "` = '" + winnerID.getStudentNumber() + "' WHERE prizeName = '" + prizeName + "';";
+            DatabaseConnection connectNow = new DatabaseConnection();
+            Connection connectDb = connectNow.getConnection();
+            String putWinner = "UPDATE prizes SET `prizeWinner" + selectedGrade + "` = '" + winnerID.getStudentNumber() + "' WHERE prizeName = '" + prizeName + "';";
 
-        try {
-            Statement statement = connectDb.createStatement();
-            statement.execute(putWinner);
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
+            try {
+                Statement statement = connectDb.createStatement();
+                statement.execute(putWinner);
+            } catch (Exception e) {
+                e.printStackTrace();
+                e.getCause();
+            }
+
+            getStudents(selectedGrade);
         }
-
-        getStudents(selectedGrade);
     }
 }
