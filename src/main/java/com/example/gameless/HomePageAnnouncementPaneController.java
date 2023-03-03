@@ -13,6 +13,7 @@ public class HomePageAnnouncementPaneController {
     @FXML
     Label homePageAnnouncementLabel;
 
+    // Method that initializes the HomePageAnnouncementLabel with the teacher name and message.
     void initData(String teacherName, String msg) {
         homePageAnnouncementLabel.setText(teacherName + "\n" + msg);
     }
