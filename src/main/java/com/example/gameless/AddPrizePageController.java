@@ -57,6 +57,7 @@ public class AddPrizePageController implements Initializable {
         publishPrizeButton.setDisable(isDisabled);
     }
 
+    //action for when back button is pressed --> goes back to prize page
     public void backPrizeButtonOnAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
         root = loader.load();
@@ -70,6 +71,7 @@ public class AddPrizePageController implements Initializable {
         stage.show();
     }
 
+    //action for when publish button is pressed
     public void publishPrizeButtonOnAction(ActionEvent event) throws IOException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();

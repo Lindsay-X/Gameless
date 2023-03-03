@@ -10,10 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -46,6 +43,8 @@ public class EventViewPageController implements Initializable {
     private Parent root;
     private ObservableList<EventStudentInfo> eventStudentInfo = FXCollections.observableArrayList();
     String username;
+    @FXML
+    private Button submitButton;
 
     public void backEventButtonOnAction(ActionEvent event) throws IOException {
         //Loads the AdminEventPage.fxml file
@@ -121,6 +120,8 @@ public class EventViewPageController implements Initializable {
 
     public void submitButtonOnAction(ActionEvent event){
         ObservableList<EventStudentInfo> dataListPresent = FXCollections.observableArrayList();
+        submitButton.setDisable(true);
+
         for (EventStudentInfo studentInfo : eventStudentInfo) {
             if (studentInfo.getShowedUp().isSelected()) {
                 dataListPresent.add(studentInfo);
