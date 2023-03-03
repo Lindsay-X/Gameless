@@ -121,7 +121,7 @@ public class PrizeStudentInfoPageController implements Initializable {
 
     public void getGrade(ActionEvent event){
         String gradeChosen = adminStudentGradeChoice.getValue();
-        for ( int i = 0; i<studentInfoTable.getItems().size(); i++) {
+        for ( int i = 0; i < studentInfoTable.getItems().size(); i++) {
             studentInfoTable.getItems().clear();
         }
         selectedGrade = Integer.parseInt(gradeChosen.substring(6));

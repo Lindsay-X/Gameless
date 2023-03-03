@@ -26,227 +26,60 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PrizeWinnerPageController implements Initializable{
-    @FXML
-    private ChoiceBox<String> eventTagChoice;
-    private String[] tag = {"All","Sports", "Art", "Theater", "Music", "Community Service", "Academic"};
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private boolean isStudent;
-    private String studentID;
     @FXML
     private VBox prizeWinnerBoxes;
 
-    public void initialize(URL arg0, ResourceBundle arg1){
-        eventTagChoice.getItems().addAll(tag);
-        eventTagChoice.setOnAction(this::getTag); //calls the method
-    }
+    public void initialize(URL arg0, ResourceBundle arg1){}
 
     //Method to get all events, either for student or admin
-    public void getEvents(boolean isStudent) throws IOException {
+    public void getWinners() throws IOException {
         //Establish database connection
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-        //Select all event IDs from events table
-        String getNames = "SELECT eventID FROM events;";
+        //Select all prizes from prizes table
+        String getPrizes = "SELECT * FROM prizes;";
 
         try {
             Statement statement1 = connectDb.createStatement();
-            ResultSet queryResult1 = statement1.executeQuery(getNames);
+            ResultSet queryResult1 = statement1.executeQuery(getPrizes);
 
-            //Loop through each event ID
+            //Loop through each prize
             while (queryResult1.next()) {
-                int id = queryResult1.getInt("eventID");
                 //Choose which FXML file to load based on user type
                 String boxURL;
-                if (!isStudent) {
-                    boxURL = "admin/EventBox.fxml";
-                } else {
-                    boxURL = "student/StudentEventBox.fxml";
-                }
+                boxURL = "admin/PrizeWinnerBox.fxml";
                 //Load FXML file and gets controller
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(boxURL));
                 root = loader.load();
-                EventBoxController eventBoxController = loader.getController();
-                eventBoxController.setStudentID(studentID);
-                eventBoxController.initData(id);
+                PrizeWinnerBoxController prizeBoxPageController = loader.getController();
+                prizeBoxPageController.initData(queryResult1.getString("prizeName"), queryResult1.getString("prizeWinner9"), queryResult1.getString("prizeWinner10"), queryResult1.getString("prizeWinner11"), queryResult1.getString("prizeWinner12"));
 
-
-                //Select all event details from events table for the current event ID
-                String getEvents = "SELECT * FROM events WHERE eventID = '" + id + "';";
-
-                try {
-                    Statement statement = connectDb.createStatement();
-                    ResultSet queryResult = statement.executeQuery(getEvents);
-
-                    //Loop through each row of event details
-                    while (queryResult.next()) {
-
-                        //Set the event details in the event box controller
-                        eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
-                        eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
-                        eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
-                        eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
-                        eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
-                        //If user is a student, check if they are already participating in the event
-                        if (isStudent) {
-                            String getIsJoin = "SELECT count(1) FROM `" + eventBoxController.eventNameLabel.getText() + "_participants` WHERE participantID='" + studentID + "'";
-                            Statement statement2 = connectDb.createStatement();
-                            ResultSet queryResult2 = statement2.executeQuery(getIsJoin);
-                            while (queryResult2.next()) {
-                                if (queryResult2.getInt(1) == 1) {
-                                    eventBoxController.setButton(true);
-                                } else {
-                                    eventBoxController.setButton(false);
-                                }
-                            }
-                        }
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    e.getCause();
-                }
-                //Add the event box to the eventBoxes
-                eventBoxes.getChildren().add(root);
+                //Add the prize winner box to the prizeWinnerBoxes
+                prizeWinnerBoxes.getChildren().add(root);
             }
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
-        }
-    }
-
-    public void getEvents(boolean isStudent, String tag) throws IOException {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-        String getNames = "SELECT eventID FROM events WHERE eventTag = '" + tag + "';";
-
-        try {
-            Statement statement1 = connectDb.createStatement();
-            ResultSet queryResult1 = statement1.executeQuery(getNames);
-
-            while (queryResult1.next()) {
-                int id = queryResult1.getInt("eventID");
-                String boxURL;
-                if (!isStudent) {
-                    boxURL = "admin/EventBox.fxml";
-                } else {
-                    boxURL = "student/StudentEventBox.fxml";
-                }
-                FXMLLoader loader = new FXMLLoader(getClass().getResource(boxURL));
-                root = loader.load();
-                EventBoxController eventBoxController = loader.getController();
-                eventBoxController.setStudentID(studentID);
-                eventBoxController.initData(id);
-
-                String getEvents = "SELECT * FROM events WHERE eventID = '" + id + "';";
-
-                try {
-                    Statement statement = connectDb.createStatement();
-                    ResultSet queryResult = statement.executeQuery(getEvents);
-
-                    while (queryResult.next()) {
-
-                        eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
-                        eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
-                        eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
-                        eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
-                        eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
-                        if (isStudent) {
-                            String getIsJoin = "SELECT count(1) FROM `" + eventBoxController.eventNameLabel.getText() + "_participants` WHERE participantID='" + studentID + "'";
-                            Statement statement2 = connectDb.createStatement();
-                            ResultSet queryResult2 = statement2.executeQuery(getIsJoin);
-                            while (queryResult2.next()) {
-                                if (queryResult2.getInt(1) == 1) {
-                                    eventBoxController.setButton(true);
-                                } else {
-                                    eventBoxController.setButton(false);
-                                }
-                            }
-                        }
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    e.getCause();
-                }
-
-                eventBoxes.getChildren().add(root);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-    }
-
-    //method to get the tag values
-    public void getTag(ActionEvent event) {
-        String tagChosen = eventTagChoice.getValue();
-        eventBoxes.getChildren().clear();
-        try {
-            if (tagChosen != "All") {
-                getEvents(isStudent, tagChosen);
-            } else {
-                getEvents(isStudent);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 
     //Button Actions
     public void backButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminHomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("admin/AdminPrizePage.fxml"));
+        root = loader.load();
+        PrizePageController prizePageController = loader.getController();
+        prizePageController.isStudent = false;
+        prizePageController.getPrizes();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void studentBackButtonOnAction(ActionEvent event) throws IOException {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-
-        String verifyLogin = "SELECT count(1) FROM student_accounts WHERE studentNumber = '" + studentID + "';";
-
-        try {
-            Statement statement = connectDb.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
-
-            while(queryResult.next()) {
-                if (queryResult.getInt(1) == 1) {
-                    String username = studentID;
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("student/StudentHomePage.fxml"));
-                    root = loader.load();
-                    HomePageController homePageController = loader.getController();
-                    homePageController.studentDisplayName(username);
-                    homePageController.getAnnouncements();
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-    }
-
-    public void addEventButtonOnAction(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("admin/AdminEventAddPage.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void setStudent(boolean student) {
-        isStudent = student;
-    }
-
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
+    public void drawAllWinnersButtonOnAction(ActionEvent event) {
     }
 }

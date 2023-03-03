@@ -24,14 +24,19 @@
                         <Font name="MuktaMahee Regular" size="20.0" />
                     </font>
                 </Button>
-                <Button fx:id="addPrizeButton" mnemonicParsing="false" onAction="#addPrizeButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #afeddb; -fx-background-radius: 7.5;" text="Add">
+                <Button fx:id="viewWinnersButton" mnemonicParsing="false" onAction="#viewWinnersButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #afeddb; -fx-background-radius: 7.5;" text="View Winners">
                     <font>
                         <Font name="MuktaMahee Regular" size="18.0" />
                     </font>
                <HBox.margin>
-                  <Insets left="600.0" />
+                  <Insets left="420.0" />
                </HBox.margin>
                 </Button>
+            <Button fx:id="addPrizeButton" layoutX="794.0" layoutY="28.0" mnemonicParsing="false" onAction="#addPrizeButtonOnAction" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #afeddb; -fx-background-radius: 7.5;" text="Add">
+               <font>
+                  <Font name="MuktaMahee Regular" size="18.0" />
+               </font>
+            </Button>
             </children></HBox>
     </top>
     <right>
