@@ -67,7 +67,7 @@ public class AddAnnouncementPageController implements Initializable {
         String getName = "SELECT adminFirstName, adminLastName FROM admin_accounts WHERE adminID = '" + username + "';";
 
         try {
-            Statement statement = connectDb1.createStatement();
+            Statement statement = connectDb.createStatement();
             ResultSet queryResult = statement.executeQuery(getName);
 
             while(queryResult.next()) {

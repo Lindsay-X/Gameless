@@ -46,6 +46,7 @@ public class EventViewPageController implements Initializable {
     private Parent root;
     private ObservableList<EventStudentInfo> eventStudentInfo = FXCollections.observableArrayList();
     String username;
+    int points;
 
     public void backEventButtonOnAction(ActionEvent event) throws IOException {
         //Loads the AdminEventPage.fxml file
@@ -142,6 +143,35 @@ public class EventViewPageController implements Initializable {
                 for (EventStudentInfo studentInfo : dataListPresent) {
                     if (studentInfo.getStudentNumber().equals(queryResult1.getString("participantID"))) {
                         studentHasShowedUp = 1;
+                        DatabaseConnection connectNow2 = new DatabaseConnection();
+                        Connection connectDb2 = connectNow2.getConnection();
+
+                        String getPreviousPoints = "SELECT studentPoints FROM student_accounts WHERE studentNumber='" + queryResult1.getString("participantID") + "';";
+                        DatabaseConnection connectNow3 = new DatabaseConnection();
+                        Connection connectDb3 = connectNow3.getConnection();
+
+                        int previousPoints = 0;
+
+                        try {
+                            Statement statement = connectDb3.createStatement();
+                            ResultSet queryResult = statement.executeQuery(getPreviousPoints);
+                            queryResult.next();
+                            previousPoints = queryResult.getInt("studentPoints");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            e.getCause();
+                        }
+
+                        System.out.println(previousPoints + points);
+
+                        String updateStudentPoints = "UPDATE `student_accounts` SET studentPoints=(" + previousPoints + " + " + points + ") WHERE studentNumber='" + queryResult1.getString("participantID") + "';";
+                        try {
+                            Statement statement = connectDb2.createStatement();
+                            statement.execute(updateStudentPoints);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            e.getCause();
+                        }
                     }
                 }
                 String getStudentInfo = "UPDATE `" + eventNameLabel.getText() + "_participants` SET showedUp='" + studentHasShowedUp + "' WHERE participantID='" + queryResult1.getString("participantID") + "';";
