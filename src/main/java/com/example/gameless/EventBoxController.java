@@ -78,11 +78,11 @@ public class EventBoxController implements Initializable {
     public void setButton(boolean isJoin) {
         if (!isJoin) {
             joinEventButton.setText("Join");
-            joinEventButton.setStyle("-fx-background-color: #ABFFC9; -fx-background-radius: 7.5;");
+            joinEventButton.setStyle("-fx-background-color: #3f7462; -fx-background-radius: 7.5;");
             joinEventButton.setOnAction(this::joinEventButtonOnAction);
         } else {
             joinEventButton.setText("Leave");
-            joinEventButton.setStyle("-fx-background-color: #ff0000; -fx-background-radius: 7.5;");
+            joinEventButton.setStyle("-fx-background-color: #a81c00; -fx-background-radius: 7.5;");
             joinEventButton.setOnAction(this::leaveEventButtonOnAction);
         }
     }

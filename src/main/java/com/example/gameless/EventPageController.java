@@ -87,7 +87,7 @@ public class EventPageController implements Initializable{
                         //Set the event details in the event box controller
                         eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
                         eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
-                        eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
+                        eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime").substring(0, queryResult.getString("eventTime").length() - 3));
                         eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
                         eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
                         //If user is a student, check if they are already participating in the event
@@ -150,7 +150,7 @@ public class EventPageController implements Initializable{
 
                         eventBoxController.eventDescriptionLabel.setText(queryResult.getString("eventDescription"));
                         eventBoxController.eventNameLabel.setText(queryResult.getString("eventName"));
-                        eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime"));
+                        eventBoxController.eventTimeLabel.setText(queryResult.getString("eventTime").substring(0, queryResult.getString("eventTime").length() - 3));
                         eventBoxController.eventPointsLabel.setText(queryResult.getString("eventPoints"));
                         eventBoxController.eventLocationLabel.setText(queryResult.getString("eventLocation"));
                         if (isStudent) {

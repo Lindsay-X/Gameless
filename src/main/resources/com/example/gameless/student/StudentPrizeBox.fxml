@@ -22,7 +22,7 @@
                 <Insets top="-175.0" />
             </StackPane.margin>
         </ImageView>
-        <Label fx:id="prizeName" text="Prize name">
+        <Label fx:id="prizeName" alignment="CENTER" maxWidth="200.0" text="Prize name">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>

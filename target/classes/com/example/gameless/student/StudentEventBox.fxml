@@ -40,38 +40,41 @@
                 <Insets left="32.0" right="32.0" />
             </padding>
             <children>
-                <Label prefHeight="40.0" prefWidth="45.0" text="Points:">
+                <Label maxWidth="50.0" minWidth="50.0" prefHeight="40.0" prefWidth="50.0" text="Points: ">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                     <HBox.margin>
-                        <Insets right="2.0" />
+                        <Insets />
                     </HBox.margin>
                 </Label>
-                <Label fx:id="eventPointsLabel" prefHeight="40.0" prefWidth="50.0" text="&lt;no.&gt;">
+                <Label fx:id="eventPointsLabel" prefHeight="40.0" prefWidth="70.0" text="&lt;no.&gt;">
+                    <font>
+                        <Font name="MuktaMahee Regular" size="15.0" />
+                    </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+                </Label>
+                <Label prefHeight="40.0" text="Time: ">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="35.0" />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="eventTimeLabel" prefHeight="40.0" prefWidth="140.0" text="December 18, 2023">
                     <font>
                         <Font name="MuktaMahee Regular" size="15.0" />
                     </font>
                 </Label>
-                <Label prefHeight="40.0" prefWidth="40.0" text="Time:">
+                <Label prefHeight="40.0" prefWidth="65.0" text="Location: ">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                     <HBox.margin>
-                        <Insets left="35.0" right="2.0" />
-                    </HBox.margin>
-                </Label>
-                <Label fx:id="eventTimeLabel" prefHeight="40.0" prefWidth="200.0" text="December 18, 2023">
-                    <font>
-                        <Font name="MuktaMahee Regular" size="15.0" />
-                    </font>
-                </Label>
-                <Label prefHeight="40.0" prefWidth="65.0" text="Location:">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets left="35.0" right="2.0" />
+                        <Insets left="20.0" />
                     </HBox.margin>
                 </Label>
                 <Label fx:id="eventLocationLabel" prefHeight="40.0" prefWidth="150.0" text="&lt;Room no.&gt;">
@@ -87,7 +90,7 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                     </padding>
                     <HBox.margin>
-                        <Insets bottom="5.0" left="20.0" />
+                        <Insets bottom="5.0" left="60.0" />
                     </HBox.margin>
                 </Button>
             </children></HBox>

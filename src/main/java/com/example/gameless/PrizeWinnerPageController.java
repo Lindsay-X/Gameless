@@ -150,9 +150,7 @@ public class PrizeWinnerPageController implements Initializable{
 
                         //Add each eligible student to the raffle list a number of times equal to their point total
                         while (queryResult.next()) {
-                            for (int i = 0; i < queryResult.getInt("studentPoints") + 1; i++) {
-                                raffle.add(queryResult.getString("studentNumber"));
-                            }
+                            raffle.add(queryResult.getString("studentNumber"));
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
