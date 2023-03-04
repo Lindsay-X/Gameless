@@ -33,6 +33,7 @@ public class AnnouncementPageBoxController {
         //Set the announcementID
         AddAnnouncementPageController addAnnouncementPageController = loader.getController();
         addAnnouncementPageController.announcementID = announcementID;
+        addAnnouncementPageController.username = username;
         addAnnouncementPageController.announcementMsg.setText(msgLabel.getText());
         //Get the current stage and set its scene to the new scene
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
