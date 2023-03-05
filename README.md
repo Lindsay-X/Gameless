@@ -1,4 +1,4 @@
-# Gameless
+# Spirit Tracker Deveoloped by Gameless
 FBLA 2022-2023
 
 ## Prompt 
